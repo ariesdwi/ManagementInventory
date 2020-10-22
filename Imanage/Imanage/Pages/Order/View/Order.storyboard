@@ -15,26 +15,59 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kVC-tP-RUx">
-                                <rect key="frame" x="0.0" y="140" width="414" height="673"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="100" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kVC-tP-RUx">
+                                <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="kVC-tP-RUx" firstAttribute="trailing" secondItem="7L1-A7-mBS" secondAttribute="trailing" id="8Cg-qX-D9Z"/>
+                            <constraint firstItem="kVC-tP-RUx" firstAttribute="top" secondItem="7L1-A7-mBS" secondAttribute="top" id="cp9-lP-k5e"/>
+                            <constraint firstAttribute="bottom" secondItem="kVC-tP-RUx" secondAttribute="bottom" id="kSg-qu-FFm"/>
+                            <constraint firstItem="kVC-tP-RUx" firstAttribute="leading" secondItem="7L1-A7-mBS" secondAttribute="leading" id="sCK-ja-9Ig"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="7L1-A7-mBS"/>
                     </view>
                     <navigationItem key="navigationItem" title="Order" id="W5B-Eo-AS3">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="m04-lu-Xmi"/>
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="m04-lu-Xmi">
+                            <connections>
+                                <segue destination="ibd-Pd-Svx" kind="show" id="RHu-kH-Cl8"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="NavbarOrder" destination="W5B-Eo-AS3" id="tto-SC-qtv"/>
+                        <outlet property="tableView" destination="kVC-tP-RUx" id="1sx-Fh-TZI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="82g-9O-YQK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="421.73913043478262" y="-149.33035714285714"/>
+        </scene>
+        <!--Choose Product-->
+        <scene sceneID="vLK-TJ-bxb">
+            <objects>
+                <tableViewController id="ibd-Pd-Svx" customClass="ChooseOrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5uj-8V-ufj">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <connections>
+                            <outlet property="dataSource" destination="ibd-Pd-Svx" id="VqY-vf-cTF"/>
+                            <outlet property="delegate" destination="ibd-Pd-Svx" id="Rut-Zd-auW"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Choose Product" id="Tkj-cM-wLr"/>
+                    <connections>
+                        <outlet property="Navbar" destination="Tkj-cM-wLr" id="coa-Yf-kSv"/>
+                        <outlet property="tableViewCP" destination="5uj-8V-ufj" id="0cm-QD-Hbo"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cVl-Me-e3G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2876.811594202899" y="-163.39285714285714"/>
         </scene>
         <!--Order-->
         <scene sceneID="Br8-26-6yi">
@@ -54,6 +87,22 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="atB-Rk-qRX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-488.40579710144931" y="-149.33035714285714"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Hv3-vJ-fTd">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8Bt-Zg-6df" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="lcH-I3-e1A"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="98z-kr-tRg">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sbg-wY-bqy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1966.6666666666667" y="-163.39285714285714"/>
         </scene>
     </scenes>
     <resources>
