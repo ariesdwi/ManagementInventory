@@ -16,7 +16,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
     let orderName = ["Evelyn Allen","Nahia Colunga","Takamaru Ayako","Afonso Pinto","Jordan Kitchener","Aries Dwi"]
     let sku = ["200518JKT220D","200518JKT220B","200519JKT220Y","200519JKT220P","200519JKT220D","200518JKT220B"]
     let date = ["10/2/12","4/3/12","5/12/12","10/11/11","4/14/1","5/4/1"]
-    let channal = ["Tokopedia","Bukalapak","blibli","Shoope","Tokopedia","Bukalapak"]
+    let channal = ["Tokopedia","Bukalapak","Blibli","Shoope","Tokopedia","Bukalapak"]
     let progress = ["On Process","On Process","On Process","On Process","On Process","On Process"]
     
     
