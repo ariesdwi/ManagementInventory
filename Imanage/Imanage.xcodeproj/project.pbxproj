@@ -31,6 +31,16 @@
 		6CA03B68254128240055A29C /* FavoritesTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA03B67254128240055A29C /* FavoritesTableVC.swift */; };
 		6CA03B6A2541283F0055A29C /* LowOnStockTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA03B692541283F0055A29C /* LowOnStockTableVC.swift */; };
 		6CA03B6C25412E690055A29C /* addProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA03B6B25412E690055A29C /* addProductViewController.swift */; };
+		6CF436E5254672DF006F010D /* orderBuyersVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436E4254672DF006F010D /* orderBuyersVC.swift */; };
+		6CF436E82546767D006F010D /* orderBuyerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436E62546767D006F010D /* orderBuyerCell.swift */; };
+		6CF436E92546767D006F010D /* orderBuyerCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CF436E72546767D006F010D /* orderBuyerCell.xib */; };
+		6CF436EC25467D3C006F010D /* orderListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436EA25467D3C006F010D /* orderListCell.swift */; };
+		6CF436ED25467D3C006F010D /* orderListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CF436EB25467D3C006F010D /* orderListCell.xib */; };
+		6CF436F0254681A0006F010D /* orderBuyerCell2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436EE254681A0006F010D /* orderBuyerCell2.swift */; };
+		6CF436F1254681A0006F010D /* orderBuyerCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CF436EF254681A0006F010D /* orderBuyerCell2.xib */; };
+		6CF436F425472435006F010D /* OrderBuyerInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436F225472435006F010D /* OrderBuyerInformationCell.swift */; };
+		6CF436F525472435006F010D /* OrderBuyerInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CF436F325472435006F010D /* OrderBuyerInformationCell.xib */; };
+		6CF436F725472962006F010D /* OrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436F625472962006F010D /* OrderDetailVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +70,16 @@
 		6CA03B67254128240055A29C /* FavoritesTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableVC.swift; sourceTree = "<group>"; };
 		6CA03B692541283F0055A29C /* LowOnStockTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LowOnStockTableVC.swift; sourceTree = "<group>"; };
 		6CA03B6B25412E690055A29C /* addProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = addProductViewController.swift; sourceTree = "<group>"; };
+		6CF436E4254672DF006F010D /* orderBuyersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderBuyersVC.swift; sourceTree = "<group>"; };
+		6CF436E62546767D006F010D /* orderBuyerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderBuyerCell.swift; sourceTree = "<group>"; };
+		6CF436E72546767D006F010D /* orderBuyerCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = orderBuyerCell.xib; sourceTree = "<group>"; };
+		6CF436EA25467D3C006F010D /* orderListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderListCell.swift; sourceTree = "<group>"; };
+		6CF436EB25467D3C006F010D /* orderListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = orderListCell.xib; sourceTree = "<group>"; };
+		6CF436EE254681A0006F010D /* orderBuyerCell2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = orderBuyerCell2.swift; sourceTree = "<group>"; };
+		6CF436EF254681A0006F010D /* orderBuyerCell2.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = orderBuyerCell2.xib; sourceTree = "<group>"; };
+		6CF436F225472435006F010D /* OrderBuyerInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBuyerInformationCell.swift; sourceTree = "<group>"; };
+		6CF436F325472435006F010D /* OrderBuyerInformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderBuyerInformationCell.xib; sourceTree = "<group>"; };
+		6CF436F625472962006F010D /* OrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -173,6 +193,12 @@
 				6CA03B59253FD5FB0055A29C /* OrderTableViewCell.swift */,
 				6CA03B5F2540B6500055A29C /* ChooseOrderVC.swift */,
 				6CA03B612540B7030055A29C /* ChooseOrderCell.swift */,
+				6CF436E4254672DF006F010D /* orderBuyersVC.swift */,
+				6CF436E62546767D006F010D /* orderBuyerCell.swift */,
+				6CF436EA25467D3C006F010D /* orderListCell.swift */,
+				6CF436EE254681A0006F010D /* orderBuyerCell2.swift */,
+				6CF436F225472435006F010D /* OrderBuyerInformationCell.swift */,
+				6CF436F625472962006F010D /* OrderDetailVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -180,6 +206,10 @@
 		6C8D2B34252C2E58007B85DC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6CF436F325472435006F010D /* OrderBuyerInformationCell.xib */,
+				6CF436EF254681A0006F010D /* orderBuyerCell2.xib */,
+				6CF436EB25467D3C006F010D /* orderListCell.xib */,
+				6CF436E72546767D006F010D /* orderBuyerCell.xib */,
 				6CA03B622540B7030055A29C /* ChooseOrderCell.xib */,
 				6C8D2B47252D5D7A007B85DC /* Order.storyboard */,
 				6CA03B5A253FD5FB0055A29C /* OrderTableViewCell.xib */,
@@ -348,14 +378,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				6C8D2B06252AC570007B85DC /* LaunchScreen.storyboard in Resources */,
+				6CF436F525472435006F010D /* OrderBuyerInformationCell.xib in Resources */,
 				6C8D2B03252AC570007B85DC /* Assets.xcassets in Resources */,
 				6C8D2B7F253D2F6F007B85DC /* Profile.storyboard in Resources */,
 				6CA03B642540B7030055A29C /* ChooseOrderCell.xib in Resources */,
+				6CF436E92546767D006F010D /* orderBuyerCell.xib in Resources */,
 				6CA03B5C253FD5FB0055A29C /* OrderTableViewCell.xib in Resources */,
+				6CF436ED25467D3C006F010D /* orderListCell.xib in Resources */,
 				6C8D2B01252AC56E007B85DC /* Main.storyboard in Resources */,
 				6C8D2B44252D5CE7007B85DC /* Onboarding.storyboard in Resources */,
 				6C8D2B87253DDBDA007B85DC /* product.xib in Resources */,
 				6C8D2B48252D5D7A007B85DC /* Order.storyboard in Resources */,
+				6CF436F1254681A0006F010D /* orderBuyerCell2.xib in Resources */,
 				6C8D2B81253D2F88007B85DC /* Inventory.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -369,18 +403,24 @@
 			files = (
 				6CA03B662541280E0055A29C /* BestSellerTableVC.swift in Sources */,
 				6CA03B68254128240055A29C /* FavoritesTableVC.swift in Sources */,
+				6CF436EC25467D3C006F010D /* orderListCell.swift in Sources */,
+				6CF436E82546767D006F010D /* orderBuyerCell.swift in Sources */,
 				6CA03B5E253FF04B0055A29C /* InventoryTableVC.swift in Sources */,
 				6CA03B632540B7030055A29C /* ChooseOrderCell.swift in Sources */,
 				6CA03B602540B6500055A29C /* ChooseOrderVC.swift in Sources */,
 				6C8D2AFE252AC56E007B85DC /* ViewController.swift in Sources */,
 				6C8D2B4C252D76BE007B85DC /* InventoryViewController.swift in Sources */,
+				6CF436F0254681A0006F010D /* orderBuyerCell2.swift in Sources */,
+				6CF436E5254672DF006F010D /* orderBuyersVC.swift in Sources */,
 				6C8D2AFA252AC56E007B85DC /* AppDelegate.swift in Sources */,
 				6CA03B5B253FD5FB0055A29C /* OrderTableViewCell.swift in Sources */,
 				6C8D2AFC252AC56E007B85DC /* SceneDelegate.swift in Sources */,
+				6CF436F725472962006F010D /* OrderDetailVC.swift in Sources */,
 				6CA03B6C25412E690055A29C /* addProductViewController.swift in Sources */,
 				6CA03B6A2541283F0055A29C /* LowOnStockTableVC.swift in Sources */,
 				6C8D2B86253DDBDA007B85DC /* product.swift in Sources */,
 				6C8D2B4E252EB671007B85DC /* OrderVC.swift in Sources */,
+				6CF436F425472435006F010D /* OrderBuyerInformationCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
