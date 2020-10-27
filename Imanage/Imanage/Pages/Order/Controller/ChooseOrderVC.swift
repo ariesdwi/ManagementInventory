@@ -21,8 +21,10 @@ class ChooseOrderVC: UITableViewController {
         Navbar.searchController = searchController
 
         let nib = UINib(nibName: "ChooseOrderCell", bundle: nil )
+        let nib2 = UINib(nibName: "buttonNextCell", bundle: nil )
         
         tableViewCP.register(nib, forCellReuseIdentifier: "ChooseOrderCell")
+        tableViewCP.register(nib2, forCellReuseIdentifier: "buttonNextCell")
 
         
     }
@@ -41,18 +43,29 @@ class ChooseOrderVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        
+        
         let cellIdentifier = "ChooseOrderCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ChooseOrderCell else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
+//        if indexPath.row == myData.count - 1 {
+//            let cellIdentifier = "buttonNextCell"
+//            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? buttonNextCell else {
+//                fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+//            }
+//            return cell
+//        }
+        
         cell.productNameLabel.text = myData[indexPath.row]
         cell.priceLabel.text = price[indexPath.row]
         cell.productImageView.backgroundColor = .red
-        
         return cell
     }
-
+    
+   
 
     /*
     // Override to support conditional editing of the table view.

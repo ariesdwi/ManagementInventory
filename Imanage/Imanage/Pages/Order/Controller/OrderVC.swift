@@ -76,6 +76,11 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           //Data untuk performSegue activity to ChallengeOverview
+           self.performSegue(withIdentifier: "detailProductSegue", sender: orderName[indexPath.row])
+    }
+    
 }
     
 extension ViewController: UISearchBarDelegate {
