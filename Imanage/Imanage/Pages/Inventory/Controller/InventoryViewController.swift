@@ -55,6 +55,13 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+           
+           //Data untuk performSegue activity to ChallengeOverview
+           self.performSegue(withIdentifier: "segueToDetailProduct", sender: myData[indexPath.row])
+
+       }
 }
 
     
