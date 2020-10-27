@@ -15,5 +15,17 @@ class addProductViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    @IBAction func uploadImage(_ sender: Any) {
+        let alertController = UIAlertController(title: "Upload Image", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Ambil Foto", style: .default, handler: self.okHandler))
+        alertController.addAction(UIAlertAction(title: "Galeri Foto", style: .default, handler: self.okHandler))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+        
+    }
+    
+    func okHandler(alert: UIAlertAction){
+        
+    }
     
 }

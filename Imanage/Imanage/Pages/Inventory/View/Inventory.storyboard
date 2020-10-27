@@ -105,11 +105,6 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                     </tableView>
-                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WIB-rY-21i">
-                                        <rect key="frame" x="341" y="175" width="50" height="30"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" title="Sort by"/>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tca-qs-sTL">
                                         <rect key="frame" x="21" y="177" width="56" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -183,7 +178,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Inventory" largeTitleDisplayMode="always" id="XYg-PK-Oh9">
-                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="5bD-Fs-3oh"/>
+                        <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="5bD-Fs-3oh">
+                            <connections>
+                                <segue destination="HaG-Yi-5Sa" kind="show" id="Dq1-nV-mJu"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="Navbar" destination="XYg-PK-Oh9" id="OX3-vy-kdA"/>
@@ -198,7 +197,7 @@
         <scene sceneID="TrS-uL-I7X">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Ot-71-W2G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Inventory" image="tray.fill" catalog="system" id="Z1x-7N-pZJ"/>
+                    <tabBarItem key="tabBarItem" title="Inventory" image="cube.fill" catalog="system" id="Z1x-7N-pZJ"/>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="2Z1-D9-Dao">
@@ -242,7 +241,7 @@
             <objects>
                 <viewController id="HaG-Yi-5Sa" customClass="addProductViewController" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gn3-b9-rCV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-qq-IE0">
@@ -354,6 +353,9 @@
                                 <rect key="frame" x="55" y="562" width="95" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Upload Image"/>
+                                <connections>
+                                    <action selector="uploadImage:" destination="HaG-Yi-5Sa" eventType="touchUpInside" id="qoO-mh-w1X"/>
+                                </connections>
                             </button>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="camera.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Zbm-pO-KrS">
                                 <rect key="frame" x="21" y="564" width="26" height="24"/>
@@ -756,10 +758,13 @@
             <point key="canvasLocation" x="4954" y="244"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="Dq1-nV-mJu"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="cube.fill" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>
-        <image name="tray.fill" catalog="system" width="128" height="88"/>
     </resources>
 </document>
