@@ -41,10 +41,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         searchController.searchBar.delegate = self
         searchController.searchBar.showsBookmarkButton = true
         searchController.searchBar.setImage(UIImage(named: "sort-arrows-couple-pointing-up-and-down"), for: .bookmark, state: .normal)
-//        searchController.searchBar.delegate = self
-//        searchController.searchBar.showsBookmarkButton = true
-//        searchController.searchBar.setImage(UIImage(named: "Sort"), for: .bookmark, state: .normal)
-//        
+     
 //        if searchController.isActive {
 //            searchController.searchBar.showsBookmarkButton = false
 //        } else {
@@ -54,6 +51,17 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
     
     func searchBarBookmarkButtonClicked(_ searchBar: UISearchBar) {
         //showAlert, presentVC or whatever you want here
+        
+        let alertController = UIAlertController(title: "Sort By", message: nil, preferredStyle: .actionSheet)
+        alertController.addAction(UIAlertAction(title: "Order Date", style: .default, handler: self.okHandler))
+         alertController.addAction(UIAlertAction(title: "Channel", style: .default, handler: self.okHandler))
+         alertController.addAction(UIAlertAction(title: "Name", style: .default, handler: self.okHandler))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func okHandler(alert: UIAlertAction){
+        
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
