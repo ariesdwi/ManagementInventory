@@ -89,7 +89,7 @@
             </objects>
             <point key="canvasLocation" x="510.14492753623193" y="243.75"/>
         </scene>
-        <!--Setting-->
+        <!--Settings-->
         <scene sceneID="MRG-Bw-c6N">
             <objects>
                 <viewController id="WwS-fh-HAW" customClass="SettingVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
@@ -97,14 +97,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MEm-LS-1v0">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Zdi-a9-mtN">
                                 <rect key="frame" x="0.0" y="140" width="414" height="673"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="5mP-Ux-5FP">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="settingCell" id="g8W-g1-Gmf">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5mP-Ux-5FP" id="sr4-Hv-qBi">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="g8W-g1-Gmf" id="Mp8-Ax-tyV">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                         </tableViewCellContentView>
@@ -115,13 +115,16 @@
                         <viewLayoutGuide key="safeArea" id="w3K-Ul-AfX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="w3K-Ul-AfX" firstAttribute="trailing" secondItem="MEm-LS-1v0" secondAttribute="trailing" id="LBz-Ao-2da"/>
-                            <constraint firstItem="MEm-LS-1v0" firstAttribute="leading" secondItem="w3K-Ul-AfX" secondAttribute="leading" id="MhK-aY-9gf"/>
-                            <constraint firstItem="MEm-LS-1v0" firstAttribute="top" secondItem="w3K-Ul-AfX" secondAttribute="top" id="RGf-7V-D24"/>
-                            <constraint firstItem="w3K-Ul-AfX" firstAttribute="bottom" secondItem="MEm-LS-1v0" secondAttribute="bottom" id="atN-eg-Ae0"/>
+                            <constraint firstItem="w3K-Ul-AfX" firstAttribute="bottom" secondItem="Zdi-a9-mtN" secondAttribute="bottom" id="YeS-e0-IOg"/>
+                            <constraint firstItem="w3K-Ul-AfX" firstAttribute="trailing" secondItem="Zdi-a9-mtN" secondAttribute="trailing" id="aPY-6E-bAj"/>
+                            <constraint firstItem="Zdi-a9-mtN" firstAttribute="leading" secondItem="w3K-Ul-AfX" secondAttribute="leading" id="d9E-Gh-8gp"/>
+                            <constraint firstItem="Zdi-a9-mtN" firstAttribute="top" secondItem="w3K-Ul-AfX" secondAttribute="top" id="idY-d3-05M"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Setting" id="YDu-i0-fkb"/>
+                    <navigationItem key="navigationItem" title="Settings" id="YDu-i0-fkb"/>
+                    <connections>
+                        <outlet property="settingTableView" destination="Zdi-a9-mtN" id="E7E-6a-23p"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7yw-Jm-QcI" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
