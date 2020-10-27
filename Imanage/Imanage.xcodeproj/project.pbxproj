@@ -41,6 +41,8 @@
 		6CF436F425472435006F010D /* OrderBuyerInformationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436F225472435006F010D /* OrderBuyerInformationCell.swift */; };
 		6CF436F525472435006F010D /* OrderBuyerInformationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CF436F325472435006F010D /* OrderBuyerInformationCell.xib */; };
 		6CF436F725472962006F010D /* OrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436F625472962006F010D /* OrderDetailVC.swift */; };
+		6CF436FA2547B8C1006F010D /* buttonNextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436F82547B8C1006F010D /* buttonNextCell.swift */; };
+		6CF436FB2547B8C1006F010D /* buttonNextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CF436F92547B8C1006F010D /* buttonNextCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -80,6 +82,8 @@
 		6CF436F225472435006F010D /* OrderBuyerInformationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderBuyerInformationCell.swift; sourceTree = "<group>"; };
 		6CF436F325472435006F010D /* OrderBuyerInformationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderBuyerInformationCell.xib; sourceTree = "<group>"; };
 		6CF436F625472962006F010D /* OrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVC.swift; sourceTree = "<group>"; };
+		6CF436F82547B8C1006F010D /* buttonNextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonNextCell.swift; sourceTree = "<group>"; };
+		6CF436F92547B8C1006F010D /* buttonNextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = buttonNextCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -199,6 +203,7 @@
 				6CF436EE254681A0006F010D /* orderBuyerCell2.swift */,
 				6CF436F225472435006F010D /* OrderBuyerInformationCell.swift */,
 				6CF436F625472962006F010D /* OrderDetailVC.swift */,
+				6CF436F82547B8C1006F010D /* buttonNextCell.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -206,6 +211,7 @@
 		6C8D2B34252C2E58007B85DC /* View */ = {
 			isa = PBXGroup;
 			children = (
+				6CF436F92547B8C1006F010D /* buttonNextCell.xib */,
 				6CF436F325472435006F010D /* OrderBuyerInformationCell.xib */,
 				6CF436EF254681A0006F010D /* orderBuyerCell2.xib */,
 				6CF436EB25467D3C006F010D /* orderListCell.xib */,
@@ -383,6 +389,7 @@
 				6C8D2B7F253D2F6F007B85DC /* Profile.storyboard in Resources */,
 				6CA03B642540B7030055A29C /* ChooseOrderCell.xib in Resources */,
 				6CF436E92546767D006F010D /* orderBuyerCell.xib in Resources */,
+				6CF436FB2547B8C1006F010D /* buttonNextCell.xib in Resources */,
 				6CA03B5C253FD5FB0055A29C /* OrderTableViewCell.xib in Resources */,
 				6CF436ED25467D3C006F010D /* orderListCell.xib in Resources */,
 				6C8D2B01252AC56E007B85DC /* Main.storyboard in Resources */,
@@ -403,6 +410,7 @@
 			files = (
 				6CA03B662541280E0055A29C /* BestSellerTableVC.swift in Sources */,
 				6CA03B68254128240055A29C /* FavoritesTableVC.swift in Sources */,
+				6CF436FA2547B8C1006F010D /* buttonNextCell.swift in Sources */,
 				6CF436EC25467D3C006F010D /* orderListCell.swift in Sources */,
 				6CF436E82546767D006F010D /* orderBuyerCell.swift in Sources */,
 				6CA03B5E253FF04B0055A29C /* InventoryTableVC.swift in Sources */,
