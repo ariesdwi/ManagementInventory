@@ -61,7 +61,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnLogin:" destination="cqN-hW-0Xh" eventType="touchUpInside" id="ft7-eO-3iI"/>
+                                    <action selector="btnLogin:" destination="cqN-hW-0Xh" eventType="touchUpInside" id="PN9-lq-cgt"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jika Anda belum memiliki akun, silahkan hubungi admin prodi Anda." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KHE-BZ-eYC">
@@ -76,8 +76,8 @@
                         <viewLayoutGuide key="safeArea" id="aS5-Nb-14n"/>
                     </view>
                     <connections>
-                        <outlet property="emailField" destination="Ib3-Cj-dlD" id="Yav-IE-a6v"/>
-                        <outlet property="passwordField" destination="byn-pK-yLv" id="aKO-iB-eiR"/>
+                        <outlet property="emailField" destination="Ib3-Cj-dlD" id="Z7v-fr-YQk"/>
+                        <outlet property="passwordField" destination="byn-pK-yLv" id="xQB-io-KDx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mue-TV-5Ge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -195,7 +195,7 @@
                                     <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="default"/>
                                 </state>
                                 <connections>
-                                    <action selector="btnSignUp:" destination="P4k-9G-fva" eventType="touchUpInside" id="MXZ-XR-Doq"/>
+                                    <action selector="btnSignUp:" destination="P4k-9G-fva" eventType="touchUpInside" id="RZt-bh-phW"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Jika Anda belum memiliki akun, silahkan hubungi admin prodi Anda." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iOF-0J-e30">
@@ -249,11 +249,11 @@
                         <viewLayoutGuide key="safeArea" id="Kwc-6k-UFC"/>
                     </view>
                     <connections>
-                        <outlet property="emailTextfield" destination="LwX-8Y-PXr" id="U1y-cX-0DN"/>
-                        <outlet property="fullNameTextField" destination="NUk-Kd-TTW" id="7KB-NX-UrX"/>
-                        <outlet property="handphoneNumber" destination="bDm-64-M6s" id="YuG-nv-l5j"/>
-                        <outlet property="nameLabel" destination="ntM-91-YPs" id="A0O-MG-k2q"/>
-                        <outlet property="passwordTextField" destination="RKd-PZ-7E8" id="6qb-Cb-nBd"/>
+                        <outlet property="emailTextfield" destination="LwX-8Y-PXr" id="rYW-hY-CHR"/>
+                        <outlet property="fullNameTextField" destination="NUk-Kd-TTW" id="Wid-xT-eGH"/>
+                        <outlet property="handphoneNumber" destination="bDm-64-M6s" id="ELF-Pb-lQO"/>
+                        <outlet property="nameLabel" destination="ntM-91-YPs" id="Fbw-Dc-NeC"/>
+                        <outlet property="passwordTextField" destination="RKd-PZ-7E8" id="d34-OA-K9Z"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MgM-9Z-Nlj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
