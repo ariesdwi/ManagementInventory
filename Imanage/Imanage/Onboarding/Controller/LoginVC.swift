@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  LoginVC.swift
 //  Imanage
 //
 //  Created by Aries Dwi Prasetiyo on 02/11/20.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginVC: UIViewController {
 
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
@@ -24,11 +24,8 @@ class LoginViewController: UIViewController {
         guard let email = self.emailField.text else {return}
         guard let password = self.passwordField.text else {return}
     
-      let modelLogin = LoginModel(email: email, password: password)
+      let modelLogin = ModelLogin(email: email, password: password)
         APIManager.shareInstance.callingLoginAPI(login: modelLogin)
     }
-    
-   
-    
 
 }

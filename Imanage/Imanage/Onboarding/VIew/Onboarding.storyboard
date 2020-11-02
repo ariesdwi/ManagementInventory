@@ -12,10 +12,10 @@
         </array>
     </customFonts>
     <scenes>
-        <!--Login View Controller-->
+        <!--LoginVC-->
         <scene sceneID="Lf8-RI-rGd">
             <objects>
-                <viewController id="cqN-hW-0Xh" customClass="LoginViewController" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cqN-hW-0Xh" customClass="LoginVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O0T-nh-lN9">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -133,10 +133,10 @@
             </objects>
             <point key="canvasLocation" x="-1110" y="-19"/>
         </scene>
-        <!--Register View Controller-->
+        <!--RegisterVC-->
         <scene sceneID="ECU-b7-0u2">
             <objects>
-                <viewController id="P4k-9G-fva" customClass="RegisterViewController" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="P4k-9G-fva" customClass="RegisterVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="3tP-Zc-WTr">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

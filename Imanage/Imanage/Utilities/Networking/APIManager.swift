@@ -12,7 +12,7 @@ import Alamofire
 class APIManager{
     static let shareInstance = APIManager()
     
-    func callingRegisterAPI(register: RegisterModel){
+    func callingRegisterAPI(register: modelRegister){
         let headers: HTTPHeaders = [
         .contentType("application/json")
         ]
@@ -33,7 +33,7 @@ class APIManager{
         }
     }
     
-    func callingLoginAPI(login: LoginModel){
+    func callingLoginAPI(login: ModelLogin){
         let headers: HTTPHeaders = [
         .contentType("application/json")
         ]

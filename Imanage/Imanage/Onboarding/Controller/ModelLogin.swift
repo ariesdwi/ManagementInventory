@@ -1,5 +1,5 @@
 //
-//  LoginModel.swift
+//  ModelLogin.swift
 //  Imanage
 //
 //  Created by Aries Dwi Prasetiyo on 02/11/20.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-struct LoginModel:Encodable {
+struct ModelLogin:Encodable {
     let email: String
     let password: String
 }

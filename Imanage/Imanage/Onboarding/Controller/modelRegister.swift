@@ -1,5 +1,5 @@
 //
-//  RegisterModel.swift
+//  modelRegister.swift
 //  Imanage
 //
 //  Created by Aries Dwi Prasetiyo on 02/11/20.
@@ -8,8 +8,7 @@
 
 import Foundation
 
-
-struct RegisterModel:Encodable {
+struct modelRegister:Encodable {
     let email: String
     let username: String
     let password: String
