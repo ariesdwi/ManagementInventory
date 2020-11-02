@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -43,6 +43,12 @@
 		6CF436F725472962006F010D /* OrderDetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436F625472962006F010D /* OrderDetailVC.swift */; };
 		6CF436FA2547B8C1006F010D /* buttonNextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF436F82547B8C1006F010D /* buttonNextCell.swift */; };
 		6CF436FB2547B8C1006F010D /* buttonNextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CF436F92547B8C1006F010D /* buttonNextCell.xib */; };
+		6CF43702254F7433006F010D /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 6CF43701254F7433006F010D /* Alamofire */; };
+		6CF43725254FAD42006F010D /* ModelLogin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF43724254FAD42006F010D /* ModelLogin.swift */; };
+		6CF43727254FAD76006F010D /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF43726254FAD76006F010D /* LoginVC.swift */; };
+		6CF43729254FADA6006F010D /* modelRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF43728254FADA6006F010D /* modelRegister.swift */; };
+		6CF4372B254FADE6006F010D /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF4372A254FADE6006F010D /* RegisterVC.swift */; };
+		6CF4372C254FAF9C006F010D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF43713254FA550006F010D /* APIManager.swift */; };
 		BF6CC66D25428B2800D634EF /* LoginEcommerce.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6CC66C25428B2800D634EF /* LoginEcommerce.storyboard */; };
 		BF6CC67025428B9900D634EF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CC66F25428B9900D634EF /* ProfileVC.swift */; };
 		BF6CC67425428BAF00D634EF /* LoginEcommerceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CC67325428BAF00D634EF /* LoginEcommerceVC.swift */; };
@@ -88,6 +94,15 @@
 		6CF436F625472962006F010D /* OrderDetailVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailVC.swift; sourceTree = "<group>"; };
 		6CF436F82547B8C1006F010D /* buttonNextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buttonNextCell.swift; sourceTree = "<group>"; };
 		6CF436F92547B8C1006F010D /* buttonNextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = buttonNextCell.xib; sourceTree = "<group>"; };
+		6CF436FC254F729A006F010D /* RegisterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterModel.swift; sourceTree = "<group>"; };
+		6CF43703254F777D006F010D /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		6CF43705254F82AC006F010D /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
+		6CF43707254F8359006F010D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		6CF43713254FA550006F010D /* APIManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIManager.swift; sourceTree = "<group>"; };
+		6CF43724254FAD42006F010D /* ModelLogin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelLogin.swift; sourceTree = "<group>"; };
+		6CF43726254FAD76006F010D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		6CF43728254FADA6006F010D /* modelRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = modelRegister.swift; sourceTree = "<group>"; };
+		6CF4372A254FADE6006F010D /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
 		BF6CC66C25428B2800D634EF /* LoginEcommerce.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LoginEcommerce.storyboard; path = Imanage/LoginEcommerce.storyboard; sourceTree = SOURCE_ROOT; };
 		BF6CC66F25428B9900D634EF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BF6CC67325428BAF00D634EF /* LoginEcommerceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEcommerceVC.swift; sourceTree = "<group>"; };
@@ -99,6 +114,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6CF43702254F7433006F010D /* Alamofire in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -110,6 +126,7 @@
 			children = (
 				6C8D2AF8252AC56E007B85DC /* Imanage */,
 				6C8D2AF7252AC56E007B85DC /* Products */,
+				6CF4370A254FA4DE006F010D /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -257,9 +274,24 @@
 			path = Pages;
 			sourceTree = "<group>";
 		};
+		6CF4370A254FA4DE006F010D /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				6CF43703254F777D006F010D /* RegisterViewController.swift */,
+				6CF436FC254F729A006F010D /* RegisterModel.swift */,
+				6CF43705254F82AC006F010D /* LoginModel.swift */,
+				6CF43707254F8359006F010D /* LoginViewController.swift */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		BF464BE82547EF5900F6EB8F /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6CF43724254FAD42006F010D /* ModelLogin.swift */,
+				6CF43726254FAD76006F010D /* LoginVC.swift */,
+				6CF43728254FADA6006F010D /* modelRegister.swift */,
+				6CF4372A254FADE6006F010D /* RegisterVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -275,6 +307,7 @@
 		BF6CC664254281C400D634EF /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				6CF43713254FA550006F010D /* APIManager.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -305,6 +338,9 @@
 			dependencies = (
 			);
 			name = Imanage;
+			packageProductDependencies = (
+				6CF43701254F7433006F010D /* Alamofire */,
+			);
 			productName = Imanage;
 			productReference = 6C8D2AF6252AC56E007B85DC /* Imanage.app */;
 			productType = "com.apple.product-type.application";
@@ -333,6 +369,9 @@
 				Base,
 			);
 			mainGroup = 6C8D2AED252AC56E007B85DC;
+			packageReferences = (
+				6CF43700254F7433006F010D /* XCRemoteSwiftPackageReference "Alamofire" */,
+			);
 			productRefGroup = 6C8D2AF7252AC56E007B85DC /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -376,13 +415,18 @@
 				6CA03B662541280E0055A29C /* BestSellerTableVC.swift in Sources */,
 				6CA03B68254128240055A29C /* FavoritesTableVC.swift in Sources */,
 				6CF436FA2547B8C1006F010D /* buttonNextCell.swift in Sources */,
+				6CF43725254FAD42006F010D /* ModelLogin.swift in Sources */,
 				6CF436EC25467D3C006F010D /* orderListCell.swift in Sources */,
 				6CF436E82546767D006F010D /* orderBuyerCell.swift in Sources */,
 				6CA03B5E253FF04B0055A29C /* InventoryTableVC.swift in Sources */,
+				6CF43727254FAD76006F010D /* LoginVC.swift in Sources */,
 				6CA03B632540B7030055A29C /* ChooseOrderCell.swift in Sources */,
 				6CA03B602540B6500055A29C /* ChooseOrderVC.swift in Sources */,
+				6CF4372C254FAF9C006F010D /* APIManager.swift in Sources */,
 				6C8D2AFE252AC56E007B85DC /* ViewController.swift in Sources */,
+				6CF4372B254FADE6006F010D /* RegisterVC.swift in Sources */,
 				6C8D2B4C252D76BE007B85DC /* InventoryViewController.swift in Sources */,
+				6CF43729254FADA6006F010D /* modelRegister.swift in Sources */,
 				6CF436F0254681A0006F010D /* orderBuyerCell2.swift in Sources */,
 				6CF436E5254672DF006F010D /* orderBuyersVC.swift in Sources */,
 				6C8D2AFA252AC56E007B85DC /* AppDelegate.swift in Sources */,
@@ -393,6 +437,7 @@
 				BF6CC6782547EB6300D634EF /* SettingVC.swift in Sources */,
 				6CA03B6A2541283F0055A29C /* LowOnStockTableVC.swift in Sources */,
 				6C8D2B86253DDBDA007B85DC /* product.swift in Sources */,
+				6C8D2B4E252EB671007B85DC /* OrderVC.swift in Sources */,
 				BF6CC67025428B9900D634EF /* ProfileVC.swift in Sources */,
 				6C8D2B4E252EB671007B85DC /* OrderVC.swift in Sources */,
 				BF6CC67425428BAF00D634EF /* LoginEcommerceVC.swift in Sources */,
@@ -472,6 +517,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = Imanage/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -526,6 +572,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				"INFOPLIST_FILE[sdk=*]" = Imanage/info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -594,6 +641,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		6CF43700254F7433006F010D /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.3.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		6CF43701254F7433006F010D /* Alamofire */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 6CF43700254F7433006F010D /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = Alamofire;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 6C8D2AEE252AC56E007B85DC /* Project object */;
 }
