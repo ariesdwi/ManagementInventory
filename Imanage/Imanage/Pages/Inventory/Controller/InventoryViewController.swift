@@ -29,6 +29,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         tabelView.delegate = self
         tabelView.dataSource = self
         setupNavbar()
+        APIManager.shareInstance.getInventoryProduct()
     }
     
     func setupNavbar(){
