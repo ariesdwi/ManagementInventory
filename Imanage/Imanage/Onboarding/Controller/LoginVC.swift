@@ -25,7 +25,41 @@ class LoginVC: UIViewController {
         guard let password = self.passwordField.text else {return}
     
       let modelLogin = ModelLogin(email: email, password: password)
-        APIManager.shareInstance.callingLoginAPI(login: modelLogin)
+        
+        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (status, errorMsg) in
+            print("LoginVC \(errorMsg) ")
+            
+            if status
+            {
+                ShowAlert.showSimpleAlert(vc: self, alert_title: "Login Success", alert_message: errorMsg)
+                print("UserDef Acc Id = \(UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey) )")
+                print("UserDef Token = \(UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey) ?? "")")
+            }
+            else {
+                ShowAlert.showSimpleAlert(vc: self, alert_title: "Login Failed", alert_message: errorMsg)
+            }
+            
+        }
+        
+        
+        /*
+        APIManager.shareInstance.callingLoginAPI2(login: modelLogin) { (result) in
+            switch result {
+                case .success(let jsonData as AnyObject)
+                {
+                    print("LoginVC : \(jsonData )")
+                }
+                case .failure(let err)
+                {
+                    
+                }
+            }
+        }
+ */
+        
+        
+        
     }
+
 
 }

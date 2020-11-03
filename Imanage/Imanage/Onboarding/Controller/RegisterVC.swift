@@ -35,7 +35,7 @@ class RegisterVC: UIViewController {
             guard let fullname = self.fullNameTextField.text else {return}
             guard let handphoneNumber = self.handphoneNumber.text else {return}
             
-            let register = modelRegister(email: email, username: username, password: password, phoneNumber: handphoneNumber, fullname: fullname)
+            let register = ModelRegister(email: email, username: username, password: password, phoneNumber: handphoneNumber, fullname: fullname)
             APIManager.shareInstance.callingRegisterAPI(register: register)
         }
         
