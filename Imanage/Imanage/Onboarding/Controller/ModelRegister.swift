@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct modelRegister:Encodable {
+struct ModelRegister:Encodable {
     let email: String
     let username: String
     let password: String
