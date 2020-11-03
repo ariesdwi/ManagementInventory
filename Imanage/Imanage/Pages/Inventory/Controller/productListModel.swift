@@ -8,8 +8,8 @@
 
 import Foundation
 
-struct productListModel: Codable {
-    var message:String = ""
-    var status:String = ""
-    var product: [Produk]?
+struct productListModel: Decodable {
+    let message:String
+    let status:String
+    let product: [Produk]
 }

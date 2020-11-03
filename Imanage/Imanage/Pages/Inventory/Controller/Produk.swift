@@ -9,23 +9,16 @@
 import Foundation
 
 
-struct Produk: Codable {
-    
-    var name:String?
-    var sku:String?
-    var qty:Int?
-    var weight:Int?
-    var weightType:Int?
-    var variant:String?
-    var image:[productImage]?
-    var condition:Bool?
-    var description:String?
-    var disabled:Bool?
-    var pinned:Bool?
-    var qtySold:Int?
-    var active:Bool?
-    var id:Int
-    var orderId:Int?
-    var accountId:Int?
-    
+
+struct Products:Decodable {
+    var status: String
+    var message: String
+    var product:[productDetail]
+}
+
+
+struct productDetail:Decodable {
+    var name:String
+    var qty:Int
+    var price:String!
 }

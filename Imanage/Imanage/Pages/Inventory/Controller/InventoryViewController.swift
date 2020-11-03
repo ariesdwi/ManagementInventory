@@ -19,6 +19,14 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
     let price = ["12$","15$","16$","12$","15$","16$"]
     let quantity = ["10","4","5","10","4","5"]
     
+    var listofProduct = [productDetail]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tabelView.reloadData()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -29,7 +37,22 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         tabelView.delegate = self
         tabelView.dataSource = self
         setupNavbar()
-        APIManager.shareInstance.getInventoryProduct()
+        
+        
+       
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+       APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+           switch result {
+           case .failure(let error):
+               print(error)
+           case .success(let produks):
+               self?.listofProduct = produks
+           }
+       }
+        
     }
     
     func setupNavbar(){
@@ -41,7 +64,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         return 1
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myData.count
+        return listofProduct.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -49,9 +72,13 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? product else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
-        cell.labelProduct.text = myData[indexPath.row]
-        cell.priceLabel.text = price[indexPath.row]
-        cell.QuantityLabel.text = quantity[indexPath.row]
+        
+        let produkDetail = listofProduct[indexPath.row]
+        let quantity = "\(produkDetail.qty)"
+        
+        cell.labelProduct.text = produkDetail.name
+        cell.priceLabel.text = produkDetail.price
+        cell.QuantityLabel.text = quantity
         cell.imageProduct.backgroundColor = .red
         
         return cell
