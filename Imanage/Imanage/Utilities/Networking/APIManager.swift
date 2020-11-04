@@ -169,7 +169,7 @@ class APIManager{
     
     func getInventoryProduct(completion: @escaping(Result<[productDetail], Error>) -> Void){
     
-        let jsonUrlString = "http://128.199.175.160/api/v1/Products/getMyItem?access_token=s6LeYDHfGOcNDySb5XrxNXxKt1Ta8YREKOEuyTE6iM4fPUN8fNtGaX2HXJF6XLcr"
+        let jsonUrlString = "http://128.199.175.160/api/v1/Products/getMyItem?access_token=\(UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey) ?? "")"
         guard let url = URL(string: jsonUrlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
