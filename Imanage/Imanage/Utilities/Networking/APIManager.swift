@@ -22,25 +22,41 @@ class APIManager{
     let userTokenKey = "apiToken"
     let accIdKey = "apiAccountId"
     
-    func callingRegisterAPI(register: ModelRegister){
+    func callingRegisterAPI(registerModel: ModelRegister, completionHandler:@escaping (Bool, String)->() )
+    {
         let headers: HTTPHeaders = [
-        .contentType("application/json")
+            .contentType("application/json")
         ]
         
-        AF.request(registerUrl, method: .post, parameters: register,encoder: JSONParameterEncoder.default, headers: headers).response{
+        AF.request(registerUrl, method: .post, parameters: registerModel ,encoder: JSONParameterEncoder.default, headers: headers).response{
             response in debugPrint(response)
             switch response.result{
                 case .success(let data):
                     do {
-                        let json =  try JSONSerialization.jsonObject(with: data!, options: [])
-                        print(json)
+                        let json =  try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any]
+                        //print("API Manager :\n\(json)\n")
+                        if response.response?.statusCode == 200
+                        {
+                            completionHandler(true, "Register Success")
+                        }
+                        else {
+                            var errMessage = "Please Try Again"
+                            let errorJson = json?["error"] as? [String : Any]
+                            let statusCode = errorJson?["statusCode"] as! Int
+                            if statusCode == 422 { errMessage = "Email already registered" }
+                            completionHandler(false, errMessage)
+                        }
+                        
                     } catch  {
-                        print(error.localizedDescription)
-                    }
+                        completionHandler(false, "Please Try Again")
+                        //print(error.localizedDescription)
+                }
                 case .failure(let err):
-                    print(err.localizedDescription)
+                    completionHandler(false, "Please Try Again")
+                    //print(err.localizedDescription)
                 }
         }
+        
     }
     
     func callingLoginAPI(login: ModelLogin, completionHandler:@escaping (Bool, String)->() )

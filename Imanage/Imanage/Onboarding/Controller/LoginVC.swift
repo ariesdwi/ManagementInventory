@@ -20,15 +20,17 @@ class LoginVC: UIViewController {
     }
     
 
-    @IBAction func btnLogin(_ sender: Any) {
+    @IBAction func btnLogin(_ sender: Any)
+    {
         guard let email = self.emailField.text else {return}
         guard let password = self.passwordField.text else {return}
     
-      let modelLogin = ModelLogin(email: email, password: password)
+        let modelLogin = ModelLogin(email: email, password: password)
         
-        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (status, errorMsg) in
-            print("LoginVC \(errorMsg) ")
-            
+        APIManager.shareInstance.callingLoginAPI(login: modelLogin)
+        {
+            (status, errorMsg) in
+                        
             if status
             {
                 //ShowAlert.showSimpleAlert(vc: self, alert_title: "Login Success", alert_message: errorMsg)
@@ -44,24 +46,6 @@ class LoginVC: UIViewController {
             }
             
         }
-        
-        
-        /*
-        APIManager.shareInstance.callingLoginAPI2(login: modelLogin) { (result) in
-            switch result {
-                case .success(let jsonData as AnyObject)
-                {
-                    print("LoginVC : \(jsonData )")
-                }
-                case .failure(let err)
-                {
-                    
-                }
-            }
-        }
- */
-        
-        
         
     }
 
