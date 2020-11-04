@@ -31,9 +31,13 @@ class LoginVC: UIViewController {
             
             if status
             {
-                ShowAlert.showSimpleAlert(vc: self, alert_title: "Login Success", alert_message: errorMsg)
+                //ShowAlert.showSimpleAlert(vc: self, alert_title: "Login Success", alert_message: errorMsg)
                 print("UserDef Acc Id = \(UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey) )")
                 print("UserDef Token = \(UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey) ?? "")")
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeTabBarStoryboard") as! UITabBarController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: false, completion: nil)
             }
             else {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Login Failed", alert_message: errorMsg)

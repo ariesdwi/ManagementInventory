@@ -73,13 +73,16 @@ class APIManager{
                                  message = success;
                                  realm = string;
                                  status = success;
-                             }
+                             },
+                             [ ["Nama Product" : "Pensil"], ]
+                             
                              
                              */
                         }
                         else {
                            
                             let errorJson = json?["error"] as? [String : Any]
+                            //let valueErrCode = errorJson?["code"] as! String
                             let valueMessage = errorJson?["message"] as! String
                             completionHandler(false, valueMessage)
                             /* //example
