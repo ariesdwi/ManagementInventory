@@ -241,7 +241,7 @@
             <objects>
                 <viewController id="HaG-Yi-5Sa" customClass="addProductViewController" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Gn3-b9-rCV">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Product Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6yc-qq-IE0">
@@ -382,11 +382,14 @@
                                 <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Add Product"/>
+                                <connections>
+                                    <action selector="addactionProduct:" destination="HaG-Yi-5Sa" eventType="touchUpInside" id="4WL-bH-xbZ"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK4-IP-V06">
                                 <rect key="frame" x="21" y="407" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="checkmark.circle" catalog="system"/>
+                                <state key="normal" image="circle" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Old" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hou-qj-Aax">
                                 <rect key="frame" x="257" y="407" width="27" height="21"/>
@@ -395,10 +398,10 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXN-JA-68I">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bXN-JA-68I">
                                 <rect key="frame" x="225" y="407" width="20" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="checkmark.circle" catalog="system"/>
+                                <state key="normal" image="circle" catalog="system"/>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="New" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1iz-VR-Pnl">
                                 <rect key="frame" x="47" y="407" width="35" height="21"/>
@@ -412,6 +415,15 @@
                         <viewLayoutGuide key="safeArea" id="3yA-d7-SLE"/>
                     </view>
                     <navigationItem key="navigationItem" id="f1X-BQ-lHr"/>
+                    <connections>
+                        <outlet property="colorProduct" destination="Riz-Me-Uho" id="L74-H5-rbY"/>
+                        <outlet property="price" destination="ht1-Ct-at5" id="y2h-Zg-CS2"/>
+                        <outlet property="productDescription" destination="CwQ-x0-lNS" id="Vyv-HF-FD4"/>
+                        <outlet property="productName" destination="mLR-79-VSm" id="6TR-aL-Ijc"/>
+                        <outlet property="skuProduct" destination="d7I-ez-bNb" id="HMh-9h-S6N"/>
+                        <outlet property="stockProduct" destination="LwJ-EH-5he" id="esg-uc-mUX"/>
+                        <outlet property="weightProduct" destination="ClC-5L-qCY" id="dju-1P-5x4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rki-Qq-rMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -759,11 +771,11 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Dq1-nV-mJu"/>
+        <segue reference="dLP-oO-HOv"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="96"/>
-        <image name="checkmark.circle" catalog="system" width="128" height="121"/>
+        <image name="circle" catalog="system" width="128" height="121"/>
         <image name="cube.fill" catalog="system" width="128" height="124"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
