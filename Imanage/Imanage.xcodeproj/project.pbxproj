@@ -51,6 +51,7 @@
 		6CF43729254FADA6006F010D /* ModelRegister.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF43728254FADA6006F010D /* ModelRegister.swift */; };
 		6CF4372B254FADE6006F010D /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF4372A254FADE6006F010D /* RegisterVC.swift */; };
 		6CF4372C254FAF9C006F010D /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CF43713254FA550006F010D /* APIManager.swift */; };
+		BF0EE304255243F800DBB23A /* HomeTabBarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF0EE303255243F800DBB23A /* HomeTabBarVC.swift */; };
 		BF464C0D2550F96800F6EB8F /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF464C0C2550F96800F6EB8F /* Helper.swift */; };
 		BF6CC66D25428B2800D634EF /* LoginEcommerce.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BF6CC66C25428B2800D634EF /* LoginEcommerce.storyboard */; };
 		BF6CC67025428B9900D634EF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CC66F25428B9900D634EF /* ProfileVC.swift */; };
@@ -108,6 +109,7 @@
 		6CF43726254FAD76006F010D /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
 		6CF43728254FADA6006F010D /* ModelRegister.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelRegister.swift; sourceTree = "<group>"; };
 		6CF4372A254FADE6006F010D /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		BF0EE303255243F800DBB23A /* HomeTabBarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabBarVC.swift; sourceTree = "<group>"; };
 		BF464C0C2550F96800F6EB8F /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		BF6CC66C25428B2800D634EF /* LoginEcommerce.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LoginEcommerce.storyboard; path = Imanage/LoginEcommerce.storyboard; sourceTree = SOURCE_ROOT; };
 		BF6CC66F25428B9900D634EF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
@@ -300,6 +302,7 @@
 				6CF43726254FAD76006F010D /* LoginVC.swift */,
 				6CF43728254FADA6006F010D /* ModelRegister.swift */,
 				6CF4372A254FADE6006F010D /* RegisterVC.swift */,
+				BF0EE303255243F800DBB23A /* HomeTabBarVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -449,6 +452,7 @@
 				6CA1AA83255244CC0040B44F /* modelAddProduct.swift in Sources */,
 				6C8D2B86253DDBDA007B85DC /* product.swift in Sources */,
 				6C8D2B4E252EB671007B85DC /* OrderVC.swift in Sources */,
+				BF0EE304255243F800DBB23A /* HomeTabBarVC.swift in Sources */,
 				BF6CC67025428B9900D634EF /* ProfileVC.swift in Sources */,
 				6CA1AA7F2550F96F0040B44F /* Produk.swift in Sources */,
 				6C8D2B4E252EB671007B85DC /* OrderVC.swift in Sources */,
