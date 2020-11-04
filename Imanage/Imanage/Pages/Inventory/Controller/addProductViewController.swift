@@ -56,7 +56,7 @@ class addProductViewController: UIViewController {
         guard let price = self.price.text else {return}
         guard let description = self.productDescription.text else {return}
         guard let color = self.colorProduct.text else {return}
-        let accountID = 3
+        let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
         
 
         let addProduct = modelAddProduct(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, accountId: accountID)
