@@ -8,6 +8,11 @@
 
 import UIKit
 
+
+protocol refreshTable {
+    func refresh(_ sender: Any)
+}
+
 class InventoryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
     
     @IBOutlet var Navbar: UINavigationItem!
@@ -18,6 +23,8 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
     let myData = ["First","Second","Third","First","Second","Third"]
     let price = ["12$","15$","16$","12$","15$","16$"]
     let quantity = ["10","4","5","10","4","5"]
+    
+    static let shareInstance = InventoryViewController()
     
     var listofProduct = [productDetail]() {
         didSet {
@@ -38,11 +45,27 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         tabelView.dataSource = self
         setupNavbar()
         
+        let refresControl = UIRefreshControl()
+        refresControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         
-       
+        self.tabelView.refreshControl = refresControl
         
     }
     
+    @objc func refresh(_ sender: Any){
+        APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+                 switch result {
+                 case .failure(let error):
+                     print(error)
+                 case .success(let produks):
+                     self?.listofProduct = produks
+                 }
+            }
+        DispatchQueue.main.async {
+            self.tabelView.refreshControl?.endRefreshing()
+        }
+    }
+        
     override func viewDidAppear(_ animated: Bool) {
        APIManager.shareInstance.getInventoryProduct{ [weak self] result in
            switch result {
@@ -76,8 +99,10 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         let produkDetail = listofProduct[indexPath.row]
         let quantity = "\(produkDetail.qty)"
         
+        let price = "\(produkDetail.price)"
+        
         cell.labelProduct.text = produkDetail.name
-        cell.priceLabel.text = produkDetail.price
+        cell.priceLabel.text = price
         cell.QuantityLabel.text = quantity
         cell.imageProduct.backgroundColor = .red
         
@@ -90,6 +115,21 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
            self.performSegue(withIdentifier: "segueToDetailProduct", sender: myData[indexPath.row])
 
        }
+    
+     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+        let productDetail = listofProduct.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        print("id number \(productDetail.id)")
+
+        APIManager.shareInstance.deleteProduct(productID: productDetail.id)
+     }
+    }
 }
 
+
     
+
+       
+

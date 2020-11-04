@@ -12,6 +12,7 @@ import Alamofire
 let baseUrl     = "http://104.248.98.179/api/v1"
 let loginUrl    = "\(baseUrl)/Accounts/login"
 let registerUrl = "\(baseUrl)/Accounts"
+let addproductUrl = "http://128.199.175.160/api/v1/Products"
 
 
 
@@ -149,7 +150,7 @@ class APIManager{
     
     func getInventoryProduct(completion: @escaping(Result<[productDetail], Error>) -> Void){
     
-        let jsonUrlString = "http://128.199.175.160/api/v1/Products/getMyItem?access_token=y2wBU2hTDY7EUdKGsYj8mT61FNj5QdS8S6pnZ4D6Lgvzm1uCvhTICBBkwtgfzBEj"
+        let jsonUrlString = "http://128.199.175.160/api/v1/Products/getMyItem?access_token=s6LeYDHfGOcNDySb5XrxNXxKt1Ta8YREKOEuyTE6iM4fPUN8fNtGaX2HXJF6XLcr"
         guard let url = URL(string: jsonUrlString) else { return }
         
         URLSession.shared.dataTask(with: url) { (data, response, err) in
@@ -166,7 +167,45 @@ class APIManager{
                 print("Error serializing json:", jsonErr)
             }
         }.resume()
-        
+    }
+    
+    
+    func addProductAPI(addProduct: modelAddProduct){
+           let headers: HTTPHeaders = [
+           .contentType("application/json")
+           ]
+           
+           AF.request(addproductUrl, method: .post, parameters: addProduct ,encoder: JSONParameterEncoder.default, headers: headers).response{
+               response in debugPrint(response)
+               switch response.result{
+                   case .success(let data):
+                       do {
+                           let json =  try JSONSerialization.jsonObject(with: data!, options: [])
+                           print(json)
+                       } catch  {
+                           print(error.localizedDescription)
+                       }
+                   case .failure(let err):
+                       print(err.localizedDescription)
+                   }
+           }
+       }
+    
+    func deleteProduct(productID: Int) {
+        AF.request("http://104.248.98.179/api/v1/Products/\(productID)", method: .delete, parameters: productID ,encoder: JSONParameterEncoder.default, headers: nil).response{
+            response in debugPrint(response)
+            switch response.result{
+                case .success(let data):
+                    do {
+                        let json =  try JSONSerialization.jsonObject(with: data!, options: [])
+                        print(json)
+                    } catch  {
+                        print(error.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+        }
         
     }
 

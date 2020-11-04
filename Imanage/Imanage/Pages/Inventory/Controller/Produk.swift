@@ -20,5 +20,6 @@ struct Products:Decodable {
 struct productDetail:Decodable {
     var name:String
     var qty:Int
-    var price:String!
+    let price:Int
+    var id:Int
 }
