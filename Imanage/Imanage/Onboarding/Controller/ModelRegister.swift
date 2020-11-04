@@ -9,9 +9,12 @@
 import Foundation
 
 struct ModelRegister:Encodable {
-    let email: String
-    let username: String
-    let password: String
-    let phoneNumber : String
-    let fullname: String
+    let fullname         : String
+    let email            : String
+    let storeName        : String
+    let phoneNumber      : String
+    let storePhoneNumber : String
+    let password         : String
+    let username         : String
+    
 }

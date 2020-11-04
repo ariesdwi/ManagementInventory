@@ -20,44 +20,32 @@ class LoginVC: UIViewController {
     }
     
 
-    @IBAction func btnLogin(_ sender: Any) {
+    @IBAction func btnLogin(_ sender: Any)
+    {
         guard let email = self.emailField.text else {return}
         guard let password = self.passwordField.text else {return}
     
-      let modelLogin = ModelLogin(email: email, password: password)
+        let modelLogin = ModelLogin(email: email, password: password)
         
-        APIManager.shareInstance.callingLoginAPI(login: modelLogin) { (status, errorMsg) in
-            print("LoginVC \(errorMsg) ")
-            
+        APIManager.shareInstance.callingLoginAPI(login: modelLogin)
+        {
+            (status, errorMsg) in
+                        
             if status
             {
-                ShowAlert.showSimpleAlert(vc: self, alert_title: "Login Success", alert_message: errorMsg)
+                //ShowAlert.showSimpleAlert(vc: self, alert_title: "Login Success", alert_message: errorMsg)
                 print("UserDef Acc Id = \(UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey) )")
                 print("UserDef Token = \(UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey) ?? "")")
+                
+                let vc = self.storyboard?.instantiateViewController(withIdentifier: "HomeTabBarStoryboard") as! UITabBarController
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: false, completion: nil)
             }
             else {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Login Failed", alert_message: errorMsg)
             }
             
         }
-        
-        
-        /*
-        APIManager.shareInstance.callingLoginAPI2(login: modelLogin) { (result) in
-            switch result {
-                case .success(let jsonData as AnyObject)
-                {
-                    print("LoginVC : \(jsonData )")
-                }
-                case .failure(let err)
-                {
-                    
-                }
-            }
-        }
- */
-        
-        
         
     }
 
