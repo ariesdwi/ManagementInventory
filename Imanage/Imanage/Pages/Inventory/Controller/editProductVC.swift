@@ -64,4 +64,9 @@ class editProductVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let detailVC = segue.destination as! productDetailVC
+        detailVC.nameProduct = nameProduct.text!
+    }
 }

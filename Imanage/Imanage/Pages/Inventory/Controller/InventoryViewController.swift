@@ -11,11 +11,14 @@ import UIKit
 
 
 
-class InventoryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate,reloadDataDelegate
+class InventoryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate,reloadDataDelegate, UISearchControllerDelegate, UISearchBarDelegate
 {
     
     @IBOutlet var Navbar: UINavigationItem!
     
+    @IBOutlet var shapeLowOnStock: UIView!
+    @IBOutlet var shapeBestSeller: UIView!
+    @IBOutlet var shapeFav: UIView!
     
     @IBOutlet var tabelView: UITableView!
     
@@ -48,6 +51,29 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         refresControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         
         self.tabelView.refreshControl = refresControl
+         
+        shapeLowOnStock.layer.cornerRadius = 10
+        shapeLowOnStock.layer.shadowOffset = CGSize(width: 0, height: 8)
+        shapeLowOnStock.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        shapeLowOnStock.layer.shadowOffset = CGSize(width: 0, height: 3)
+        shapeLowOnStock.layer.shadowOpacity = 1.0
+        shapeLowOnStock.layer.shadowRadius = 10.0
+       
+        
+        shapeBestSeller.layer.cornerRadius = 10
+        shapeBestSeller.layer.shadowOffset = CGSize(width: 0, height: 8)
+        shapeBestSeller.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        shapeBestSeller.layer.shadowOffset = CGSize(width: 0, height: 3)
+        shapeBestSeller.layer.shadowOpacity = 1.0
+        shapeBestSeller.layer.shadowRadius = 10.0
+        
+        
+        shapeFav.layer.cornerRadius = 10
+        shapeFav.layer.shadowOffset = CGSize(width: 0, height: 8)
+        shapeFav.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        shapeFav.layer.shadowOffset = CGSize(width: 0, height: 3)
+        shapeFav.layer.shadowOpacity = 1.0
+        shapeFav.layer.shadowRadius = 10.0
         
     }
     
@@ -89,8 +115,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
     
     func setupNavbar(){
         let searchController = UISearchController(searchResultsController: nil)
-        
-        Navbar.searchController = searchController
+        Navbar.searchController = searchController        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1

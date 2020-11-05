@@ -38,6 +38,9 @@ class addProductViewController: UIViewController {
 
         // Do any additional setup after loading the view.
     }
+    
+    
+    
     @IBAction func uploadImage(_ sender: Any) {
         let alertController = UIAlertController(title: "Upload Image", message: nil, preferredStyle: .actionSheet)
         alertController.addAction(UIAlertAction(title: "Ambil Foto", style: .default, handler: self.okHandler))
@@ -99,5 +102,6 @@ class addProductViewController: UIViewController {
         refreshtable?.refreshData()
         dismiss(animated: true, completion: nil)
     }
+    
     
 }

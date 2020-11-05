@@ -53,7 +53,7 @@ class productDetailVC: UIViewController {
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
       if segue.identifier == "productEditStory" {
           if let nextViewController = segue.destination as? editProductVC {
-                  nextViewController.editname = nameProduct
+            nextViewController.editname = nameProduct
             nextViewController.editdescProduct = descProduct
             nextViewController.editpriceProduct = priceProduct
             nextViewController.editqtyProduct = qtyProduct
@@ -65,5 +65,10 @@ class productDetailVC: UIViewController {
           }
       }
   }
+    
+    @IBAction func unwindToDetail(_ unwindSegue: UIStoryboardSegue) {
+       
+        // Use data from the view controller which initiated the unwind segue
+    }
     
 }
