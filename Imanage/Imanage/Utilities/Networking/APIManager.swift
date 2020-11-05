@@ -189,7 +189,7 @@ class APIManager{
     }
     
     
-    func addProductAPI(addProduct: modelAddProduct){
+    func addProductAPI(addProduct: modelProduct){
            let headers: HTTPHeaders = [
            .contentType("application/json")
            ]
@@ -228,7 +228,23 @@ class APIManager{
         
     }
 
-    
+    func editProduct(editProduct: productDetail) {
+        AF.request("http://128.199.175.160/api/v1/Products/\(editProduct.id)", method: .put, parameters: editProduct ,encoder: JSONParameterEncoder.default, headers: nil).response{
+               response in debugPrint(response)
+               switch response.result{
+                   case .success(let data):
+                       do {
+                           let json =  try JSONSerialization.jsonObject(with: data!, options: [])
+                           print(json)
+                       } catch  {
+                           print(error.localizedDescription)
+                       }
+                   case .failure(let err):
+                       print(err.localizedDescription)
+                   }
+           }
+           
+       }
     
     
 }

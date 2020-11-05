@@ -9,11 +9,10 @@
 import UIKit
 
 
-protocol refreshTable {
-    func refresh(_ sender: Any)
-}
 
-class InventoryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+
+class InventoryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate,reloadDataDelegate
+{
     
     @IBOutlet var Navbar: UINavigationItem!
     
@@ -67,15 +66,25 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
     }
         
     override func viewDidAppear(_ animated: Bool) {
-       APIManager.shareInstance.getInventoryProduct{ [weak self] result in
-           switch result {
-           case .failure(let error):
-               print(error)
-           case .success(let produks):
-               self?.listofProduct = produks
-           }
-       }
-        
+        APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let produks):
+                self?.listofProduct = produks
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let produks):
+                self?.listofProduct = produks
+            }
+        }
     }
     
     func setupNavbar(){
@@ -110,11 +119,30 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           
+        
+        
+        let produkDetail = listofProduct[indexPath.row]
+        let vc = storyboard?.instantiateViewController(withIdentifier: "productDetailStory") as! productDetailVC
+        vc.nameProduct = produkDetail.name
+        vc.priceProduct = produkDetail.price
+        vc.qtyProduct = produkDetail.qty
+        vc.descProduct = produkDetail.description
+        vc.colorProduct = produkDetail.variant
+        vc.weightProduct = produkDetail.weight
+        vc.condition = produkDetail.condition
+        vc.id = produkDetail.id
+        
+        self.navigationController?.pushViewController(vc, animated: true)
            //Data untuk performSegue activity to ChallengeOverview
-           self.performSegue(withIdentifier: "segueToDetailProduct", sender: myData[indexPath.row])
+//        self.performSegue(withIdentifier: "segueToDetailProduct", sender: listofProduct[indexPath.row])
 
-       }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+         
+      
+    }
     
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
      if editingStyle == .delete {
@@ -125,6 +153,48 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
 
         APIManager.shareInstance.deleteProduct(productID: productDetail.id)
      }
+    }
+    
+    
+    @IBAction func addModalVC(_ sender: Any) {
+        let addModalVC = self.storyboard?.instantiateViewController(withIdentifier:"addModalProduct") as? addProductViewController
+        addModalVC?.refreshtable = self
+    }
+    
+    func refreshData() {
+           APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let produks):
+                        self?.listofProduct = produks
+                    }
+               }
+           DispatchQueue.main.async {
+               self.tabelView.reloadData()
+           }
+       }
+}
+
+
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
     }
 }
 

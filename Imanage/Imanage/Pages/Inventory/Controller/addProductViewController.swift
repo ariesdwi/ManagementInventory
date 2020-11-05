@@ -9,12 +9,12 @@
 import UIKit
 
 protocol reloadDataDelegate {
-    func refreshT(name: String, sku: String, qty: Int, weigh: Int, price: Int, description: String, variant: String, accountId: Int)
+    func refreshData()
 }
 
 class addProductViewController: UIViewController {
    
-    var refreshtable:reloadDataDelegate!
+    var refreshtable:reloadDataDelegate?
 
     @IBOutlet var productName: UITextField!
     @IBOutlet var productDescription: UITextField!
@@ -23,6 +23,12 @@ class addProductViewController: UIViewController {
     @IBOutlet var colorProduct: UITextField!
     @IBOutlet var weightProduct: UITextField!
     @IBOutlet var skuProduct: UITextField!
+    
+    @IBOutlet var newBtn: UIButton!
+    @IBOutlet var oldBtn: UIButton!
+    
+    
+    var newProduct = true
     
 //   var listofProduct = [productDetail]()
     
@@ -45,6 +51,30 @@ class addProductViewController: UIViewController {
         
     }
     
+    
+    @IBAction func newbtnAction(_ sender: UIButton) {
+        if sender.isSelected{
+            sender.isSelected = false
+            oldBtn.isSelected = false
+        } else {
+            sender.isSelected = true
+            oldBtn.isSelected = false
+            newProduct = true
+        }
+    }
+    
+    
+    @IBAction func oldbtnAction(_ sender: UIButton) {
+        if sender.isSelected{
+            sender.isSelected = false
+            newBtn.isSelected = false
+        } else {
+            sender.isSelected = true
+            newBtn.isSelected = false
+            newProduct = false
+        }
+    }
+    
   
     
     @IBAction func addactionProduct(_ sender: Any) {
@@ -56,14 +86,17 @@ class addProductViewController: UIViewController {
         guard let price = self.price.text else {return}
         guard let description = self.productDescription.text else {return}
         guard let color = self.colorProduct.text else {return}
+        
+        let condition = newProduct
+        
         let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
         
 
-        let addProduct = modelAddProduct(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, accountId: accountID)
+        let addProduct = modelProduct(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, condition: condition, accountId: accountID)
         
         APIManager.shareInstance.addProductAPI(addProduct: addProduct)
 //        refreshtable.refreshT(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, accountId: accountID)
-               
+        refreshtable?.refreshData()
         dismiss(animated: true, completion: nil)
     }
     

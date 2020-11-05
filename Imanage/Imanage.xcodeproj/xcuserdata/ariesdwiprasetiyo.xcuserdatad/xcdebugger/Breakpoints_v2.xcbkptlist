@@ -7,16 +7,16 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E0446D6F-19B1-4932-A913-49337717921D"
+            uuid = "68547CB5-ACC3-48D8-B27D-C72938A4287F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "Imanage/Pages/Inventory/Controller/addProductViewController.swift"
+            filePath = "Imanage/Pages/Inventory/Controller/InventoryViewController.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "60"
-            endingLineNumber = "60"
-            landmarkName = "addactionProduct(_:)"
+            startingLineNumber = "169"
+            endingLineNumber = "169"
+            landmarkName = "refreshData()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
