@@ -31,6 +31,7 @@ class addProductViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedOutside()
     }
     @IBAction func uploadImage(_ sender: Any) {
         let alertController = UIAlertController(title: "Upload Image", message: nil, preferredStyle: .actionSheet)

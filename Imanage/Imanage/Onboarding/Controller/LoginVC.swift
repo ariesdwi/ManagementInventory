@@ -17,6 +17,7 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedOutside()
     }
     
 
@@ -49,5 +50,15 @@ class LoginVC: UIViewController {
         
     }
 
+}
+extension UIViewController {
+    func hideKeyboardWhenTappedOutside() {
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
 
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
 }
