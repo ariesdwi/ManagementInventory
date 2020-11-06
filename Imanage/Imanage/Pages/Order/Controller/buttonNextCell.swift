@@ -8,10 +8,20 @@
 
 import UIKit
 
-class buttonNextCell: UITableViewCell {
+protocol buttonNextCellDelegate:AnyObject {
+    func chooseOrder()
+}
 
+final class buttonNextCell: UITableViewCell {
+
+    weak var delegateChooseOrder: buttonNextCellDelegate?
+    
+    @IBOutlet var nextButton: UIButton!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        nextButton.layer.cornerRadius = 10
+     
         // Initialization code
     }
 
@@ -21,5 +31,8 @@ class buttonNextCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    @IBAction func chooseOrder(_ sender: Any) {
+        delegateChooseOrder?.chooseOrder()
+    }
 }
 

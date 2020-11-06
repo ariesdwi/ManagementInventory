@@ -46,22 +46,25 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         orderTableView.delegate = self
         orderTableView.dataSource = self
         // Do any additional setup after loading the view.
-        
-        
-       
-        
     }
     
 
-    func yourFunction(Sender: Any){
-        
-    }
+    
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return myData.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
+        let cellIdentifier = "orderListCell"
+        guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderListCell else {
+            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        }
+        
+        cell.orderListName.text = myData[indexPath.row]
+        cell.orderlistImageView.backgroundColor = .red
+        
         
         if indexPath.row < 1 {
             let cellIdentifier = "orderBuyerCell"
@@ -79,16 +82,6 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         
         
-        let cellIdentifier = "orderListCell"
-        guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderListCell else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
-        }
-        
-        cell.orderListName.text = myData[indexPath.row]
-        cell.orderlistImageView.backgroundColor = .red
-        
-        
-        
         if indexPath.row == myData.count - 1 {
             let cellIdentifier = "orderBuyerCell2"
             guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderBuyerCell2 else {
@@ -96,7 +89,7 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
             
             shippingTrackingNo = cell.shippingTrackingTextField.text!
-//            shippingFee = Int(cell.shippingFeeTextField.text ?? "")!
+            //            shippingFee = Int(cell.shippingFeeTextField.text ?? "")!
             
             cell.delegate = self
             
@@ -104,7 +97,7 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         
         let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
-       
+        
         return cell
         
     }

@@ -25,9 +25,11 @@ class OrderBuyerInformationCell: UITableViewCell {
     @IBOutlet var trackingNumberLabel: UILabel!
     
     
+    @IBOutlet var prosesShipping: UIButton!
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        prosesShipping.layer.cornerRadius = 10
         // Initialization code
     }
 

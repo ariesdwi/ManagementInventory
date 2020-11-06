@@ -38,7 +38,7 @@
                                                         <rect key="frame" x="39" y="35" width="30" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                        <state key="normal" title="10">
+                                                        <state key="normal" title="0">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
@@ -63,7 +63,7 @@
                                                         <rect key="frame" x="40" y="37" width="30" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                        <state key="normal" title="10">
+                                                        <state key="normal" title="0">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
@@ -88,7 +88,7 @@
                                                         <rect key="frame" x="45" y="37" width="30" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                        <state key="normal" title="10">
+                                                        <state key="normal" title="0">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
@@ -126,6 +126,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Inventory" largeTitleDisplayMode="always" id="KzA-Zw-dQa">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="mcC-6l-SFH">
+                            <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="addModalVC:" destination="9Qm-54-h7D" id="ulV-lG-UBQ"/>
                                 <segue destination="HaG-Yi-5Sa" kind="presentation" id="dLP-oO-HOv"/>
@@ -201,12 +202,18 @@
         <scene sceneID="TrS-uL-I7X">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Ot-71-W2G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Inventory" image="cube.fill" catalog="system" id="Z1x-7N-pZJ"/>
+                    <tabBarItem key="tabBarItem" title="Inventory" image="cube.fill" catalog="system" id="Z1x-7N-pZJ">
+                        <color key="badgeColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="2Z1-D9-Dao">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -815,6 +822,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="dLP-oO-HOv"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.18823529410000001" green="0.2784313725" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="circle" catalog="system" width="128" height="121"/>

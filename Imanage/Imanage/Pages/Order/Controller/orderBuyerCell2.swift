@@ -12,6 +12,7 @@ import UIKit
 protocol orderBuyerCell2Delegate:AnyObject {
     func createOrder()
 }
+
 final class orderBuyerCell2: UITableViewCell {
     
     weak var delegate: orderBuyerCell2Delegate?
