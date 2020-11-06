@@ -29,8 +29,8 @@ class productDetailVC: UIViewController {
     
     var detailofProduct = [productDetail]()
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
 
         nameProductLabel.text = nameProduct
         descProductLabel.text = descProduct
@@ -66,9 +66,9 @@ class productDetailVC: UIViewController {
       }
   }
     
-    @IBAction func unwindToDetail(_ unwindSegue: UIStoryboardSegue) {
+   @IBAction func unwindToDetail(_ unwindSegue: UIStoryboardSegue) {
        
-        // Use data from the view controller which initiated the unwind segue
-    }
+       // Use data from the view controller which initiated the unwind segue
+   }
     
 }

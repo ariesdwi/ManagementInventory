@@ -19,6 +19,14 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
     let channal = ["Tokopedia","Bukalapak","Blibli","Shoope","Tokopedia","Bukalapak"]
     let progress = ["On Process","On Process","On Process","On Process","On Process","On Process"]
     
+    var listofOrder = [modelOrder]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        }
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,8 +38,35 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         
         tableView.delegate = self
         tableView.dataSource = self
+        
+        
+        let refresControl = UIRefreshControl()
+        refresControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        
+        self.tableView.refreshControl = refresControl
+         
+        
+       APIManager.shareInstance.getOrder{ [weak self] result in
+           switch result {
+           case .failure(let error):
+               print(error)
+           case .success(let order):
+               self?.listofOrder = order
+           }
+       }
 
     }
+    
+    @objc func refresh(_ sender: Any){
+            APIManager.shareInstance.getOrder{ [weak self] result in
+                     switch result {
+                     case .failure(let error):
+                         print(error)
+                     case .success(let order):
+                         self?.listofOrder = order
+                     }
+                 }
+       }
 
     func setupNavbar(){
         let searchController = UISearchController(searchResultsController: nil)
@@ -65,7 +100,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return orderName.count
+        return listofOrder.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -73,11 +108,12 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OrderTableViewCell else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
+        let orderDetail = listofOrder[indexPath.row]
         
-        cell.OrderNameLabel.text = orderName[indexPath.row]
-        cell.SkuLabel.text = sku[indexPath.row]
-        cell.DateLabel.text = date[indexPath.row]
-        cell.Channel.text = channal[indexPath.row]
+        cell.OrderNameLabel.text = orderDetail.customerName
+        cell.SkuLabel.text = orderDetail.invoiceId
+        cell.DateLabel.text = orderDetail.orderDate
+        cell.Channel.text = orderDetail.channelNotes
         cell.ProgressLabel.text = progress[indexPath.row]
         
         
@@ -86,7 +122,28 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            //Data untuk performSegue activity to ChallengeOverview
-           self.performSegue(withIdentifier: "detailProductSegue", sender: orderName[indexPath.row])
+        let orderDetail = listofOrder[indexPath.row]
+        let vc = storyboard?.instantiateViewController(withIdentifier: "orderDetailStory") as! OrderDetailVC
+        
+        vc.invoiceId = orderDetail.invoiceId
+        vc.orderDate = orderDetail.orderDate
+        vc.customerName = orderDetail.customerName
+        vc.shippingName = "JNE REG"
+        vc.shippingTrackingNo = orderDetail.shippingTrackingNo
+        vc.customerPhone = orderDetail.customerPhone
+        vc.customerEmail = orderDetail.customerEmail
+        vc.customerAddress = orderDetail.customerAddress
+        vc.channelNotes = orderDetail.channelNotes
+        vc.additionalNotes = orderDetail.additionalNotes
+        vc.shippingFee = orderDetail.shippingFee
+        vc.statusShip = "Shipped"
+        vc.totalPrice = orderDetail.totalPrice
+        vc.id = orderDetail.id
+        vc.productId = orderDetail.productId
+        vc.productsId = orderDetail.productsId
+        vc.accountId = orderDetail.accountId
+        
+           self.navigationController?.pushViewController(vc, animated: true)
     }
     
 }

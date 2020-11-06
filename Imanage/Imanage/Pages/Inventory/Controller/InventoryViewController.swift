@@ -221,6 +221,11 @@ extension UIImageView {
         guard let url = URL(string: link) else { return }
         downloaded(from: url, contentMode: mode)
     }
+
+    @IBAction func unwindToInventory(_ unwindSegue: UIStoryboardSegue) {
+        
+        // Use data from the view controller which initiated the unwind segue
+    }
 }
 
 

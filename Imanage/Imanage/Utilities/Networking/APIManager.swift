@@ -246,5 +246,29 @@ class APIManager{
            
        }
     
+    /// Order
+    
+
+    
+    func getOrder(completion: @escaping(Result<[modelOrder], Error>) -> Void){
+        
+        let jsonUrlString = "http://128.199.175.160/api/v1/Orders?access_token=\(UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey) ?? "")"
+                
+        guard let url = URL(string: jsonUrlString) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, response, err) in
+            guard let data = data else { return }
+            do {
+
+                let order:[modelOrder] = try JSONDecoder().decode([modelOrder].self, from: data)
+                completion(.success(order))
+
+            } catch let jsonErr {
+                print("Error serializing json:", jsonErr)
+            }
+        }.resume()
+        
+    }
+    
     
 }

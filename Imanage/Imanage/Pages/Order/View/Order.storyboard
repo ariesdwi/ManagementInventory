@@ -115,7 +115,7 @@
         <!--Order DetailVC-->
         <scene sceneID="cQ4-q0-xxm">
             <objects>
-                <viewController id="5dV-Kp-nRX" customClass="OrderDetailVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="orderDetailStory" id="5dV-Kp-nRX" customClass="OrderDetailVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="jDC-E2-shh">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

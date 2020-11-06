@@ -48,7 +48,7 @@ class editProductVC: UIViewController {
 
     @IBAction func saveButton(_ sender: Any) {
         
-       let editname = nameProduct.text!
+       let editnames = nameProduct.text!
        let editdescProduct = descProduct.text!
        let editpriceProduct = Int(priceProduct.text!)!
        let editqtyProduct = Int(stockProduct.text!)!
@@ -57,16 +57,15 @@ class editProductVC: UIViewController {
        let editcondition = true
         let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
         
-       let updateProduct = productDetail(name: editname, qty:editqtyProduct , price: editpriceProduct, id: id, description: editdescProduct, variant: editcolorProduct, weight: editweightProduct, condition: editcondition, accountId: accountID)
+       let updateProduct = productDetail(name: editnames, qty:editqtyProduct , price: editpriceProduct, id: id, description: editdescProduct, variant: editcolorProduct, weight: editweightProduct, condition: editcondition, accountId: accountID)
         
         APIManager.shareInstance.editProduct(editProduct: updateProduct)
-        
-        dismiss(animated: true, completion: nil)
+        editname = editnames
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailVC = segue.destination as! productDetailVC
-        detailVC.nameProduct = nameProduct.text!
+        detailVC.nameProductLabel.text = editname
     }
 }
