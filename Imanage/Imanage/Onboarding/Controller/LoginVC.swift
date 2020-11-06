@@ -13,11 +13,16 @@ class LoginVC: UIViewController {
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
     
+    var savedEmail = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedOutside()
+        savedEmail = UserDefaults.standard.string(forKey: APIManager.shareInstance.userEmail) ?? ""
+        if savedEmail != "" { self.emailField.text = savedEmail }
+        
     }
     
 
