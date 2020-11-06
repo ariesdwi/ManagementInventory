@@ -14,6 +14,23 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
 
     @IBOutlet var DetailTableView: UITableView!
     
+    var invoiceId = ""
+    var orderDate = ""
+    var customerName = ""
+    var shippingName = "JNE REG"
+    var shippingTrackingNo = ""
+    var customerPhone = ""
+    var customerEmail = ""
+    var customerAddress = ""
+    var channelNotes = ""
+    var additionalNotes = ""
+    var shippingFee = 0
+    var statusShip = "Shipped"
+    var totalPrice = 0
+    var id = 0
+    var productId = 0
+    var productsId = 0
+    var accountId = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,7 +51,22 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
         let cellIdentifier = "OrderBuyerInformationCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? OrderBuyerInformationCell else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            
         }
+       
+        cell.InvoiceLabel.text = invoiceId
+        cell.orderDateLabel.text = orderDate
+        cell.customerNameLabel.text = customerName
+        cell.shippingNameLabel.text = shippingName
+        cell.trackingNumberLabel.text = shippingTrackingNo
+        cell.customerPhoneNumberLabel.text = customerPhone
+        cell.emailLabel.text = customerEmail
+        cell.customerAddressLabel.text = customerAddress
+        cell.customerNotes.text = additionalNotes
+        cell.channalEcommerceLabel.text = channelNotes
+        cell.totalPriceShipping.text = String(shippingFee)
+        cell.statusShipped.text = statusShip
+        
         return cell
     }
     

@@ -15,6 +15,14 @@ class ChooseOrderVC: UITableViewController {
     let myData = ["First","Second","Third"]
     let price = ["12$","15$","16$","12$","15$","16$"]
     
+    var listofProduct = [productDetail]() {
+           didSet {
+               DispatchQueue.main.async {
+                   self.tableViewCP.reloadData()
+               }
+           }
+       }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         let searchController = UISearchController(searchResultsController: nil)
@@ -25,9 +33,29 @@ class ChooseOrderVC: UITableViewController {
         
         tableViewCP.register(nib, forCellReuseIdentifier: "ChooseOrderCell")
         tableViewCP.register(nib2, forCellReuseIdentifier: "buttonNextCell")
-
+       
+        APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+                   switch result {
+                   case .failure(let error):
+                       print(error)
+                   case .success(let produks):
+                       self?.listofProduct = produks
+                   }
+        }
         
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+           APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+               switch result {
+               case .failure(let error):
+                   print(error)
+               case .success(let produks):
+                   self?.listofProduct = produks
+               }
+           }
+       }
+    
 
     // MARK: - Table view data source
 
@@ -38,29 +66,23 @@ class ChooseOrderVC: UITableViewController {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return myData.count
+        return listofProduct.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        
-        
         let cellIdentifier = "ChooseOrderCell"
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ChooseOrderCell else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-//        if indexPath.row == myData.count - 1 {
-//            let cellIdentifier = "buttonNextCell"
-//            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? buttonNextCell else {
-//                fatalError("The dequeued cell is not an instance of MealTableViewCell.")
-//            }
-//            return cell
-//        }
+        let produkDetail = listofProduct[indexPath.row]
+        let quantity = "\(produkDetail.qty)"
         
-        cell.productNameLabel.text = myData[indexPath.row]
-        cell.priceLabel.text = price[indexPath.row]
+        let price = "\(produkDetail.price)"
+        
+        cell.productNameLabel.text = produkDetail.name
+        cell.priceLabel.text = price
         cell.productImageView.backgroundColor = .red
         return cell
     }

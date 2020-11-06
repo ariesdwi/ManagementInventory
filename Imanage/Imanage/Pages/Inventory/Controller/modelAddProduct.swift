@@ -12,7 +12,7 @@ import Foundation
 
 
 
-struct modelAddProduct :Encodable {
+struct modelProduct :Encodable {
     var name:String
     var sku:String
     var qty:Int
@@ -20,6 +20,7 @@ struct modelAddProduct :Encodable {
     var price:Int
     var description:String
     var variant:String
+    var condition:Bool
     var accountId:Int
 }
 

@@ -10,16 +10,25 @@ import Foundation
 
 
 
-struct Products:Decodable {
+struct Products:Encodable,Decodable {
     var status: String
     var message: String
     var product:[productDetail]
 }
 
 
-struct productDetail:Decodable {
+struct productDetail:Encodable,Decodable {
     var name:String
     var qty:Int
     let price:Int
     var id:Int
+    var description:String
+    var variant:String
+    var weight:Int
+    var condition:Bool
+    var accountId:Int
+}
+
+struct imageUrl:Decodable {
+    var imageurl:String
 }
