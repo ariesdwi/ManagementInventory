@@ -9,14 +9,16 @@
 import UIKit
 
 
-protocol refreshTable {
-    func refresh(_ sender: Any)
-}
 
-class InventoryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate {
+
+class InventoryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate,reloadDataDelegate, UISearchControllerDelegate, UISearchBarDelegate
+{
     
     @IBOutlet var Navbar: UINavigationItem!
     
+    @IBOutlet var shapeLowOnStock: UIView!
+    @IBOutlet var shapeBestSeller: UIView!
+    @IBOutlet var shapeFav: UIView!
     
     @IBOutlet var tabelView: UITableView!
     
@@ -49,6 +51,29 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         refresControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
         
         self.tabelView.refreshControl = refresControl
+         
+        shapeLowOnStock.layer.cornerRadius = 10
+        shapeLowOnStock.layer.shadowOffset = CGSize(width: 0, height: 8)
+        shapeLowOnStock.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        shapeLowOnStock.layer.shadowOffset = CGSize(width: 0, height: 3)
+        shapeLowOnStock.layer.shadowOpacity = 1.0
+        shapeLowOnStock.layer.shadowRadius = 10.0
+       
+        
+        shapeBestSeller.layer.cornerRadius = 10
+        shapeBestSeller.layer.shadowOffset = CGSize(width: 0, height: 8)
+        shapeBestSeller.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        shapeBestSeller.layer.shadowOffset = CGSize(width: 0, height: 3)
+        shapeBestSeller.layer.shadowOpacity = 1.0
+        shapeBestSeller.layer.shadowRadius = 10.0
+        
+        
+        shapeFav.layer.cornerRadius = 10
+        shapeFav.layer.shadowOffset = CGSize(width: 0, height: 8)
+        shapeFav.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
+        shapeFav.layer.shadowOffset = CGSize(width: 0, height: 3)
+        shapeFav.layer.shadowOpacity = 1.0
+        shapeFav.layer.shadowRadius = 10.0
         
     }
     
@@ -67,21 +92,30 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
     }
         
     override func viewDidAppear(_ animated: Bool) {
-       APIManager.shareInstance.getInventoryProduct{ [weak self] result in
-           switch result {
-           case .failure(let error):
-               print(error)
-           case .success(let produks):
-               self?.listofProduct = produks
-           }
-       }
-        
+        APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let produks):
+                self?.listofProduct = produks
+            }
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let produks):
+                self?.listofProduct = produks
+            }
+        }
     }
     
     func setupNavbar(){
         let searchController = UISearchController(searchResultsController: nil)
-        
-        Navbar.searchController = searchController
+        Navbar.searchController = searchController        
     }
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -110,11 +144,30 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-           
+        
+        
+        let produkDetail = listofProduct[indexPath.row]
+        let vc = storyboard?.instantiateViewController(withIdentifier: "productDetailStory") as! productDetailVC
+        vc.nameProduct = produkDetail.name
+        vc.priceProduct = produkDetail.price
+        vc.qtyProduct = produkDetail.qty
+        vc.descProduct = produkDetail.description
+        vc.colorProduct = produkDetail.variant
+        vc.weightProduct = produkDetail.weight
+        vc.condition = produkDetail.condition
+        vc.id = produkDetail.id
+        
+        self.navigationController?.pushViewController(vc, animated: true)
            //Data untuk performSegue activity to ChallengeOverview
-           self.performSegue(withIdentifier: "segueToDetailProduct", sender: myData[indexPath.row])
+//        self.performSegue(withIdentifier: "segueToDetailProduct", sender: listofProduct[indexPath.row])
 
-       }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        
+         
+      
+    }
     
      func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
      if editingStyle == .delete {
@@ -125,6 +178,53 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
 
         APIManager.shareInstance.deleteProduct(productID: productDetail.id)
      }
+    }
+    
+    
+    @IBAction func addModalVC(_ sender: Any) {
+        let addModalVC = self.storyboard?.instantiateViewController(withIdentifier:"addModalProduct") as? addProductViewController
+        addModalVC?.refreshtable = self
+    }
+    
+    func refreshData() {
+           APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+                    switch result {
+                    case .failure(let error):
+                        print(error)
+                    case .success(let produks):
+                        self?.listofProduct = produks
+                    }
+               }
+           DispatchQueue.main.async {
+               self.tabelView.reloadData()
+           }
+       }
+}
+
+
+extension UIImageView {
+    func downloaded(from url: URL, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        contentMode = mode
+        URLSession.shared.dataTask(with: url) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else { return }
+            DispatchQueue.main.async() { [weak self] in
+                self?.image = image
+            }
+        }.resume()
+    }
+    func downloaded(from link: String, contentMode mode: UIView.ContentMode = .scaleAspectFit) {
+        guard let url = URL(string: link) else { return }
+        downloaded(from: url, contentMode: mode)
+    }
+
+    @IBAction func unwindToInventory(_ unwindSegue: UIStoryboardSegue) {
+        
+        // Use data from the view controller which initiated the unwind segue
     }
 }
 

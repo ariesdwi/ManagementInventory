@@ -189,7 +189,7 @@ class APIManager{
     }
     
     
-    func addProductAPI(addProduct: modelAddProduct){
+    func addProductAPI(addProduct: modelProduct){
            let headers: HTTPHeaders = [
            .contentType("application/json")
            ]
@@ -228,7 +228,47 @@ class APIManager{
         
     }
 
+    func editProduct(editProduct: productDetail) {
+        AF.request("http://128.199.175.160/api/v1/Products/\(editProduct.id)", method: .put, parameters: editProduct ,encoder: JSONParameterEncoder.default, headers: nil).response{
+               response in debugPrint(response)
+               switch response.result{
+                   case .success(let data):
+                       do {
+                           let json =  try JSONSerialization.jsonObject(with: data!, options: [])
+                           print(json)
+                       } catch  {
+                           print(error.localizedDescription)
+                       }
+                   case .failure(let err):
+                       print(err.localizedDescription)
+                   }
+           }
+           
+       }
     
+    /// Order
+    
+
+    
+    func getOrder(completion: @escaping(Result<[modelOrder], Error>) -> Void){
+        
+        let jsonUrlString = "http://128.199.175.160/api/v1/Orders?access_token=\(UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey) ?? "")"
+                
+        guard let url = URL(string: jsonUrlString) else { return }
+
+        URLSession.shared.dataTask(with: url) { (data, response, err) in
+            guard let data = data else { return }
+            do {
+
+                let order:[modelOrder] = try JSONDecoder().decode([modelOrder].self, from: data)
+                completion(.success(order))
+
+            } catch let jsonErr {
+                print("Error serializing json:", jsonErr)
+            }
+        }.resume()
+        
+    }
     
     
 }

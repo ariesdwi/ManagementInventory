@@ -291,6 +291,20 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="InvoiceLabel" destination="Tzx-Sd-MQZ" id="v9P-Fj-1hT"/>
+                <outlet property="channalEcommerceLabel" destination="Gfc-lz-vLA" id="PIt-PT-Q93"/>
+                <outlet property="customerAddressLabel" destination="OUH-Zx-g6r" id="ZjI-Du-10n"/>
+                <outlet property="customerNameLabel" destination="SnG-1F-gD3" id="fLV-tb-n3r"/>
+                <outlet property="customerNotes" destination="W2p-Nr-b7i" id="y1t-io-m66"/>
+                <outlet property="customerPhoneNumberLabel" destination="NN4-oj-WQ0" id="OPj-0y-Lam"/>
+                <outlet property="emailLabel" destination="52W-UC-lEX" id="vnp-KM-lda"/>
+                <outlet property="orderDateLabel" destination="8kv-XG-6tk" id="EYA-vS-HeF"/>
+                <outlet property="shippingNameLabel" destination="egf-Qe-133" id="6yH-ws-IQb"/>
+                <outlet property="statusShipped" destination="5Sj-I8-v0g" id="8CE-d2-AVc"/>
+                <outlet property="totalPriceShipping" destination="8r2-IS-ifY" id="UY2-PR-7Rp"/>
+                <outlet property="trackingNumberLabel" destination="TvA-6T-NI5" id="T0U-09-Uv9"/>
+            </connections>
             <point key="canvasLocation" x="161.59420289855075" y="491.18303571428567"/>
         </tableViewCell>
     </objects>

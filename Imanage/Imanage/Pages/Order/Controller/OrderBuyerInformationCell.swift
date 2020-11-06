@@ -10,6 +10,22 @@ import UIKit
 
 class OrderBuyerInformationCell: UITableViewCell {
 
+    
+    @IBOutlet var InvoiceLabel: UILabel!
+    @IBOutlet var orderDateLabel: UILabel!
+    @IBOutlet var channalEcommerceLabel: UILabel!
+    @IBOutlet var statusShipped: UILabel!
+    @IBOutlet var customerNameLabel: UILabel!
+    @IBOutlet var customerPhoneNumberLabel: UILabel!
+    @IBOutlet var emailLabel: UILabel!
+    @IBOutlet var customerAddressLabel: UILabel!
+    @IBOutlet var customerNotes: UILabel!
+    @IBOutlet var shippingNameLabel: UILabel!
+    @IBOutlet var totalPriceShipping: UILabel!
+    @IBOutlet var trackingNumberLabel: UILabel!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
