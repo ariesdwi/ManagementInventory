@@ -15,6 +15,8 @@ class ChooseOrderVC: UITableViewController {
     let myData = ["First","Second","Third"]
     let price = ["12$","15$","16$","12$","15$","16$"]
     
+    @IBOutlet var nextButton: UIButton!
+    
     var listofProduct = [productDetail]() {
            didSet {
                DispatchQueue.main.async {
@@ -42,6 +44,8 @@ class ChooseOrderVC: UITableViewController {
                        self?.listofProduct = produks
                    }
         }
+        nextButton.widthAnchor.constraint(equalToConstant: 30.0).isActive = true
+        nextButton.heightAnchor.constraint(equalToConstant: 23.0).isActive = true
         
     }
     

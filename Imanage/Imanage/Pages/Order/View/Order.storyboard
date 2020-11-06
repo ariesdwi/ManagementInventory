@@ -58,7 +58,7 @@
                         <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v4b-ag-OHi">
                             <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                             <color key="tintColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <state key="normal" title="Next"/>
@@ -74,6 +74,7 @@
                     <navigationItem key="navigationItem" title="Choose Product" id="Tkj-cM-wLr"/>
                     <connections>
                         <outlet property="Navbar" destination="Tkj-cM-wLr" id="coa-Yf-kSv"/>
+                        <outlet property="nextButton" destination="v4b-ag-OHi" id="7WD-Pf-jI7"/>
                         <outlet property="tableViewCP" destination="5uj-8V-ufj" id="0cm-QD-Hbo"/>
                     </connections>
                 </tableViewController>

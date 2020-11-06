@@ -8,10 +8,26 @@
 
 import UIKit
 
-class orderBuyerCell2: UITableViewCell {
 
+protocol orderBuyerCell2Delegate:AnyObject {
+    func createOrder()
+}
+final class orderBuyerCell2: UITableViewCell {
+    
+    weak var delegate: orderBuyerCell2Delegate?
+    
+    @IBOutlet var paymentTextField: UITextField!
+    @IBOutlet var shippingTextField: UITextField!
+    @IBOutlet var shippingFeeTextField: UITextField!
+    
+    @IBOutlet var shippingTrackingTextField: UITextField!
+    
+    @IBOutlet var createOrderBtn: UIButton!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        createOrderBtn.layer.cornerRadius = 10
         // Initialization code
     }
 
@@ -21,4 +37,11 @@ class orderBuyerCell2: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    
+    @IBAction func createOrder(_ sender: Any) {
+        delegate?.createOrder()
+    }
+    
 }
+
+

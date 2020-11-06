@@ -74,9 +74,12 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RKh-xM-Hlw">
                                 <rect key="frame" x="8" y="310" width="380" height="36"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.54129564760000004" green="0.54086291789999996" blue="0.55686521529999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Create Order"/>
+                                <connections>
+                                    <action selector="createOrder:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GPD-ia-WMh"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Total Price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qa1-fG-btD">
                                 <rect key="frame" x="8" y="1" width="87" height="21"/>
@@ -107,6 +110,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="createOrderBtn" destination="RKh-xM-Hlw" id="ZSs-4a-fRK"/>
+                <outlet property="paymentTextField" destination="spa-em-7hI" id="O3u-sd-skf"/>
+                <outlet property="shippingFeeTextField" destination="7pK-wO-XeY" id="nb0-fZ-6TM"/>
+                <outlet property="shippingTextField" destination="7iw-t0-Uwg" id="S7y-ST-oLj"/>
+                <outlet property="shippingTrackingTextField" destination="ZSb-9F-5Wt" id="2hC-Rj-0dC"/>
+            </connections>
             <point key="canvasLocation" x="227.536231884058" y="52.566964285714285"/>
         </tableViewCell>
     </objects>

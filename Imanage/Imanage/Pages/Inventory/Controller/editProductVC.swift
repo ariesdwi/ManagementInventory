@@ -11,6 +11,7 @@ import UIKit
 class editProductVC: UIViewController {
 
     
+    @IBOutlet var saveProductBtn: UIButton!
     @IBOutlet var nameProduct: UITextField!
     @IBOutlet var descProduct: UITextView!
     @IBOutlet var priceProduct: UITextField!
@@ -42,6 +43,8 @@ class editProductVC: UIViewController {
         } else {
             conditionProduct.text = "Old Product"
         }
+        
+        saveProductBtn.layer.cornerRadius = 10
         
     }
     

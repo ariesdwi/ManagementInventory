@@ -26,6 +26,7 @@ class addProductViewController: UIViewController {
     
     @IBOutlet var newBtn: UIButton!
     @IBOutlet var oldBtn: UIButton!
+    @IBOutlet var addBtnProduct: UIButton!
     
     
     var newProduct = true
@@ -36,8 +37,12 @@ class addProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedOutside()
+
+        addBtnProduct.layer.cornerRadius = 10
+
     }
     
     

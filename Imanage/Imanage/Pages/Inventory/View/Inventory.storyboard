@@ -383,7 +383,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPh-js-gdu">
                                 <rect key="frame" x="20" y="734" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Add Product"/>
                                 <connections>
@@ -428,6 +428,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="f1X-BQ-lHr"/>
                     <connections>
+                        <outlet property="addBtnProduct" destination="WPh-js-gdu" id="OT3-Vf-Dvq"/>
                         <outlet property="colorProduct" destination="Riz-Me-Uho" id="L74-H5-rbY"/>
                         <outlet property="newBtn" destination="dK4-IP-V06" id="jNS-p4-i1W"/>
                         <outlet property="oldBtn" destination="z1y-rp-zoN" id="E7j-xf-8oF"/>
@@ -769,7 +770,7 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma9-Dl-gw6">
                                 <rect key="frame" x="19" y="726" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
@@ -800,6 +801,7 @@
                         <outlet property="descProduct" destination="x8o-Uf-IuR" id="ggh-x3-l1d"/>
                         <outlet property="nameProduct" destination="guq-wJ-X7Q" id="OV3-fH-VDf"/>
                         <outlet property="priceProduct" destination="IuZ-v9-d7k" id="RGZ-Wo-3zb"/>
+                        <outlet property="saveProductBtn" destination="ma9-Dl-gw6" id="ctJ-aT-mnF"/>
                         <outlet property="stockProduct" destination="2is-BD-krd" id="9Kv-0a-wKf"/>
                         <outlet property="weightProduct" destination="zOP-fT-8aa" id="1l4-m3-fzn"/>
                     </connections>
