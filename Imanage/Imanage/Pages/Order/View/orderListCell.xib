@@ -64,6 +64,7 @@
             <connections>
                 <outlet property="orderListName" destination="C5E-vX-CVU" id="IDO-cJ-wcK"/>
                 <outlet property="orderlistImageView" destination="G1n-qI-viz" id="sJS-1z-U0a"/>
+                <outlet property="priceLabel" destination="jgg-iz-iSu" id="8e8-tB-hjp"/>
             </connections>
             <point key="canvasLocation" x="165.21739130434784" y="166.07142857142856"/>
         </tableViewCell>

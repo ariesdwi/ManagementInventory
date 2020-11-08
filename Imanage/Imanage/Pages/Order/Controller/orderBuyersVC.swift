@@ -31,42 +31,63 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var productsId = 0
     var accountId = 0
     
+    
+    
+    
     @IBOutlet var orderTableView: UITableView!
+    
+    var listofProduct = [productDetail]() {
+        didSet {
+            DispatchQueue.main.async {
+                self.orderTableView.reloadData()
+            }
+        }
+    }
    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         let nib = UINib(nibName: "orderBuyerCell", bundle: nil )
         let nib2 = UINib(nibName: "orderListCell", bundle: nil )
         let nib3 = UINib(nibName: "orderBuyerCell2", bundle: nil )
+        let nib4 = UINib(nibName: "EmptyCell", bundle: nil )
         
         orderTableView.register(nib, forCellReuseIdentifier: "orderBuyerCell")
         orderTableView.register(nib2, forCellReuseIdentifier: "orderListCell")
         orderTableView.register(nib3, forCellReuseIdentifier: "orderBuyerCell2")
+        orderTableView.register(nib4, forCellReuseIdentifier: "EmptyCell")
         
         orderTableView.delegate = self
         orderTableView.dataSource = self
         // Do any additional setup after loading the view.
+        
+        APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let produks):
+                self?.listofProduct = produks
+            }
+        }
     }
     
-
+     func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 3
+    }
     
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return myData.count
+        return listofProduct.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cellIdentifier = "orderListCell"
-        guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderListCell else {
-            fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+        guard let cell = orderTableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell else {
+                   fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        cell.orderListName.text = myData[indexPath.row]
-        cell.orderlistImageView.backgroundColor = .red
-        
-        
-        if indexPath.row < 1 {
+        if indexPath.section == 0 && indexPath.row < 1 {
             let cellIdentifier = "orderBuyerCell"
             guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderBuyerCell else {
                 fatalError("The dequeued cell is not an instance of MealTableViewCell.")
@@ -81,8 +102,25 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             return cell
         }
         
+        if indexPath.section == 1 {
+            let cellIdentifier = "orderListCell"
+            guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderListCell else {
+                fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            }
+            
+            let produkDetail = listofProduct[indexPath.row]
+            let quantity = "\(produkDetail.qty)"
+            let price = "\(produkDetail.price)"
+                       
+            cell.orderListName.text = produkDetail.name
+            cell.priceLabel.text = price
+            cell.orderlistImageView.backgroundColor = .red
+            
+            return cell
+        }
         
-        if indexPath.row == myData.count - 1 {
+        
+        if indexPath.section == 2 && indexPath.row == 0 {
             let cellIdentifier = "orderBuyerCell2"
             guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderBuyerCell2 else {
                 fatalError("The dequeued cell is not an instance of MealTableViewCell.")

@@ -12,6 +12,8 @@ class orderListCell: UITableViewCell {
 
     @IBOutlet var orderlistImageView: UIImageView!
     @IBOutlet var orderListName: UILabel!
+    @IBOutlet var priceLabel: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

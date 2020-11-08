@@ -107,8 +107,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="36f-3D-wmL"/>
                     <connections>
+                        <outlet property="createAccount" destination="YOL-sj-hMq" id="vMu-r1-jfO"/>
                         <outlet property="emailField" destination="Ib3-Cj-dlD" id="Z7v-fr-YQk"/>
                         <outlet property="passwordField" destination="byn-pK-yLv" id="xQB-io-KDx"/>
+                        <outlet property="singInBtn" destination="50q-X4-fws" id="GuQ-hJ-hrf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mue-TV-5Ge" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -367,6 +369,8 @@
                         <outlet property="nameTF" destination="g8d-QT-KIL" id="iva-MR-hbw"/>
                         <outlet property="passTF" destination="zNW-2w-sDJ" id="O0U-up-etB"/>
                         <outlet property="phoneNumber" destination="BFO-Wy-ls2" id="I4f-7y-5jI"/>
+                        <outlet property="signInBtn" destination="Ach-MP-WEy" id="4kg-wU-3rK"/>
+                        <outlet property="signUpBtn" destination="GdQ-an-TGm" id="OTD-Bg-gIc"/>
                         <outlet property="storeNameTF" destination="e4A-py-shn" id="FJm-LA-BiH"/>
                     </connections>
                 </viewController>
@@ -375,9 +379,6 @@
             <point key="canvasLocation" x="-1359" y="-1264"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="myR-jN-XoH"/>
-    </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.18823529410000001" green="0.2784313725" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="logo_produku" width="2334" height="1200"/>

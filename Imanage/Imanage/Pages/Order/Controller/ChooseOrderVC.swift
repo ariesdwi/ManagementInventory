@@ -85,18 +85,6 @@ class ChooseOrderVC: UITableViewController {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        if indexPath.section == 1 && indexPath.row == 0   {
-            let cellIdentifier = "buttonNextCell"
-            guard let cell = tableViewCP.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? buttonNextCell else {
-                fatalError("The dequeued cell is not an instance of MealTableViewCell.")
-            }
-            
-            cell.delegateChooseOrder = self
-            
-            return cell
-        }
-        
-        
         if indexPath.section == 0 {
             let cellIdentifier = "ChooseOrderCell"
             guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ChooseOrderCell else {
@@ -113,6 +101,18 @@ class ChooseOrderVC: UITableViewController {
             cell.productImageView.backgroundColor = .red
             return cell
         }
+        
+        if indexPath.section == 1 && indexPath.row == 0   {
+            let cellIdentifier = "buttonNextCell"
+            guard let cell = tableViewCP.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? buttonNextCell else {
+                fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            }
+            
+            cell.delegateChooseOrder = self
+            
+            return cell
+        }
+        
         
         return cell
     }
