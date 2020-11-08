@@ -60,6 +60,7 @@
 		BF6CC67025428B9900D634EF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CC66F25428B9900D634EF /* ProfileVC.swift */; };
 		BF6CC67425428BAF00D634EF /* LoginEcommerceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CC67325428BAF00D634EF /* LoginEcommerceVC.swift */; };
 		BF6CC6782547EB6300D634EF /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CC6772547EB6300D634EF /* SettingVC.swift */; };
+		BFF37C2B2557D59200B17890 /* Introduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFF37C2A2557D59100B17890 /* Introduction.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -121,6 +122,7 @@
 		BF6CC66F25428B9900D634EF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BF6CC67325428BAF00D634EF /* LoginEcommerceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEcommerceVC.swift; sourceTree = "<group>"; };
 		BF6CC6772547EB6300D634EF /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		BFF37C2A2557D59100B17890 /* Introduction.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Introduction.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,6 +281,7 @@
 			isa = PBXGroup;
 			children = (
 				6C8D2B43252D5CE7007B85DC /* Onboarding.storyboard */,
+				BFF37C2A2557D59100B17890 /* Introduction.storyboard */,
 			);
 			path = VIew;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 			files = (
 				6C8D2B06252AC570007B85DC /* LaunchScreen.storyboard in Resources */,
 				6CF436F525472435006F010D /* OrderBuyerInformationCell.xib in Resources */,
+				BFF37C2B2557D59200B17890 /* Introduction.storyboard in Resources */,
 				6C8D2B03252AC570007B85DC /* Assets.xcassets in Resources */,
 				6C8D2B7F253D2F6F007B85DC /* Profile.storyboard in Resources */,
 				6CA03B642540B7030055A29C /* ChooseOrderCell.xib in Resources */,
