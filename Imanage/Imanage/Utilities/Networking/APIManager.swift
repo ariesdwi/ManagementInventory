@@ -24,6 +24,8 @@ class APIManager{
     //key for UserDefaults
     let userTokenKey = "apiToken"
     let accIdKey = "apiAccountId"
+    let userEmail = "userSavedEmail"
+    
      
     
     func callingRegisterAPI(registerModel: ModelRegister, completionHandler:@escaping (Bool, String)->() )
@@ -84,6 +86,7 @@ class APIManager{
                             //set data ke userDefaults
                             UserDefaults.standard.set(valueToken, forKey: self.userTokenKey)
                             UserDefaults.standard.set(valueAccId, forKey: self.accIdKey)
+                            UserDefaults.standard.set(login.email, forKey: self.userEmail)
                             completionHandler(true, "Login Success")
                             /*//example
                              {
@@ -210,10 +213,10 @@ class APIManager{
                        print(err.localizedDescription)
                    }
            }
-       }
+    }
     
     func deleteProduct(productID: Int) {
-        AF.request("http://104.248.98.179/api/v1/Products/\(productID)", method: .delete, parameters: productID ,encoder: JSONParameterEncoder.default, headers: nil).response{
+        AF.request("http://104.248.98.179/api/v1/Products/\(productID)", method: .delete, parameters: productID, encoder: JSONParameterEncoder.default, headers: nil).response{
             response in debugPrint(response)
             switch response.result{
                 case .success(let data):
@@ -230,6 +233,7 @@ class APIManager{
         
     }
 
+    
     func editProduct(editProduct: productDetail) {
         AF.request("http://128.199.175.160/api/v1/Products/\(editProduct.id)", method: .put, parameters: editProduct ,encoder: JSONParameterEncoder.default, headers: nil).response{
                response in debugPrint(response)
@@ -271,6 +275,34 @@ class APIManager{
         }.resume()
         
     }
+
+
+	func getProfile()
+    {
+        let headers: HTTPHeaders = [
+        .contentType("application/json")
+        ]
+        let tokenKey = UserDefaults.standard.string(forKey: self.userTokenKey) ?? ""
+        
+        //AF.request("http://104.248.98.179/api/v1/Accounts", method: .get, parameters: params, encoder: JSONParameterEncoder.default, headers: headers)
+        AF.request("http://104.248.98.179/api/v1/Accounts?access_token=\(tokenKey)", method: .get, headers: headers).response{
+            response in debugPrint(response)
+            switch response.result{
+                case .success(let data):
+                    do {
+                        let json =  try JSONSerialization.jsonObject(with: data!, options: [])
+                        print(json)
+                    } catch  {
+                        print(error.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+        }
+    }
+    
+    
+     
     
     func addOrderAPI(addOrder: addOrders){
         let headers: HTTPHeaders = [

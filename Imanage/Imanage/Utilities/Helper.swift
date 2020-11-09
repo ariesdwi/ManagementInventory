@@ -10,7 +10,6 @@ import Foundation
 import UIKit
 
 
-
 class FontHelper {
     public static func getCompactRoundedFont(fontSize : CGFloat, fontWeight : UIFont.Weight) -> UIFont
     {
