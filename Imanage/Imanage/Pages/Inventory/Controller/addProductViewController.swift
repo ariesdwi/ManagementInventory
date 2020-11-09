@@ -8,14 +8,10 @@
 
 import UIKit
 
-protocol reloadDataDelegate {
-    func refreshData()
-}
+
 
 class addProductViewController: UIViewController {
    
-    var refreshtable:reloadDataDelegate?
-
     @IBOutlet var productName: UITextField!
     @IBOutlet var productDescription: UITextField!
     @IBOutlet var price: UITextField!
@@ -105,8 +101,8 @@ class addProductViewController: UIViewController {
         
         APIManager.shareInstance.addProductAPI(addProduct: addProduct)
 //        refreshtable.refreshT(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, accountId: accountID)
-        refreshtable?.refreshData()
-        dismiss(animated: true, completion: nil)
+       
+       
     }
     
     

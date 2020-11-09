@@ -48,6 +48,8 @@ class productDetailVC: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    
+    
 
     
   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -68,6 +70,12 @@ class productDetailVC: UIViewController {
     
    @IBAction func unwindToDetail(_ unwindSegue: UIStoryboardSegue) {
        
+     nameProductLabel.text = nameProduct
+     descProductLabel.text = descProduct
+     priceProductLabel.text = String(priceProduct)
+     qtyProductLabel.text = String(qtyProduct)
+     colorProductLabel.text = colorProduct
+     weightProductLabel.text = String(weightProduct)
        // Use data from the view controller which initiated the unwind segue
    }
     

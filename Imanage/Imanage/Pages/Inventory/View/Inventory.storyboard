@@ -395,6 +395,7 @@
                                 <state key="normal" title="Add Product"/>
                                 <connections>
                                     <action selector="addactionProduct:" destination="HaG-Yi-5Sa" eventType="touchUpInside" id="4WL-bH-xbZ"/>
+                                    <segue destination="oCk-rf-DtM" kind="unwind" unwindAction="unwindToInventory:" id="B3d-Hh-h0l"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK4-IP-V06">
@@ -448,6 +449,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rki-Qq-rMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="oCk-rf-DtM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1153.6231884057972" y="-485.49107142857139"/>
         </scene>
@@ -783,7 +785,7 @@
                                 <connections>
                                     <action selector="addactionProduct:" destination="HaG-Yi-5Sa" eventType="touchUpInside" id="Ti8-iS-c1L"/>
                                     <action selector="saveButton:" destination="gJ6-66-T8e" eventType="touchUpInside" id="8tx-X1-apR"/>
-                                    <segue destination="VUR-MS-N0Q" kind="unwind" unwindAction="unwindToDetail:" id="Pgw-e7-8f9"/>
+                                    <segue destination="VUR-MS-N0Q" kind="unwind" unwindAction="unwindToDetail:" id="lZv-wb-Nwa"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="x8o-Uf-IuR">
