@@ -111,9 +111,16 @@ class IntroductionCVC: UICollectionViewController, UICollectionViewDelegateFlowL
         
     @IBAction func actionButton(_ sender: UIButton) {
         //prepare segue
-        
+        performSegue(withIdentifier: "goToLoginSegue", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToLoginSegue"
+        {
+            guard let vc = segue.destination as? LoginVC else { return }
+            
+        }
+    }
 
     // MARK: UICollectionViewDelegate
 
