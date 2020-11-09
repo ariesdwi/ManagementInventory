@@ -38,7 +38,7 @@
                                                         <rect key="frame" x="39" y="35" width="30" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                        <state key="normal" title="10">
+                                                        <state key="normal" title="0">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
@@ -63,7 +63,7 @@
                                                         <rect key="frame" x="40" y="37" width="30" height="38"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="21"/>
-                                                        <state key="normal" title="10">
+                                                        <state key="normal" title="0">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
@@ -88,7 +88,7 @@
                                                         <rect key="frame" x="45" y="37" width="30" height="36"/>
                                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
-                                                        <state key="normal" title="10">
+                                                        <state key="normal" title="0">
                                                             <color key="titleColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
@@ -126,6 +126,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Inventory" largeTitleDisplayMode="always" id="KzA-Zw-dQa">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="mcC-6l-SFH">
+                            <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="addModalVC:" destination="9Qm-54-h7D" id="ulV-lG-UBQ"/>
                                 <segue destination="HaG-Yi-5Sa" kind="presentation" id="dLP-oO-HOv"/>
@@ -201,12 +202,18 @@
         <scene sceneID="TrS-uL-I7X">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Ot-71-W2G" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Inventory" image="cube.fill" catalog="system" id="Z1x-7N-pZJ"/>
+                    <tabBarItem key="tabBarItem" title="Inventory" image="cube.fill" catalog="system" id="Z1x-7N-pZJ">
+                        <color key="badgeColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <navigationBar key="navigationBar" autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="2Z1-D9-Dao">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -383,11 +390,12 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPh-js-gdu">
                                 <rect key="frame" x="20" y="734" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Add Product"/>
                                 <connections>
                                     <action selector="addactionProduct:" destination="HaG-Yi-5Sa" eventType="touchUpInside" id="4WL-bH-xbZ"/>
+                                    <segue destination="oCk-rf-DtM" kind="unwind" unwindAction="unwindToInventory:" id="B3d-Hh-h0l"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dK4-IP-V06">
@@ -428,6 +436,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="f1X-BQ-lHr"/>
                     <connections>
+                        <outlet property="addBtnProduct" destination="WPh-js-gdu" id="OT3-Vf-Dvq"/>
                         <outlet property="colorProduct" destination="Riz-Me-Uho" id="L74-H5-rbY"/>
                         <outlet property="newBtn" destination="dK4-IP-V06" id="jNS-p4-i1W"/>
                         <outlet property="oldBtn" destination="z1y-rp-zoN" id="E7j-xf-8oF"/>
@@ -440,6 +449,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Rki-Qq-rMH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="oCk-rf-DtM" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="1153.6231884057972" y="-485.49107142857139"/>
         </scene>
@@ -769,13 +779,13 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ma9-Dl-gw6">
                                 <rect key="frame" x="19" y="726" width="375" height="40"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" systemColor="systemGrayColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="addactionProduct:" destination="HaG-Yi-5Sa" eventType="touchUpInside" id="Ti8-iS-c1L"/>
                                     <action selector="saveButton:" destination="gJ6-66-T8e" eventType="touchUpInside" id="8tx-X1-apR"/>
-                                    <segue destination="VUR-MS-N0Q" kind="unwind" unwindAction="unwindToDetail:" id="Pgw-e7-8f9"/>
+                                    <segue destination="VUR-MS-N0Q" kind="unwind" unwindAction="unwindToDetail:" id="lZv-wb-Nwa"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="x8o-Uf-IuR">
@@ -800,6 +810,7 @@
                         <outlet property="descProduct" destination="x8o-Uf-IuR" id="ggh-x3-l1d"/>
                         <outlet property="nameProduct" destination="guq-wJ-X7Q" id="OV3-fH-VDf"/>
                         <outlet property="priceProduct" destination="IuZ-v9-d7k" id="RGZ-Wo-3zb"/>
+                        <outlet property="saveProductBtn" destination="ma9-Dl-gw6" id="ctJ-aT-mnF"/>
                         <outlet property="stockProduct" destination="2is-BD-krd" id="9Kv-0a-wKf"/>
                         <outlet property="weightProduct" destination="zOP-fT-8aa" id="1l4-m3-fzn"/>
                     </connections>
@@ -813,6 +824,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="dLP-oO-HOv"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.18823529410000001" green="0.2784313725" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="circle" catalog="system" width="128" height="121"/>

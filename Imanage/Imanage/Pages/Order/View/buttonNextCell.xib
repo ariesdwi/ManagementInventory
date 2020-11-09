@@ -11,16 +11,22 @@
         <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="buttonNextCell" rowHeight="110" id="H1z-yK-jIS" customClass="buttonNextCell" customModule="Imanage" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="543" height="110"/>
             <autoresizingMask key="autoresizingMask"/>
-            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H1z-yK-jIS" id="0V0-G7-x49">
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="H1z-yK-jIS" id="0V0-G7-x49">
                 <rect key="frame" x="0.0" y="0.0" width="543" height="110"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6z-3I-oKT">
-                        <rect key="frame" x="10" y="10" width="523" height="90"/>
-                        <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <rect key="frame" x="10" y="10" width="523" height="45"/>
+                        <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="45" id="ygH-Y2-lhj"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <state key="normal" title="Next"/>
+                        <connections>
+                            <action selector="chooseOrder:" destination="H1z-yK-jIS" eventType="touchUpInside" id="M5c-vO-Bbq"/>
+                        </connections>
                     </button>
                 </subviews>
                 <constraints>
@@ -30,6 +36,9 @@
                     <constraint firstItem="g6z-3I-oKT" firstAttribute="top" secondItem="0V0-G7-x49" secondAttribute="top" constant="10" id="Yuy-XB-Mnj"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="nextButton" destination="g6z-3I-oKT" id="Hep-AY-1QG"/>
+            </connections>
             <point key="canvasLocation" x="-813.768115942029" y="-3.3482142857142856"/>
         </tableViewCell>
     </objects>

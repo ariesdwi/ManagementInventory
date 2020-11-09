@@ -12,10 +12,15 @@ class LoginVC: UIViewController {
 
     @IBOutlet var emailField: UITextField!
     @IBOutlet var passwordField: UITextField!
+    @IBOutlet var singInBtn: UIButton!
+    @IBOutlet var createAccount: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        singInBtn.layer.cornerRadius = 10
+        createAccount.layer.cornerRadius = 10
+        
+        
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedOutside()
     }

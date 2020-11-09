@@ -146,6 +146,19 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
            self.navigationController?.pushViewController(vc, animated: true)
     }
     
+    
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+     if editingStyle == .delete {
+        let orderDetail = listofOrder.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+        
+        print("id number \(orderDetail.id)")
+
+        APIManager.shareInstance.deleteOrder(orderID: orderDetail.id)
+     }
+    }
+    
+  @IBAction func unwindToOrder(_ unwindSegue: UIStoryboardSegue) { }
 }
     
 extension ViewController: UISearchBarDelegate {

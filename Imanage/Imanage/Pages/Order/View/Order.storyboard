@@ -29,10 +29,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="7L1-A7-mBS"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Order" id="W5B-Eo-AS3">
+                    <navigationItem key="navigationItem" title="Order" largeTitleDisplayMode="always" id="W5B-Eo-AS3">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="m04-lu-Xmi">
+                            <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="ibd-Pd-Svx" kind="push" id="RHu-kH-Cl8"/>
+                                <segue destination="8dZ-AV-YgQ" kind="modal" modalPresentationStyle="fullScreen" id="RHu-kH-Cl8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -55,31 +56,31 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <button key="tableFooterView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="v4b-ag-OHi">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <color key="backgroundColor" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                            <color key="tintColor" systemColor="tertiarySystemGroupedBackgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            <state key="normal" title="Next"/>
-                            <connections>
-                                <segue destination="PUF-mY-yOQ" kind="show" id="5yM-FG-DDM"/>
-                            </connections>
-                        </button>
                         <connections>
                             <outlet property="dataSource" destination="ibd-Pd-Svx" id="VqY-vf-cTF"/>
                             <outlet property="delegate" destination="ibd-Pd-Svx" id="Rut-Zd-auW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Product" id="Tkj-cM-wLr"/>
+                    <navigationItem key="navigationItem" title="Choose Product" leftItemsSupplementBackButton="YES" id="Tkj-cM-wLr">
+                        <barButtonItem key="backBarButtonItem" title="back" id="vZK-O4-fjj"/>
+                        <barButtonItem key="leftBarButtonItem" title="back" image="chevron.left" catalog="system" id="ClT-07-vva">
+                            <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <action selector="backToOrder:" destination="ibd-Pd-Svx" id="iXv-ra-NS7"/>
+                                <segue destination="3Yn-Ng-M7E" kind="unwind" unwindAction="unwindToOrder:" id="X6b-Mc-h2n"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="Navbar" destination="Tkj-cM-wLr" id="coa-Yf-kSv"/>
                         <outlet property="tableViewCP" destination="5uj-8V-ufj" id="0cm-QD-Hbo"/>
+                        <segue destination="PUF-mY-yOQ" kind="show" identifier="segueOrderBuyer" id="M3t-I3-JgB"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVl-Me-e3G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="3Yn-Ng-M7E" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1358" y="-149"/>
+            <point key="canvasLocation" x="2268.1159420289855" y="-149.33035714285714"/>
         </scene>
         <!--Order BuyersVC-->
         <scene sceneID="Qpt-Mj-DLc">
@@ -180,9 +181,32 @@
             </objects>
             <point key="canvasLocation" x="2951" y="-1088"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="lbA-dN-2HS">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="8dZ-AV-YgQ" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationItem key="navigationItem" id="aJq-Ql-mIE">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="4du-gw-hq4"/>
+                    </navigationItem>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="lpw-19-wtz">
+                        <rect key="frame" x="0.0" y="44" width="414" height="96"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="ibd-Pd-Svx" kind="relationship" relationship="rootViewController" id="jSk-N9-FH2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vEc-0U-PQN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1346" y="-149"/>
+        </scene>
     </scenes>
+    <color key="tintColor" red="0.18823529410000001" green="0.2784313725" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
+        <image name="chevron.left" catalog="system" width="96" height="128"/>
         <image name="plus" catalog="system" width="128" height="113"/>
     </resources>
 </document>

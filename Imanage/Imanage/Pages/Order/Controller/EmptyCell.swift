@@ -1,19 +1,15 @@
 //
-//  orderListCell.swift
+//  EmptyCell.swift
 //  Imanage
 //
-//  Created by Aries Dwi Prasetiyo on 26/10/20.
+//  Created by Aries Dwi Prasetiyo on 06/11/20.
 //  Copyright © 2020 Aries Dwi Prasetiyo. All rights reserved.
 //
 
 import UIKit
 
-class orderListCell: UITableViewCell {
+class EmptyCell: UITableViewCell {
 
-    @IBOutlet var orderlistImageView: UIImageView!
-    @IBOutlet var orderListName: UILabel!
-    @IBOutlet var priceLabel: UILabel!
-    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

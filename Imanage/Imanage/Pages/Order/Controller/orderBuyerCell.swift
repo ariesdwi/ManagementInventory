@@ -10,6 +10,14 @@ import UIKit
 
 class orderBuyerCell: UITableViewCell {
 
+    
+    @IBOutlet var orderDateLabel: UITextField!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var phoneNumberTextField: UITextField!
+    @IBOutlet var addressTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

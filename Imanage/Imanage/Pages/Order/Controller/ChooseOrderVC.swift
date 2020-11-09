@@ -15,6 +15,8 @@ class ChooseOrderVC: UITableViewController {
     let myData = ["First","Second","Third"]
     let price = ["12$","15$","16$","12$","15$","16$"]
     
+   
+    
     var listofProduct = [productDetail]() {
            didSet {
                DispatchQueue.main.async {
@@ -30,9 +32,11 @@ class ChooseOrderVC: UITableViewController {
 
         let nib = UINib(nibName: "ChooseOrderCell", bundle: nil )
         let nib2 = UINib(nibName: "buttonNextCell", bundle: nil )
+        let nib3 = UINib(nibName: "EmptyCell", bundle: nil )
         
         tableViewCP.register(nib, forCellReuseIdentifier: "ChooseOrderCell")
         tableViewCP.register(nib2, forCellReuseIdentifier: "buttonNextCell")
+        tableViewCP.register(nib3, forCellReuseIdentifier: "EmptyCell")
        
         APIManager.shareInstance.getInventoryProduct{ [weak self] result in
                    switch result {
@@ -42,6 +46,7 @@ class ChooseOrderVC: UITableViewController {
                        self?.listofProduct = produks
                    }
         }
+       
         
     }
     
@@ -56,13 +61,16 @@ class ChooseOrderVC: UITableViewController {
            }
        }
     
-
+    @IBAction func backToOrder(_ sender: Any) {
+        
+    }
+    
     // MARK: - Table view data source
 
-//    override func numberOfSections(in tableView: UITableView) -> Int {
-//        // #warning Incomplete implementation, return the number of sections
-//        return 1
-//    }
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 2
+    }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -71,67 +79,49 @@ class ChooseOrderVC: UITableViewController {
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cellIdentifier = "ChooseOrderCell"
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ChooseOrderCell else {
+        
+        
+        guard let cell = tableViewCP.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
-        let produkDetail = listofProduct[indexPath.row]
-        let quantity = "\(produkDetail.qty)"
+        if indexPath.section == 0 {
+            let cellIdentifier = "ChooseOrderCell"
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ChooseOrderCell else {
+                fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            }
+            
+            let produkDetail = listofProduct[indexPath.row]
+            let quantity = "\(produkDetail.qty)"
+            
+            let price = "\(produkDetail.price)"
+            
+            cell.productNameLabel.text = produkDetail.name
+            cell.priceLabel.text = price
+            cell.productImageView.backgroundColor = .red
+            return cell
+        }
         
-        let price = "\(produkDetail.price)"
+        if indexPath.section == 1 && indexPath.row == 0   {
+            let cellIdentifier = "buttonNextCell"
+            guard let cell = tableViewCP.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? buttonNextCell else {
+                fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            }
+            
+            cell.delegateChooseOrder = self
+            
+            return cell
+        }
         
-        cell.productNameLabel.text = produkDetail.name
-        cell.priceLabel.text = price
-        cell.productImageView.backgroundColor = .red
+        
         return cell
     }
     
-   
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+}
+
+extension ChooseOrderVC: buttonNextCellDelegate {
+    func chooseOrder() {
+        performSegue(withIdentifier: "segueOrderBuyer", sender: (Any).self)
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
-    }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

@@ -8,14 +8,10 @@
 
 import UIKit
 
-protocol reloadDataDelegate {
-    func refreshData()
-}
+
 
 class addProductViewController: UIViewController {
    
-    var refreshtable:reloadDataDelegate?
-
     @IBOutlet var productName: UITextField!
     @IBOutlet var productDescription: UITextField!
     @IBOutlet var price: UITextField!
@@ -26,6 +22,7 @@ class addProductViewController: UIViewController {
     
     @IBOutlet var newBtn: UIButton!
     @IBOutlet var oldBtn: UIButton!
+    @IBOutlet var addBtnProduct: UIButton!
     
     
     var newProduct = true
@@ -36,8 +33,12 @@ class addProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedOutside()
+
+        addBtnProduct.layer.cornerRadius = 10
+
     }
     
     
@@ -100,8 +101,8 @@ class addProductViewController: UIViewController {
         
         APIManager.shareInstance.addProductAPI(addProduct: addProduct)
 //        refreshtable.refreshT(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, accountId: accountID)
-        refreshtable?.refreshData()
-        dismiss(animated: true, completion: nil)
+       
+       
     }
     
     

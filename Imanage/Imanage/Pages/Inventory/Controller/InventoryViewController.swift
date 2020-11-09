@@ -11,7 +11,7 @@ import UIKit
 
 
 
-class InventoryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate,reloadDataDelegate, UISearchControllerDelegate, UISearchBarDelegate
+class InventoryViewController: UIViewController, UITableViewDataSource,UITableViewDelegate, UISearchControllerDelegate, UISearchBarDelegate
 {
     
     @IBOutlet var Navbar: UINavigationItem!
@@ -75,6 +75,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         shapeFav.layer.shadowOpacity = 1.0
         shapeFav.layer.shadowRadius = 10.0
         
+        
     }
     
     @objc func refresh(_ sender: Any){
@@ -111,6 +112,8 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
                 self?.listofProduct = produks
             }
         }
+        
+        
     }
     
     func setupNavbar(){
@@ -130,6 +133,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
         
+     
         let produkDetail = listofProduct[indexPath.row]
         let quantity = "\(produkDetail.qty)"
         
@@ -182,23 +186,24 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
     
     
     @IBAction func addModalVC(_ sender: Any) {
-        let addModalVC = self.storyboard?.instantiateViewController(withIdentifier:"addModalProduct") as? addProductViewController
-        addModalVC?.refreshtable = self
+       
     }
     
-    func refreshData() {
-           APIManager.shareInstance.getInventoryProduct{ [weak self] result in
-                    switch result {
-                    case .failure(let error):
-                        print(error)
-                    case .success(let produks):
-                        self?.listofProduct = produks
-                    }
-               }
-           DispatchQueue.main.async {
-               self.tabelView.reloadData()
-           }
-       }
+    @IBAction func unwindToInventory(_ unwindSegue: UIStoryboardSegue) {
+        APIManager.shareInstance.getInventoryProduct{ [weak self] result in
+            switch result {
+            case .failure(let error):
+                print(error)
+            case .success(let produks):
+                self?.listofProduct = produks
+            }
+        }
+        DispatchQueue.main.async {
+            self.tabelView.refreshControl?.endRefreshing()
+        }
+           // Use data from the view controller which initiated the unwind segue
+    }
+    
 }
 
 
@@ -222,10 +227,7 @@ extension UIImageView {
         downloaded(from: url, contentMode: mode)
     }
 
-    @IBAction func unwindToInventory(_ unwindSegue: UIStoryboardSegue) {
-        
-        // Use data from the view controller which initiated the unwind segue
-    }
+   
 }
 
 
