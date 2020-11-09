@@ -18,6 +18,7 @@ class productDetailVC: UIViewController {
     @IBOutlet var weightProductLabel: UILabel!
     @IBOutlet var conditionProduct: UILabel!
     
+    @IBOutlet var navbarTop: UIView!
     var nameProduct = ""
     var descProduct = ""
     var priceProduct = 0
@@ -26,12 +27,14 @@ class productDetailVC: UIViewController {
     var weightProduct = 0
     var condition = true
     var id = 0
+    @IBOutlet var NavbarOrder: UINavigationItem!
     
     var detailofProduct = [productDetail]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-
+        
+        
         nameProductLabel.text = nameProduct
         descProductLabel.text = descProduct
         priceProductLabel.text = String(priceProduct)
@@ -47,6 +50,8 @@ class productDetailVC: UIViewController {
         
         // Do any additional setup after loading the view.
     }
+    
+    
     
 
     
@@ -68,6 +73,12 @@ class productDetailVC: UIViewController {
     
    @IBAction func unwindToDetail(_ unwindSegue: UIStoryboardSegue) {
        
+     nameProductLabel.text = nameProduct
+     descProductLabel.text = descProduct
+     priceProductLabel.text = String(priceProduct)
+     qtyProductLabel.text = String(qtyProduct)
+     colorProductLabel.text = colorProduct
+     weightProductLabel.text = String(weightProduct)
        // Use data from the view controller which initiated the unwind segue
    }
     

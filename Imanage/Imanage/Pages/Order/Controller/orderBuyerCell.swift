@@ -8,10 +8,27 @@
 
 import UIKit
 
-class orderBuyerCell: UITableViewCell {
+protocol FieldStyle1Delegate {
+    func textChange(text: String, tag: NSInteger)
+}
 
+class orderBuyerCell: UITableViewCell, UITextFieldDelegate {
+
+    
+    @IBOutlet var orderDateLabel: UITextField!
+    @IBOutlet var nameTextField: UITextField!
+    @IBOutlet var phoneNumberTextField: UITextField!
+    @IBOutlet var addressTextField: UITextField!
+    @IBOutlet var emailTextField: UITextField!
+
+    var delegate: FieldStyle1Delegate?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        
+        nameTextField.delegate = self
+        nameTextField.tag = 0
+        
         // Initialization code
     }
 

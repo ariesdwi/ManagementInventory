@@ -17,11 +17,13 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var passTF: UITextField!
     @IBOutlet weak var confirmPassTF: UITextField!
     
-
-        
+    @IBOutlet var signUpBtn: UIButton!
+    @IBOutlet var signInBtn: UIButton!
+    
         override func viewDidLoad() {
             super.viewDidLoad()
-
+            signUpBtn.layer.cornerRadius = 10
+            signInBtn.layer.cornerRadius = 10
             // Do any additional setup after loading the view.
             self.hideKeyboardWhenTappedOutside()
         }

@@ -13,6 +13,8 @@ let baseUrl     = "http://104.248.98.179/api/v1"
 let loginUrl    = "\(baseUrl)/Accounts/login"
 let registerUrl = "\(baseUrl)/Accounts"
 let addproductUrl = "http://128.199.175.160/api/v1/Products"
+let addorderUrl = "http://128.199.175.160/api/v1/Orders?"
+
 
 
 
@@ -302,5 +304,43 @@ class APIManager{
     
      
     
+    func addOrderAPI(addOrder: addOrders){
+        let headers: HTTPHeaders = [
+        .contentType("application/json")
+        ]
+        
+        AF.request(addorderUrl, method: .post, parameters: addOrder ,encoder: JSONParameterEncoder.default, headers: headers).response{
+            response in debugPrint(response)
+            switch response.result{
+                case .success(let data):
+                    do {
+                        let json =  try JSONSerialization.jsonObject(with: data!, options: [])
+                        print(json)
+                    } catch  {
+                        print(error.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+        }
+    }
+    
+    func deleteOrder(orderID: Int) {
+           AF.request("http://128.199.175.160/api/v1/Orders/\(orderID)", method: .delete, parameters: orderID ,encoder: JSONParameterEncoder.default, headers: nil).response{
+               response in debugPrint(response)
+               switch response.result{
+                   case .success(let data):
+                       do {
+                           let json =  try JSONSerialization.jsonObject(with: data!, options: [])
+                           print(json)
+                       } catch  {
+                           print(error.localizedDescription)
+                       }
+                   case .failure(let err):
+                       print(err.localizedDescription)
+                   }
+           }
+           
+       }
     
 }

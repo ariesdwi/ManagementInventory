@@ -8,7 +8,7 @@
 
 import UIKit
 
-class LowOnStockTableVC: UITableViewController {
+class LowOnStockTableVC: UITableViewController{
 
     @IBOutlet var Navbar: UINavigationItem!
        

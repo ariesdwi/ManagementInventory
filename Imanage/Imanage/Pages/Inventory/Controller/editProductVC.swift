@@ -11,6 +11,7 @@ import UIKit
 class editProductVC: UIViewController {
 
     
+    @IBOutlet var saveProductBtn: UIButton!
     @IBOutlet var nameProduct: UITextField!
     @IBOutlet var descProduct: UITextView!
     @IBOutlet var priceProduct: UITextField!
@@ -43,6 +44,8 @@ class editProductVC: UIViewController {
             conditionProduct.text = "Old Product"
         }
         
+        saveProductBtn.layer.cornerRadius = 10
+        
     }
     
 
@@ -60,12 +63,17 @@ class editProductVC: UIViewController {
        let updateProduct = productDetail(name: editnames, qty:editqtyProduct , price: editpriceProduct, id: id, description: editdescProduct, variant: editcolorProduct, weight: editweightProduct, condition: editcondition, accountId: accountID)
         
         APIManager.shareInstance.editProduct(editProduct: updateProduct)
-        editname = editnames
     }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let detailVC = segue.destination as! productDetailVC
-        detailVC.nameProductLabel.text = editname
+        detailVC.nameProduct = nameProduct.text!
+        detailVC.descProduct = descProduct.text!
+        detailVC.priceProduct = Int(priceProduct.text!)!
+        detailVC.qtyProduct = Int(stockProduct.text!)!
+        detailVC.colorProduct = colorProduct.text!
+        detailVC.weightProduct = Int(weightProduct.text!)!
+        let a = nameProduct.text!
     }
 }

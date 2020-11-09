@@ -118,6 +118,13 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="addressTextField" destination="o1w-fv-dnJ" id="38V-Wm-Mz6"/>
+                <outlet property="emailTextField" destination="34Y-jx-atE" id="0hx-9S-KvX"/>
+                <outlet property="nameTextField" destination="i5n-ZU-QiP" id="66z-t9-iNX"/>
+                <outlet property="orderDateLabel" destination="5PH-NP-m8C" id="EhX-Yw-T5U"/>
+                <outlet property="phoneNumberTextField" destination="ouS-sB-bZG" id="pzz-jC-lwO"/>
+            </connections>
             <point key="canvasLocation" x="246.37681159420291" y="258.81696428571428"/>
         </tableViewCell>
     </objects>
