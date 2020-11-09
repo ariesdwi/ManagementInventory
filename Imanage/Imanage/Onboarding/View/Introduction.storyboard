@@ -29,7 +29,7 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro_desc_bg2" translatesAutoresizingMaskIntoConstraints="NO" id="vjl-eI-dda">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                    <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 </imageView>
                                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgT-du-wRR">
                                     <rect key="frame" x="66" y="782" width="282" height="44"/>
@@ -69,7 +69,6 @@
                                 </pageControl>
                             </subviews>
                             <viewLayoutGuide key="safeArea" id="rp3-Mw-RXB"/>
-                            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="mgT-du-wRR" firstAttribute="leading" secondItem="rp3-Mw-RXB" secondAttribute="leading" constant="66" id="5lE-59-7lk"/>
                                 <constraint firstItem="rp3-Mw-RXB" firstAttribute="trailing" secondItem="98t-GC-ctl" secondAttribute="trailing" constant="20" id="CkA-TH-Rdo"/>
@@ -78,7 +77,7 @@
                                 <constraint firstAttribute="bottom" secondItem="vjl-eI-dda" secondAttribute="bottom" id="K6S-MO-p6F"/>
                                 <constraint firstItem="mgT-du-wRR" firstAttribute="top" secondItem="98t-GC-ctl" secondAttribute="bottom" constant="12" id="Kxm-Oo-Mon"/>
                                 <constraint firstItem="rp3-Mw-RXB" firstAttribute="trailing" secondItem="mgT-du-wRR" secondAttribute="trailing" constant="66" id="Lcj-Ao-Frg"/>
-                                <constraint firstItem="vjl-eI-dda" firstAttribute="top" secondItem="g3Y-Ab-Ja7" secondAttribute="top" id="XJS-y4-KHx"/>
+                                <constraint firstItem="vjl-eI-dda" firstAttribute="top" secondItem="rp3-Mw-RXB" secondAttribute="top" id="XJS-y4-KHx"/>
                                 <constraint firstAttribute="trailing" secondItem="vjl-eI-dda" secondAttribute="trailing" id="cM5-cQ-R6f"/>
                                 <constraint firstItem="vjl-eI-dda" firstAttribute="leading" secondItem="g3Y-Ab-Ja7" secondAttribute="leading" id="iXc-Vm-RRV"/>
                                 <constraint firstItem="Gws-0Y-hxp" firstAttribute="top" secondItem="rp3-Mw-RXB" secondAttribute="top" constant="20" id="kud-52-zis"/>
