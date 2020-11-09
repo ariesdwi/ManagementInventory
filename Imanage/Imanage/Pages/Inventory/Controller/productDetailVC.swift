@@ -18,6 +18,7 @@ class productDetailVC: UIViewController {
     @IBOutlet var weightProductLabel: UILabel!
     @IBOutlet var conditionProduct: UILabel!
     
+    @IBOutlet var navbarTop: UIView!
     var nameProduct = ""
     var descProduct = ""
     var priceProduct = 0
@@ -26,12 +27,14 @@ class productDetailVC: UIViewController {
     var weightProduct = 0
     var condition = true
     var id = 0
+    @IBOutlet var NavbarOrder: UINavigationItem!
     
     var detailofProduct = [productDetail]()
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-
+        
+        
         nameProductLabel.text = nameProduct
         descProductLabel.text = descProduct
         priceProductLabel.text = String(priceProduct)

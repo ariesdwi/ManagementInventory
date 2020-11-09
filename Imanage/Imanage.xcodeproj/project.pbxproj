@@ -64,6 +64,10 @@
 		BF6CC67025428B9900D634EF /* ProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CC66F25428B9900D634EF /* ProfileVC.swift */; };
 		BF6CC67425428BAF00D634EF /* LoginEcommerceVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CC67325428BAF00D634EF /* LoginEcommerceVC.swift */; };
 		BF6CC6782547EB6300D634EF /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF6CC6772547EB6300D634EF /* SettingVC.swift */; };
+		BFAFE25B2558F62B0025D1FA /* IntroductionCVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAFE25A2558F62B0025D1FA /* IntroductionCVC.swift */; };
+		BFAFE261255909220025D1FA /* IntroCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BFAFE25F255909220025D1FA /* IntroCell.swift */; };
+		BFAFE262255909220025D1FA /* IntroCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BFAFE260255909220025D1FA /* IntroCell.xib */; };
+		BFAFE26925595EF70025D1FA /* Introduction.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BFAFE26825595EF70025D1FA /* Introduction.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -129,6 +133,10 @@
 		BF6CC66F25428B9900D634EF /* ProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileVC.swift; sourceTree = "<group>"; };
 		BF6CC67325428BAF00D634EF /* LoginEcommerceVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginEcommerceVC.swift; sourceTree = "<group>"; };
 		BF6CC6772547EB6300D634EF /* SettingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
+		BFAFE25A2558F62B0025D1FA /* IntroductionCVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroductionCVC.swift; sourceTree = "<group>"; };
+		BFAFE25F255909220025D1FA /* IntroCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IntroCell.swift; sourceTree = "<group>"; };
+		BFAFE260255909220025D1FA /* IntroCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IntroCell.xib; sourceTree = "<group>"; };
+		BFAFE26825595EF70025D1FA /* Introduction.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Introduction.storyboard; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -281,17 +289,20 @@
 			isa = PBXGroup;
 			children = (
 				BF464BE82547EF5900F6EB8F /* Controller */,
-				6C8D2B39252C2ED0007B85DC /* VIew */,
+				6C8D2B39252C2ED0007B85DC /* View */,
 			);
 			path = Onboarding;
 			sourceTree = "<group>";
 		};
-		6C8D2B39252C2ED0007B85DC /* VIew */ = {
+		6C8D2B39252C2ED0007B85DC /* View */ = {
 			isa = PBXGroup;
 			children = (
 				6C8D2B43252D5CE7007B85DC /* Onboarding.storyboard */,
+				BFAFE26825595EF70025D1FA /* Introduction.storyboard */,
+				BFAFE25F255909220025D1FA /* IntroCell.swift */,
+				BFAFE260255909220025D1FA /* IntroCell.xib */,
 			);
-			path = VIew;
+			path = View;
 			sourceTree = "<group>";
 		};
 		6C8D2B7125394791007B85DC /* Pages */ = {
@@ -331,6 +342,7 @@
 				6CF43728254FADA6006F010D /* ModelRegister.swift */,
 				6CF4372A254FADE6006F010D /* RegisterVC.swift */,
 				BF0EE303255243F800DBB23A /* HomeTabBarVC.swift */,
+				BFAFE25A2558F62B0025D1FA /* IntroductionCVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -436,12 +448,14 @@
 				6CF436E92546767D006F010D /* orderBuyerCell.xib in Resources */,
 				6CF436FB2547B8C1006F010D /* buttonNextCell.xib in Resources */,
 				6CA03B5C253FD5FB0055A29C /* OrderTableViewCell.xib in Resources */,
+				BFAFE262255909220025D1FA /* IntroCell.xib in Resources */,
 				6CF436ED25467D3C006F010D /* orderListCell.xib in Resources */,
 				6C8D2B01252AC56E007B85DC /* Main.storyboard in Resources */,
 				6C8D2B44252D5CE7007B85DC /* Onboarding.storyboard in Resources */,
 				6C8D2B87253DDBDA007B85DC /* product.xib in Resources */,
 				6C8D2B48252D5D7A007B85DC /* Order.storyboard in Resources */,
 				6CF436F1254681A0006F010D /* orderBuyerCell2.xib in Resources */,
+				BFAFE26925595EF70025D1FA /* Introduction.storyboard in Resources */,
 				6C8D2B81253D2F88007B85DC /* Inventory.storyboard in Resources */,
 				BF6CC66D25428B2800D634EF /* LoginEcommerce.storyboard in Resources */,
 			);
@@ -483,10 +497,12 @@
 				BF6CC6782547EB6300D634EF /* SettingVC.swift in Sources */,
 				6CA03B6A2541283F0055A29C /* LowOnStockTableVC.swift in Sources */,
 				6C943FE82553E574000624FC /* editProductVC.swift in Sources */,
+				BFAFE261255909220025D1FA /* IntroCell.swift in Sources */,
 				6C943FEA2554B0F5000624FC /* modelOrder.swift in Sources */,
 				6CA1AA83255244CC0040B44F /* modelAddProduct.swift in Sources */,
 				6C8D2B86253DDBDA007B85DC /* product.swift in Sources */,
 				6C8D2B4E252EB671007B85DC /* OrderVC.swift in Sources */,
+				BFAFE25B2558F62B0025D1FA /* IntroductionCVC.swift in Sources */,
 				6C943FEF2555A0C2000624FC /* EmptyCell.swift in Sources */,
 				BF0EE304255243F800DBB23A /* HomeTabBarVC.swift in Sources */,
 				BF6CC67025428B9900D634EF /* ProfileVC.swift in Sources */,

@@ -15,14 +15,19 @@ class LoginVC: UIViewController {
     @IBOutlet var singInBtn: UIButton!
     @IBOutlet var createAccount: UIButton!
     
+    var savedEmail = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        singInBtn.layer.cornerRadius = 10
-        createAccount.layer.cornerRadius = 10
+        //singInBtn.layer.cornerRadius = 10
+        //createAccount.layer.cornerRadius = 10
         
         
         // Do any additional setup after loading the view.
         self.hideKeyboardWhenTappedOutside()
+        savedEmail = UserDefaults.standard.string(forKey: APIManager.shareInstance.userEmail) ?? ""
+        if savedEmail != "" { self.emailField.text = savedEmail }
+        
     }
     
 
@@ -55,15 +60,4 @@ class LoginVC: UIViewController {
         
     }
 
-}
-extension UIViewController {
-    func hideKeyboardWhenTappedOutside() {
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
 }
