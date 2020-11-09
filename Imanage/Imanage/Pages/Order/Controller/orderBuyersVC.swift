@@ -8,7 +8,9 @@
 
 import UIKit
 
-class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, FieldStyle1Delegate {
+   
+    
    
     
     let myData = ["Alarm Clock","Coffee Mug","Daily notebook","Wooden Frame","Desk Lamp"]
@@ -93,6 +95,8 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 fatalError("The dequeued cell is not an instance of MealTableViewCell.")
             }
             
+            cell.delegate = self
+            
             orderDate = cell.orderDateLabel.text!
             customerName = cell.nameTextField.text!
             customerPhone = cell.phoneNumberTextField.text!
@@ -137,15 +141,23 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
         
         return cell
-        
     }
+    
+    
+    func textChange(text: String, tag: NSInteger) {
+           if tag == 0 {
+              customerName = text
+           }
+    }
+    
     
 }
 
 
 extension orderBuyersVC: orderBuyerCell2Delegate {
     func createOrder() {
-        let addOrder = addOrders(invoiceId: invoiceId, orderDate: orderDate, customerName: customerName, shippingTrackingNo: shippingTrackingNo, customerPhone: customerPhone, customerEmail: customerEmail, customerAddress: customerAddress, channelNotes: channelNotes, additionalNotes: additionalNotes, shippingFee: shippingFee, totalPrice: totalPrice, productId: productId, productsId: productsId, accountId: accountId)
-        APIManager.shareInstance.addOrderAPI(addOrder: addOrder)
+      let addOrder = addOrders(invoiceId: invoiceId, orderDate: orderDate, customerName: customerName, shippingTrackingNo: shippingTrackingNo, customerPhone: customerPhone, customerEmail: customerEmail, customerAddress: customerAddress, channelNotes: channelNotes, additionalNotes: additionalNotes, shippingFee: shippingFee, totalPrice: totalPrice, productId: productId, productsId: productsId, accountId: accountId)
+                    
+          APIManager.shareInstance.addOrderAPI(addOrder: addOrder)
     }
 }

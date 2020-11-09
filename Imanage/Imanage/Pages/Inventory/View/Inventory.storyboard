@@ -20,7 +20,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ay9-Fp-XqV">
-                                        <rect key="frame" x="20" y="10" width="374" height="159"/>
+                                        <rect key="frame" x="20" y="27" width="374" height="159"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oNa-bK-amS">
@@ -120,13 +120,18 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="GaO-8f-qGr"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="Eay-9L-TVc"/>
                             </scrollView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bu6-co-e6O" userLabel="HeaderView">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="wNV-8o-gkX"/>
                     </view>
                     <navigationItem key="navigationItem" title="Inventory" largeTitleDisplayMode="always" id="KzA-Zw-dQa">
                         <barButtonItem key="rightBarButtonItem" image="plus" catalog="system" id="mcC-6l-SFH">
-                            <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="addModalVC:" destination="9Qm-54-h7D" id="ulV-lG-UBQ"/>
                                 <segue destination="HaG-Yi-5Sa" kind="presentation" id="dLP-oO-HOv"/>
@@ -139,12 +144,12 @@
                         <outlet property="shapeFav" destination="smy-1I-eub" id="hBt-Lx-K9Y"/>
                         <outlet property="shapeLowOnStock" destination="oNa-bK-amS" id="4zf-tw-ODQ"/>
                         <outlet property="tabelView" destination="Egt-OT-CTy" id="uOg-m1-QFt"/>
-                        <segue destination="L97-qu-opG" kind="show" identifier="segueToDetailProduct" id="g97-t8-Gw9"/>
+                        <segue destination="L97-qu-opG" kind="show" identifier="segueToDetailProduct" id="M6V-TD-Oir"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="B5n-KI-vQj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="888" y="244"/>
+            <point key="canvasLocation" x="886.95652173913049" y="243.75"/>
         </scene>
         <!--Low On Stock-->
         <scene sceneID="LSz-Sb-nHt">
@@ -196,7 +201,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5Gl-6p-Ul5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2565" y="1037"/>
+            <point key="canvasLocation" x="-1501" y="1245"/>
         </scene>
         <!--Inventory-->
         <scene sceneID="TrS-uL-I7X">
@@ -210,9 +215,9 @@
                     <navigationBar key="navigationBar" autoresizesSubviews="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="2Z1-D9-Dao">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="largeTitleTextAttributes">
-                            <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
@@ -222,7 +227,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="inm-35-HKd" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="244.92753623188409" y="243.75"/>
+            <point key="canvasLocation" x="13" y="244"/>
         </scene>
         <!--Favorites-->
         <scene sceneID="AW6-4V-CPc">
@@ -606,7 +611,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <viewLayoutGuide key="safeArea" id="XPc-9I-AM4"/>
                     </view>
                     <navigationItem key="navigationItem" title="Product Details" largeTitleDisplayMode="never" id="ccV-df-SOz">
@@ -617,10 +623,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="NavbarOrder" destination="ccV-df-SOz" id="Geg-Bm-XJL"/>
                         <outlet property="colorProductLabel" destination="jOf-XY-PqY" id="AC0-nr-VRf"/>
                         <outlet property="conditionProduct" destination="Hea-NQ-Pnt" id="Bay-RR-poS"/>
                         <outlet property="descProductLabel" destination="SUE-je-YmV" id="pNq-nz-P0k"/>
                         <outlet property="nameProductLabel" destination="GBx-a6-VIW" id="3ay-Od-i6M"/>
+                        <outlet property="navbarTop" destination="DmA-iI-FQF" id="xOg-N1-JdZ"/>
                         <outlet property="priceProductLabel" destination="pTz-mq-KSw" id="fB6-LR-OZW"/>
                         <outlet property="qtyProductLabel" destination="niC-dW-IoK" id="m1z-sA-3fB"/>
                         <outlet property="weightProductLabel" destination="38Z-3g-X5s" id="6vg-Mr-IdR"/>
@@ -628,7 +636,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FPb-6r-lu8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2017" y="244"/>
+            <point key="canvasLocation" x="2926.0869565217395" y="243.75"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="0O7-1s-6OL">
@@ -818,13 +826,13 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QDm-gp-p88" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="VUR-MS-N0Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3042" y="244"/>
+            <point key="canvasLocation" x="3950.7246376811599" y="243.75"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="dLP-oO-HOv"/>
     </inferredMetricsTieBreakers>
-    <color key="tintColor" red="0.18823529410000001" green="0.2784313725" blue="0.36862745099999999" alpha="1" colorSpace="calibratedRGB"/>
+    <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="96"/>
         <image name="circle" catalog="system" width="128" height="121"/>

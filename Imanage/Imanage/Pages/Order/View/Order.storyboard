@@ -10,7 +10,7 @@
         <!--Order-->
         <scene sceneID="Opi-Dx-Qkh">
             <objects>
-                <viewController id="YMP-oD-H8y" customClass="OrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderVC" id="YMP-oD-H8y" customClass="OrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4zz-m1-dxE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -19,6 +19,11 @@
                                 <rect key="frame" x="0.0" y="140" width="414" height="756"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zUH-Fs-dwf">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="141"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
@@ -31,7 +36,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Order" largeTitleDisplayMode="always" id="W5B-Eo-AS3">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="plus" catalog="system" id="m04-lu-Xmi">
-                            <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <color key="tintColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="8dZ-AV-YgQ" kind="modal" modalPresentationStyle="fullScreen" id="RHu-kH-Cl8"/>
                             </connections>
@@ -111,7 +116,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CrK-WS-fb3" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="684" y="552"/>
+            <point key="canvasLocation" x="735" y="654"/>
         </scene>
         <!--Order DetailVC-->
         <scene sceneID="cQ4-q0-xxm">
@@ -153,6 +158,11 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Lum-kW-aLt">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
