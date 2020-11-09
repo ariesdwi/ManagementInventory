@@ -19,8 +19,8 @@ class LoginVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        singInBtn.layer.cornerRadius = 10
-        createAccount.layer.cornerRadius = 10
+        //singInBtn.layer.cornerRadius = 10
+        //createAccount.layer.cornerRadius = 10
         
         
         // Do any additional setup after loading the view.
