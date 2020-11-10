@@ -21,8 +21,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //original code
         //guard let _ = (scene as? UIWindowScene) else { return }
         
-//        let hasLaunched = UserDefaults.standard.bool(forKey: "hasLaunched")
-        let hasLaunched = false
+        let hasLaunched = UserDefaults.standard.bool(forKey: "hasLaunched")
+//        let hasLaunched = false
         let launchStoryboard = UIStoryboard(name: "Introduction", bundle: nil)
         let mainStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         
@@ -37,7 +37,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         }
         self.window?.rootViewController = vc
         self.window?.makeKeyAndVisible()
-//        UserDefaults.standard.setValue(true, forKey: "hasLaunched")
+        UserDefaults.standard.setValue(true, forKey: "hasLaunched")
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

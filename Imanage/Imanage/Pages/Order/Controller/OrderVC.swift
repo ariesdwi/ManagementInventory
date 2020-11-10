@@ -27,6 +27,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         }
     }
     
+    var refreshControl = UIRefreshControl()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,7 +40,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         tableView.delegate = self
         tableView.dataSource = self
         
-        
+        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
        APIManager.shareInstance.getOrder{ [weak self] result in
            switch result {
            case .failure(let error):
@@ -60,6 +61,9 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
                          self?.listofOrder = order
                      }
                  }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+        }
        }
 
     func setupNavbar(){
