@@ -10,7 +10,7 @@ import UIKit
 
 
 
-class addProductViewController: UIViewController {
+class addProductViewController: UIViewController ,UIImagePickerControllerDelegate,UINavigationControllerDelegate{
    
     @IBOutlet var productName: UITextField!
     @IBOutlet var productDescription: UITextField!
@@ -24,11 +24,17 @@ class addProductViewController: UIViewController {
     @IBOutlet var oldBtn: UIButton!
     @IBOutlet var addBtnProduct: UIButton!
     
+    @IBOutlet var imgOne: UIImageView!
+   
+    
+    var imgPicker = UIImagePickerController()
+    
     
     var newProduct = true
     
 //   var listofProduct = [productDetail]()
     
+    let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,24 +44,49 @@ class addProductViewController: UIViewController {
         self.hideKeyboardWhenTappedOutside()
 
         addBtnProduct.layer.cornerRadius = 10
+        imgPicker.delegate = self
+        imgPicker.allowsEditing = true
 
     }
     
     
     
     @IBAction func uploadImage(_ sender: Any) {
-        let alertController = UIAlertController(title: "Upload Image", message: nil, preferredStyle: .actionSheet)
-        alertController.addAction(UIAlertAction(title: "Ambil Foto", style: .default, handler: self.okHandler))
-        alertController.addAction(UIAlertAction(title: "Galeri Foto", style: .default, handler: self.okHandler))
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        self.present(alertController, animated: true, completion: nil)
+       
+        
+               let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+               
+               alert.addAction(UIAlertAction(title: "Photo Gallery", style: .default, handler: { (button) in
+                   self.imgPicker.sourceType = .photoLibrary
+                   self.present(self.imgPicker, animated: true, completion: nil)
+               }))
+               
+               alert.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (button) in
+                   self.imgPicker.sourceType = .camera
+                   self.present(self.imgPicker, animated: true, completion: nil)
+               }))
+               
+               alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+               
+               present(alert, animated: true, completion: nil)
         
     }
     
-    func okHandler(alert: UIAlertAction){
+   
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
+        guard let pickedImage = info[UIImagePickerController.InfoKey.editedImage] as? UIImage else {return }
+         guard let name = self.productName.text else {return}
+        
+        let yourDataImagePNG = pickedImage.pngData()
+        
+        
+        imgOne.image = pickedImage
+        
+        UserDefaults().set(yourDataImagePNG, forKey: "\(name)")
+        
+        dismiss(animated: true, completion: nil)
     }
-    
     
     @IBAction func newbtnAction(_ sender: UIButton) {
         if sender.isSelected{
@@ -93,11 +124,9 @@ class addProductViewController: UIViewController {
         guard let color = self.colorProduct.text else {return}
         
         let condition = newProduct
-        
-        let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
-        
-
         let addProduct = modelProduct(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, condition: condition, accountId: accountID)
+        
+        
         
         APIManager.shareInstance.addProductAPI(addProduct: addProduct)
 //        refreshtable.refreshT(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, accountId: accountID)
@@ -107,3 +136,6 @@ class addProductViewController: UIViewController {
     
     
 }
+
+
+

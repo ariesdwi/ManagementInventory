@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="rAE-ff-B9a">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -17,7 +15,7 @@
                     <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="aG9-aZ-tqP">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NDE-TZ-o26">
                             <size key="itemSize" width="128" height="128"/>
                             <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -31,7 +29,7 @@
                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="intro_desc_bg2" translatesAutoresizingMaskIntoConstraints="NO" id="vjl-eI-dda">
                                     <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 </imageView>
-                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgT-du-wRR">
+                                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mgT-du-wRR">
                                     <rect key="frame" x="66" y="782" width="282" height="44"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
@@ -50,8 +48,8 @@
                                         <action selector="actionButton:" destination="rAE-ff-B9a" eventType="touchUpInside" id="z8z-f4-g3K"/>
                                     </connections>
                                 </button>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gws-0Y-hxp">
-                                    <rect key="frame" x="361" y="64" width="33" height="33"/>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gws-0Y-hxp">
+                                    <rect key="frame" x="360" y="64" width="34" height="33"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <state key="normal" title="Skip">
                                         <color key="titleColor" red="0.1843137255" green="0.1843137255" blue="0.1843137255" alpha="1" colorSpace="calibratedRGB"/>
@@ -68,7 +66,6 @@
                                     </constraints>
                                 </pageControl>
                             </subviews>
-                            <viewLayoutGuide key="safeArea" id="rp3-Mw-RXB"/>
                             <constraints>
                                 <constraint firstItem="mgT-du-wRR" firstAttribute="leading" secondItem="rp3-Mw-RXB" secondAttribute="leading" constant="66" id="5lE-59-7lk"/>
                                 <constraint firstItem="rp3-Mw-RXB" firstAttribute="trailing" secondItem="98t-GC-ctl" secondAttribute="trailing" constant="20" id="CkA-TH-Rdo"/>
@@ -83,6 +80,7 @@
                                 <constraint firstItem="Gws-0Y-hxp" firstAttribute="top" secondItem="rp3-Mw-RXB" secondAttribute="top" constant="20" id="kud-52-zis"/>
                                 <constraint firstItem="98t-GC-ctl" firstAttribute="leading" secondItem="rp3-Mw-RXB" secondAttribute="leading" constant="20" id="ogx-Dn-iJb"/>
                             </constraints>
+                            <viewLayoutGuide key="safeArea" id="rp3-Mw-RXB"/>
                         </view>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="introCell" id="Vht-vw-iEs" customClass="IntroCell" customModule="Imanage" customModuleProvider="target">
@@ -123,8 +121,5 @@
     </scenes>
     <resources>
         <image name="intro_desc_bg2" width="414" height="900"/>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
     </resources>
 </document>

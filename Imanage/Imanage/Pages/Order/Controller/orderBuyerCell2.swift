@@ -41,6 +41,7 @@ final class orderBuyerCell2: UITableViewCell {
     
     @IBAction func createOrder(_ sender: Any) {
         delegate?.createOrder()
+        
     }
     
 }
