@@ -118,7 +118,7 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                        
             cell.orderListName.text = produkDetail.name
             cell.priceLabel.text = price
-            cell.orderlistImageView.backgroundColor = .red
+            cell.orderlistImageView.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
             
             return cell
         }
