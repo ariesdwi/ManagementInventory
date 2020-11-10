@@ -28,6 +28,8 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
     
     static let shareInstance = InventoryViewController()
     
+    let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
+    
     var listofProduct = [productDetail]() {
         didSet {
             DispatchQueue.main.async {
@@ -142,7 +144,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         cell.labelProduct.text = produkDetail.name
         cell.priceLabel.text = price
         cell.QuantityLabel.text = quantity
-        cell.imageProduct.backgroundColor = .red
+        cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
         
         return cell
     }

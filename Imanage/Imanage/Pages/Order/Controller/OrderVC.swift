@@ -40,12 +40,6 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         tableView.dataSource = self
         
         
-        let refresControl = UIRefreshControl()
-        refresControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-        
-        self.tableView.refreshControl = refresControl
-         
-        
        APIManager.shareInstance.getOrder{ [weak self] result in
            switch result {
            case .failure(let error):

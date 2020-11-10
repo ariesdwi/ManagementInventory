@@ -377,20 +377,9 @@
                                 <rect key="frame" x="21" y="564" width="26" height="24"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IET-a1-xqt">
-                                <rect key="frame" x="20" y="597" width="120" height="120"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="IET-a1-xqt">
+                                <rect key="frame" x="20" y="597" width="373" height="120"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40507104989999998" green="0.89574575420000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dye-6H-Z5B">
-                                <rect key="frame" x="147" y="597" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40507104989999998" green="0.89574575420000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                            </imageView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Yf6-qw-kNz">
-                                <rect key="frame" x="275" y="597" width="120" height="120"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.40507104989999998" green="0.89574575420000002" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WPh-js-gdu">
                                 <rect key="frame" x="20" y="734" width="375" height="40"/>
@@ -443,6 +432,7 @@
                     <connections>
                         <outlet property="addBtnProduct" destination="WPh-js-gdu" id="OT3-Vf-Dvq"/>
                         <outlet property="colorProduct" destination="Riz-Me-Uho" id="L74-H5-rbY"/>
+                        <outlet property="imgOne" destination="IET-a1-xqt" id="hES-w6-V1O"/>
                         <outlet property="newBtn" destination="dK4-IP-V06" id="jNS-p4-i1W"/>
                         <outlet property="oldBtn" destination="z1y-rp-zoN" id="E7j-xf-8oF"/>
                         <outlet property="price" destination="ht1-Ct-at5" id="y2h-Zg-CS2"/>

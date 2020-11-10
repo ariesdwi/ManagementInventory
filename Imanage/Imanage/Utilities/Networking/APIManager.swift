@@ -172,6 +172,9 @@ class APIManager{
     }
      */
     
+    
+    //Inventory
+    
     func getInventoryProduct(completion: @escaping(Result<[productDetail], Error>) -> Void){
     
         let jsonUrlString = "http://128.199.175.160/api/v1/Products/getMyItem?access_token=\(UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey) ?? "")"
@@ -198,7 +201,6 @@ class APIManager{
            let headers: HTTPHeaders = [
            .contentType("application/json")
            ]
-           
            AF.request(addproductUrl, method: .post, parameters: addProduct ,encoder: JSONParameterEncoder.default, headers: headers).response{
                response in debugPrint(response)
                switch response.result{
@@ -214,6 +216,10 @@ class APIManager{
                    }
            }
     }
+    
+    func addImageProduct(){
+             
+       }
     
     func deleteProduct(productID: Int) {
         AF.request("http://104.248.98.179/api/v1/Products/\(productID)", method: .delete, parameters: productID, encoder: JSONParameterEncoder.default, headers: nil).response{
