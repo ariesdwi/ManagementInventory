@@ -98,7 +98,7 @@ class ChooseOrderVC: UITableViewController {
             
             cell.productNameLabel.text = produkDetail.name
             cell.priceLabel.text = price
-            cell.productImageView.backgroundColor = .red
+            cell.productImageView.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
             return cell
         }
         
