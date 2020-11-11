@@ -22,7 +22,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //guard let _ = (scene as? UIWindowScene) else { return }
         
         let hasLaunched = UserDefaults.standard.bool(forKey: "hasLaunched")
-//        let hasLaunched = false
+        //let hasLaunched = false
+
         let launchStoryboard = UIStoryboard(name: "Introduction", bundle: nil)
         let mainStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
         

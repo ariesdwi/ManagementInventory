@@ -11,7 +11,10 @@ import UIKit
 class ProfileVC: UIViewController {
     
     
-    @IBOutlet weak var storeImage: UIImageView!
+    @IBOutlet weak var storeImageView: UIImageView!
+    @IBOutlet weak var storeNameLabel: UILabel!
+    @IBOutlet weak var storeEmailLabel: UILabel!
+    @IBOutlet weak var storePhoneLabel: UILabel!
     @IBOutlet weak var tokpedConnectBtn: UIButton!
     @IBOutlet weak var blConnectBtn: UIButton!
     
@@ -22,13 +25,25 @@ class ProfileVC: UIViewController {
 
         // Do any additional setup after loading the view.
         
-        storeImage.layer.cornerRadius = storeImage.frame.width / 2
-        storeImage.clipsToBounds = true         
+        storeImageView.layer.cornerRadius = storeImageView.frame.width / 2
+        storeImageView.clipsToBounds = true         
         
         APIManager.shareInstance.getProfile()
+        {
+            (status, errorMsg, data) in
+            print("status = \(status), data = \(data)")
+            if status
+            {
+                self.storeNameLabel.text = data["storeName"]
+                self.storeEmailLabel.text = data["email"]
+                self.storePhoneLabel.text = data["storePhoneNumber"]
+                
+            }
+            
+        }
         
         setupButton(selectedButton: tokpedConnectBtn, state: false)
-        setupButton(selectedButton: blConnectBtn, state: true)
+        setupButton(selectedButton: blConnectBtn, state: false)
         
     }
     
@@ -38,6 +53,8 @@ class ProfileVC: UIViewController {
         if state {
             //connected
             // connect button : textColor, border color = #30475E, background color = white
+            //selectedButton.isHidden = true
+            
             selectedButton.setTitle("Disconnect", for: .normal)
             selectedButton.setTitleColor(UIColor.white, for: .normal)
             selectedButton.layer.borderColor = blueColor.cgColor
@@ -54,6 +71,21 @@ class ProfileVC: UIViewController {
             selectedButton.layer.backgroundColor = UIColor.white.cgColor
         }
         
+    }
+    
+    @IBAction func actionBtn(_ sender: UIButton) {
+        if sender == tokpedConnectBtn
+        {
+            performSegue(withIdentifier: "loginCommerceSegue", sender: self)
+            
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "loginCommerceSegue"
+        {
+            guard let vc = segue.destination as? LoginEcommerceVC else { return }            
+        }
         
     }
 

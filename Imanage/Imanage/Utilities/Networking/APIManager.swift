@@ -80,7 +80,6 @@ class APIManager{
                         //print("API Manager :\n\(json)\n")
                         if response.response?.statusCode == 200
                         {
-                            
                             let valueAccId = json?["accountId"] as? Int
                             let valueToken = json?["id"] as! String
                             //set data ke userDefaults
@@ -283,21 +282,47 @@ class APIManager{
     }
 
 
-	func getProfile()
+    func getProfile(completionHandler:@escaping (Bool, String, [String:String] )->())
     {
-        let headers: HTTPHeaders = [
-        .contentType("application/json")
-        ]
         let tokenKey = UserDefaults.standard.string(forKey: self.userTokenKey) ?? ""
         
+        let headers: HTTPHeaders = [
+            .contentType("application/json")
+        ]
+        
         //AF.request("http://104.248.98.179/api/v1/Accounts", method: .get, parameters: params, encoder: JSONParameterEncoder.default, headers: headers)
-        AF.request("http://104.248.98.179/api/v1/Accounts?access_token=\(tokenKey)", method: .get, headers: headers).response{
+        AF.request("http://104.248.98.179/api/v1/accounts/getMyself?access_token=\(tokenKey)", method: .get, headers: headers).response{
             response in debugPrint(response)
             switch response.result{
                 case .success(let data):
                     do {
-                        let json =  try JSONSerialization.jsonObject(with: data!, options: [])
-                        print(json)
+                        let json =  try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any]
+                        //print("API Manager :\n\(json)\n")
+                        if response.response?.statusCode == 200
+                        {
+                            
+                            let jsonData = json?["data"] as? [String : Any]
+                            let jsonDataAccount = jsonData?["account"] as? [String : Any]
+                            let valueFullname = jsonDataAccount?["fullname"] as! String
+                            let valueEmail = jsonDataAccount?["email"] as! String
+                            let valueStoreName = jsonDataAccount?["storeName"] as! String
+                            let valueStorePhoneNumber = jsonDataAccount?["storePhoneNumber"] as! String
+                            
+                            let data2 = [ "fullname" : valueFullname, "email" : valueEmail, "storeName" : valueStoreName, "storePhoneNumber" : valueStorePhoneNumber]
+                            
+                            completionHandler(true, "Login Success", data2)
+                           
+                        }
+                        else {
+                           
+                            let errorJson = json?["error"] as? [String : Any]
+                            //let valueErrCode = errorJson?["code"] as! String
+                            let valueMessage = errorJson?["message"] as! String
+                            completionHandler(false, valueMessage, ["none" : ""])
+                            
+                        }
+                        
+                        
                     } catch  {
                         print(error.localizedDescription)
                     }
@@ -348,5 +373,87 @@ class APIManager{
            }
            
        }
+    
+    
+    func loginTokped(modelTokpedLogin : TokpedLoginEmail, completionHandler:@escaping (Bool, String, Int )->())
+    {
+        let tokenKey = UserDefaults.standard.string(forKey: self.userTokenKey) ?? ""
+        
+        let headers: HTTPHeaders = [
+            .contentType("application/json")
+        ]
+        
+        
+        AF.request("http://104.248.98.179/api/v1/accountTokpeds/register", method: .post, parameters: modelTokpedLogin, encoder: JSONParameterEncoder.default, headers: headers).response{
+            response in debugPrint(response)
+            switch response.result{
+                case .success(let data):
+                    do {
+                        let json =  try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any]
+                        //print("API Manager :\n\(json)\n")
+                        if response.response?.statusCode == 200
+                        {
+                            let jsonData = json?["data"] as? [String : Any]
+                            let userTokpedID = jsonData?["id"] as! Int
+                            
+                            completionHandler(true, "Login Success", userTokpedID)
+                               
+                        }
+                        else {
+                           
+                            let errorJson = json?["error"] as? [String : Any]
+                            //let valueErrCode = errorJson?["code"] as! String
+                            let valueMessage = errorJson?["message"] as! String
+                            completionHandler(false, valueMessage, 0)
+                            
+                        }
+                        
+                    } catch  {
+                        print(error.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+        }
+    }
+    
+    func loginTokpedVerif(modelTokpedVerif : TokpedLoginVerif, completionHandler:@escaping (Bool, String )->())
+    {
+        let tokenKey = UserDefaults.standard.string(forKey: self.userTokenKey) ?? ""
+        
+        let headers: HTTPHeaders = [
+            .contentType("application/json")
+        ]
+        
+        AF.request("http://104.248.98.179/accountTokpeds/verification", method: .post, parameters: modelTokpedVerif, encoder: JSONParameterEncoder.default, headers: headers).response{
+            response in debugPrint(response)
+            switch response.result{
+                case .success(let data):
+                    do {
+                        let json =  try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any]
+                        //print("API Manager :\n\(json)\n")
+                        if response.response?.statusCode == 200
+                        {
+                            completionHandler(true, "Login Success")
+                               
+                        }
+                        else {
+                           
+                            let errorJson = json?["error"] as? [String : Any]
+                            //let valueErrCode = errorJson?["code"] as! String
+                            let valueMessage = errorJson?["message"] as! String
+                            completionHandler(false, valueMessage)
+                            
+                        }
+                        
+                        
+                    } catch  {
+                        print(error.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+        }
+    }
     
 }
