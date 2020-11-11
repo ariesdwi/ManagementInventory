@@ -65,7 +65,7 @@ class LoginEcommerceVC: UIViewController {
             if loginOTP.text == "" {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "Field cannot be empty")
             }
-            if loginOTP.text?.count < 4 {
+            if loginOTP.text!.count < 4 {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "OTP must be 6 digits")
             }
             

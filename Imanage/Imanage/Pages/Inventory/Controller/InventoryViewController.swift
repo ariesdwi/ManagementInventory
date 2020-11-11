@@ -140,12 +140,15 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         let quantity = "\(produkDetail.qty)"
         
         let price = "\(produkDetail.price)"
+        let completeImage = produkDetail.images[0]
         
         cell.labelProduct.text = produkDetail.name
         cell.priceLabel.text = price
         cell.QuantityLabel.text = quantity
 
-        cell.imageProduct.backgroundColor = .blue
+        
+        cell.imageProduct.downloaded(from: completeImage)
+//        cell.imageProduct.backgroundColor = .blue
 
        //cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)!
         
