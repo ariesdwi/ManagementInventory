@@ -264,7 +264,7 @@ class APIManager{
     
     func getOrder(completion: @escaping(Result<[modelOrder], Error>) -> Void){
         
-        let jsonUrlString = "http://128.199.175.160/api/v1/Orders?access_token=\(UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey) ?? "")"
+        let jsonUrlString = "http://128.199.175.160/api/v1/orders/getmyorder?access_token=\(UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey) ?? "")"
                 
         guard let url = URL(string: jsonUrlString) else { return }
 
@@ -308,11 +308,12 @@ class APIManager{
                             let valueEmail = jsonDataAccount?["email"] as! String
                             let valueStoreName = jsonDataAccount?["storeName"] as! String
                             let valueStorePhoneNumber = jsonDataAccount?["storePhoneNumber"] as! String
-                            let valueAccountTokped = jsonDataAccount?["accountTokped"] as! [[String : Any]]
-                            let numberTokpedAccount = valueAccountTokped.count
+                            let valuePin = jsonDataAccount?["pin"] as? Int
+                            //let valueAccountTokped = jsonDataAccount?["accountTokped"] as! [[String : Any]]
+                            //let numberTokpedAccount = valueAccountTokped.count
                             
                             
-                            let data2 = [ "fullname" : valueFullname, "email" : valueEmail, "storeName" : valueStoreName, "storePhoneNumber" : valueStorePhoneNumber, "numberTokpedAccount" : numberTokpedAccount] as [String : Any]
+                            let data2 = [ "fullname" : valueFullname, "email" : valueEmail, "storeName" : valueStoreName, "storePhoneNumber" : valueStorePhoneNumber, "pin" : valuePin] as [String : Any]
                             
                             completionHandler(true, "Login Success", data2)
                            
@@ -435,7 +436,7 @@ class APIManager{
                 case .success(let data):
                     do {
                         let json =  try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any]
-                        //print("API Manager :\n\(json)\n")
+                        print("API Manager :\n\(json)\n")
                         if response.response?.statusCode == 200
                         {
                             completionHandler(true, "Login Success")
@@ -459,7 +460,5 @@ class APIManager{
                 }
         }
     }
-    
-    
     
 }

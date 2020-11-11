@@ -147,8 +147,8 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="hyI-xn-m1t">
-                        <barButtonItem key="rightBarButtonItem" title="Setting" image="gear" catalog="system" id="pks-R7-wsa">
-                            <color key="tintColor" red="0.97254901960784312" green="0.76078431372549016" blue="0.22745098039215686" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Setting" image="gear" catalog="system" id="pks-R7-wsa">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <segue destination="WwS-fh-HAW" kind="show" id="6N2-rl-oGz"/>
                             </connections>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -142,7 +142,6 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="DAf-sL-LC6" secondAttribute="trailing" constant="40" id="096-zI-Btu"/>
                                     <constraint firstAttribute="trailing" secondItem="YZv-hi-uCV" secondAttribute="trailing" constant="40" id="EQo-T0-gWf"/>
@@ -167,15 +166,14 @@
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xKx-yB-YnM" userLabel="topView">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
-                                <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="GM5-BX-At5"/>
                                 </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UBc-FZ-HNr"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="9uG-Yi-psM" firstAttribute="top" secondItem="7eu-zw-wCu" secondAttribute="bottom" constant="12" id="0EP-Q3-Bon"/>
                             <constraint firstItem="7eu-zw-wCu" firstAttribute="top" secondItem="UBc-FZ-HNr" secondAttribute="top" constant="90" id="8I7-lK-xij"/>
@@ -216,7 +214,7 @@
         <!--Login Commerce Result-->
         <scene sceneID="K0g-T0-ltI">
             <objects>
-                <viewController storyboardIdentifier="ConResultStoryboard" id="24y-E3-d6U" customClass="LoginCommerceResult" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ConResultStoryboard" modalPresentationStyle="overCurrentContext" id="24y-E3-d6U" customClass="LoginCommerceResult" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="dBx-53-dcO">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -277,7 +275,6 @@
                             <constraint firstItem="Jee-Cq-dm7" firstAttribute="top" secondItem="EQH-3s-rFz" secondAttribute="bottom" constant="40" id="pfQ-8y-6IX"/>
                             <constraint firstItem="Jee-Cq-dm7" firstAttribute="leading" secondItem="iVW-2m-Run" secondAttribute="leading" constant="60" id="sd5-pr-vSP"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="d7c-QX-k6G"/>
                     </view>
                     <navigationItem key="navigationItem" id="nAu-VJ-An1"/>
                     <connections>

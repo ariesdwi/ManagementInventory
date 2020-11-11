@@ -26,6 +26,7 @@ class LoginCommerceResult: UIViewController {
     
 
     func loadResult(){
+        print("LoginCommerceResult = \(resultStatus)")
         if resultStatus {
             resultIV.image = UIImage(named:"verified")
             resultText.text = "Your account is already connected to your online store. You can synchronize your inventory and order list"
@@ -41,12 +42,14 @@ class LoginCommerceResult: UIViewController {
     }
     
     
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "goToProfileSegue"
         {
             guard let vc = segue.destination as? ProfileVC else { return }
         }
     }
+    
     
     /*
     // MARK: - Navigation

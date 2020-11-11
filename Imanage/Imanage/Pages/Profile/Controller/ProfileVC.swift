@@ -28,7 +28,8 @@ class ProfileVC: UIViewController {
         // Do any additional setup after loading the view.
         
         storeImageView.layer.cornerRadius = storeImageView.frame.width / 2
-        storeImageView.clipsToBounds = true         
+        storeImageView.clipsToBounds = true
+        
         
         APIManager.shareInstance.getProfile()
         {
@@ -39,14 +40,16 @@ class ProfileVC: UIViewController {
                 self.storeNameLabel.text = data["storeName"] as! String
                 self.storeEmailLabel.text = data["email"] as! String
                 self.storePhoneLabel.text = data["storePhoneNumber"] as! String
-                let numberTokpedAccount = data["numberTokpedAccount"] as! Int
+                let pin = data["pin"] as? Int
                 print("ProfileVC, data : \(data)")
                 
-                if numberTokpedAccount > 0 {
-                    self.setupButton(selectedButton: self.tokpedConnectBtn, state: "connected")
+                if pin == nil {
+                    print("ProfileVC Pin null")
+                    self.setupButton(selectedButton: self.tokpedConnectBtn, state: "notConnected")
                 }
                 else {
-                    self.setupButton(selectedButton: self.tokpedConnectBtn, state: "notConnected")
+                    print("ProfileVC Pin NOT null")
+                    self.setupButton(selectedButton: self.tokpedConnectBtn, state: "connected")
                 }
                 self.setupButton(selectedButton: self.blConnectBtn, state: "comingSoon")
             }
