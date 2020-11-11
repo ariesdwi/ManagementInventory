@@ -194,7 +194,6 @@
                             <constraint firstItem="xKx-yB-YnM" firstAttribute="top" secondItem="0tD-oy-Eu3" secondAttribute="top" id="poJ-5D-o71"/>
                             <constraint firstItem="WqK-Kh-acJ" firstAttribute="top" secondItem="9uG-Yi-psM" secondAttribute="bottom" constant="44" id="utC-Qn-ED7"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="UBc-FZ-HNr"/>
                     </view>
                     <navigationItem key="navigationItem" id="vgz-Jj-vIY"/>
                     <connections>
