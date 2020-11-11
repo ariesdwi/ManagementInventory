@@ -144,8 +144,18 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         cell.labelProduct.text = produkDetail.name
         cell.priceLabel.text = price
         cell.QuantityLabel.text = quantity
+
         cell.imageProduct.backgroundColor = .blue
-//        cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)!
+
+       //cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)!
+        
+        
+        //cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
+        //let dataImage =  UserDefaults.standard.object(forKey: "\(produkDetail.name)")
+       // if dataImage != nil {
+           // cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
+       // }
+
         
         return cell
     }

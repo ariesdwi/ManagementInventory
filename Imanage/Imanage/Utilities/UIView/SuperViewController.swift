@@ -9,7 +9,7 @@
 import UIKit
 
 class SuperViewController: UIViewController {
-    
+    let blueColor = #colorLiteral(red: 0.1882352941, green: 0.2784313725, blue: 0.368627451, alpha: 1)
     override func viewDidLoad() {
         super.viewDidLoad()
         
