@@ -140,17 +140,25 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         let quantity = "\(produkDetail.qty)"
         
         let price = "\(produkDetail.price)"
+        let completeImage = produkDetail.images[0]
         
         cell.labelProduct.text = produkDetail.name
         cell.priceLabel.text = price
         cell.QuantityLabel.text = quantity
+
+        
+        cell.imageProduct.downloaded(from: completeImage)
+//        cell.imageProduct.backgroundColor = .blue
+
+       //cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)!
         
         
         //cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
-        let dataImage =  UserDefaults.standard.object(forKey: "\(produkDetail.name)")
-        if dataImage != nil {
-            cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
-        }
+        //let dataImage =  UserDefaults.standard.object(forKey: "\(produkDetail.name)")
+       // if dataImage != nil {
+           // cell.imageProduct.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
+       // }
+
         
         return cell
     }
@@ -164,7 +172,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         vc.priceProduct = produkDetail.price
         vc.qtyProduct = produkDetail.qty
         vc.descProduct = produkDetail.description
-        vc.colorProduct = produkDetail.variant
+        vc.colorProduct = produkDetail.variant ?? ""
         vc.weightProduct = produkDetail.weight
         vc.condition = produkDetail.condition
         vc.id = produkDetail.id

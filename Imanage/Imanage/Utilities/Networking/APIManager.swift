@@ -185,6 +185,7 @@ class APIManager{
                 
                 let products = try JSONDecoder().decode(Products.self, from: data)
                 let productsDetail = products.product
+    
                 completion(.success(productsDetail))
                 print(products)
                 print(productsDetail)
@@ -200,7 +201,7 @@ class APIManager{
            let headers: HTTPHeaders = [
            .contentType("application/json")
            ]
-           AF.request(addproductUrl, method: .post, parameters: addProduct ,encoder: JSONParameterEncoder.default, headers: headers).response{
+           AF.request(addproductUrl, method: .post, parameters: addProduct, encoder: JSONParameterEncoder.default, headers: headers).response{
                response in debugPrint(response)
                switch response.result{
                    case .success(let data):
@@ -282,7 +283,7 @@ class APIManager{
     }
 
 
-    func getProfile(completionHandler:@escaping (Bool, String, [String:String] )->())
+    func getProfile(completionHandler:@escaping (Bool, String, [String:Any] )->())
     {
         let tokenKey = UserDefaults.standard.string(forKey: self.userTokenKey) ?? ""
         
@@ -307,8 +308,11 @@ class APIManager{
                             let valueEmail = jsonDataAccount?["email"] as! String
                             let valueStoreName = jsonDataAccount?["storeName"] as! String
                             let valueStorePhoneNumber = jsonDataAccount?["storePhoneNumber"] as! String
+                            let valueAccountTokped = jsonDataAccount?["accountTokped"] as! [[String : Any]]
+                            let numberTokpedAccount = valueAccountTokped.count
                             
-                            let data2 = [ "fullname" : valueFullname, "email" : valueEmail, "storeName" : valueStoreName, "storePhoneNumber" : valueStorePhoneNumber]
+                            
+                            let data2 = [ "fullname" : valueFullname, "email" : valueEmail, "storeName" : valueStoreName, "storePhoneNumber" : valueStorePhoneNumber, "numberTokpedAccount" : numberTokpedAccount] as [String : Any]
                             
                             completionHandler(true, "Login Success", data2)
                            
@@ -455,5 +459,7 @@ class APIManager{
                 }
         }
     }
+    
+    
     
 }

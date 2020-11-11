@@ -18,15 +18,16 @@ struct modelOrder :Encodable,Decodable {
       var shippingTrackingNo: String
       var customerPhone: String
       var customerEmail: String
-      var customerAddress: String
-      var channelNotes: String
-      var additionalNotes: String
+    var customerAddress:String
+    var channelNotes:String? = nil
+      var additionalNotes: String? = nil
       var shippingFee: Int
       var totalPrice: Int
       var id: Int
       var productId: Int
       var productsId: Int
       var accountId: Int
+    var accountTokpedId:Int? = nil
 }
 
 

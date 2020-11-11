@@ -16,10 +16,12 @@ struct TokpedLoginPhone: Encodable {
 struct TokpedLoginEmail: Encodable {
     let email : String
     let password : String
+    let userId : Int //user id dari login app
 }
 
 struct TokpedLoginVerif: Encodable {
     let tokpedAccID : Int
     let pin : Int
     let type : String
+    let userId : Int //user id dari login app
 }

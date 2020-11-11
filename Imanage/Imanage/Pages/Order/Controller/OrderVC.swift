@@ -131,8 +131,8 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         vc.customerPhone = orderDetail.customerPhone
         vc.customerEmail = orderDetail.customerEmail
         vc.customerAddress = orderDetail.customerAddress
-        vc.channelNotes = orderDetail.channelNotes
-        vc.additionalNotes = orderDetail.additionalNotes
+        vc.channelNotes = orderDetail.channelNotes ?? ""
+        vc.additionalNotes = orderDetail.additionalNotes ?? ""
         vc.shippingFee = orderDetail.shippingFee
         vc.statusShip = "Shipped"
         vc.totalPrice = orderDetail.totalPrice
