@@ -24,7 +24,7 @@
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zUH-Fs-dwf">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="78"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7L1-A7-mBS"/>
@@ -160,7 +160,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Lum-kW-aLt">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="0.84705882352941175" colorSpace="calibratedRGB"/>
+                        <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
