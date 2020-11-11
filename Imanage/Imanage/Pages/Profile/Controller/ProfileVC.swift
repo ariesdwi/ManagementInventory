@@ -19,6 +19,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var blConnectBtn: UIButton!
     
     let blueColor = #colorLiteral(red: 0.1882352941, green: 0.2784313725, blue: 0.368627451, alpha: 1)
+    let comingSoonColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
+    var btnState = "notConnected" //[notConnected, connected, coming_soon ]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,41 +36,57 @@ class ProfileVC: UIViewController {
             print("status = \(status), data = \(data)")
             if status
             {
-                self.storeNameLabel.text = data["storeName"]
-                self.storeEmailLabel.text = data["email"]
-                self.storePhoneLabel.text = data["storePhoneNumber"]
+                self.storeNameLabel.text = data["storeName"] as! String
+                self.storeEmailLabel.text = data["email"] as! String
+                self.storePhoneLabel.text = data["storePhoneNumber"] as! String
+                let numberTokpedAccount = data["numberTokpedAccount"] as! Int
+                print("ProfileVC, data : \(data)")
                 
+                if numberTokpedAccount > 0 {
+                    self.setupButton(selectedButton: self.tokpedConnectBtn, state: "connected")
+                }
+                else {
+                    self.setupButton(selectedButton: self.tokpedConnectBtn, state: "notConnected")
+                }
+                self.setupButton(selectedButton: self.blConnectBtn, state: "comingSoon")
             }
             
         }
         
-        setupButton(selectedButton: tokpedConnectBtn, state: false)
-        setupButton(selectedButton: blConnectBtn, state: false)
-        
     }
     
     
-    func setupButton(selectedButton : UIButton, state : Bool)
+    func setupButton(selectedButton : UIButton, state : String)
     {
-        if state {
+        if state == "connected" {
             //connected
             // connect button : textColor, border color = #30475E, background color = white
             //selectedButton.isHidden = true
             
-            selectedButton.setTitle("Disconnect", for: .normal)
+            selectedButton.setTitle("Connected", for: .normal)
             selectedButton.setTitleColor(UIColor.white, for: .normal)
             selectedButton.layer.borderColor = blueColor.cgColor
             selectedButton.layer.backgroundColor = blueColor.cgColor
+            selectedButton.isEnabled = false
             
             
         }
-        else {
+        else if state == "notConnected" {
             //disconnected
             // disconnect button : text color = white, fill color = #30475E
             selectedButton.setTitle("Connect", for: .normal)
             selectedButton.setTitleColor(blueColor, for: .normal)
             selectedButton.layer.borderColor = blueColor.cgColor
             selectedButton.layer.backgroundColor = UIColor.white.cgColor
+            selectedButton.isEnabled = true
+            
+        }
+        else {
+            selectedButton.setTitle("Coming Soon", for: .disabled)
+            selectedButton.setTitleColor(comingSoonColor, for: .disabled)
+            selectedButton.layer.borderColor = comingSoonColor.cgColor
+            selectedButton.layer.backgroundColor = UIColor.white.cgColor
+            selectedButton.isEnabled = false
         }
         
     }
@@ -81,13 +99,6 @@ class ProfileVC: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "loginCommerceSegue"
-        {
-            guard let vc = segue.destination as? LoginEcommerceVC else { return }            
-        }
-        
-    }
 
     /*
     // MARK: - Navigation

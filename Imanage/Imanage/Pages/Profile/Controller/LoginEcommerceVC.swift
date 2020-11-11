@@ -44,39 +44,47 @@ class LoginEcommerceVC: UIViewController {
     @IBAction func actionLoginTokped(_ sender: UIButton)
     {
         var userTokpedIDFromAPI : Int!
+        let userAccId = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
         
         if sender == btnLogin {
-            loginView.isHidden = true
-            otpView.isHidden = false
-            
+                        
             if loginEmail.text == "" || loginPassword.text == "" {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "Field cannot be empty")
             }
-            
-            let loginUser = TokpedLoginEmail(email: loginEmail.text!, password: loginPassword.text!)
-            
-            APIManager.shareInstance.loginTokped(modelTokpedLogin: loginUser) {
-                (status, msg, userTokpedID) in
-                    print("userAccID = \(userTokpedID)")
-                userTokpedIDFromAPI = userTokpedID
+            else {
+                loginView.isHidden = true
+                otpView.isHidden = false
+                
+                let loginUser = TokpedLoginEmail(email: loginEmail.text!, password: loginPassword.text!, userId : userAccId )
+                
+                APIManager.shareInstance.loginTokped(modelTokpedLogin: loginUser) {
+                    (status, msg, userTokpedID) in
+                        print("userAccID = \(userTokpedID)")
+                    userTokpedIDFromAPI = userTokpedID
+                }
             }
+            
+            
         }
         else if sender == otpSubmitBtn {
             if loginOTP.text == "" {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "Field cannot be empty")
             }
-            if loginOTP.text?.count < 4 {
+            if loginOTP.text!.count < 4 {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "OTP must be 6 digits")
             }
-            
-            var otpText : Int = Int(loginOTP.text!)!
-            
-            
-            let loginUserVerif = TokpedLoginVerif(tokpedAccID: userTokpedIDFromAPI, pin: otpText, type: "email")
-            APIManager.shareInstance.loginTokpedVerif(modelTokpedVerif: loginUserVerif) { (status, msg) in
-                self.result = status
-                self.performSegue(withIdentifier: "connectionResultSegue", sender: self)
+            else {
+                let otpText : Int = Int(loginOTP.text!)!
+                
+                
+                let loginUserVerif = TokpedLoginVerif(tokpedAccID: userTokpedIDFromAPI, pin: otpText, type: "email", userId: userAccId)
+                APIManager.shareInstance.loginTokpedVerif(modelTokpedVerif: loginUserVerif) { (status, msg) in
+                    self.result = status
+                    self.performSegue(withIdentifier: "connectionResultSegue", sender: self)
+                }
             }
+            
+            
         }
     }
         
