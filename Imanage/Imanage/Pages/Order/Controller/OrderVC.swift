@@ -41,7 +41,8 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         tableView.dataSource = self
         
         refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
-       APIManager.shareInstance.getOrder{ [weak self] result in
+      
+        APIManager.shareInstance.getOrder{ [weak self] result in
            switch result {
            case .failure(let error):
                print(error)
@@ -49,6 +50,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
                self?.listofOrder = order
            }
        }
+        
 
     }
     

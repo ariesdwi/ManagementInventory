@@ -61,7 +61,9 @@ class editProductVC: UIViewController {
         let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
         
         let link = [""]
-        let updateProduct = productDetail(name: editnames, qty:editqtyProduct , price: editpriceProduct, id: id, description: editdescProduct, variant: editcolorProduct, weight: editweightProduct, condition: editcondition, accountId: accountID, images: link)
+        let weightType = ""
+        
+        let updateProduct = productDetail(name: editnames, qty:editqtyProduct , price: editpriceProduct, id: id, description: editdescProduct, variant: editcolorProduct, weight: editweightProduct, condition: editcondition, accountId: accountID, weightType: weightType, images: link)
 ////        
 //        APIManager.shareInstance.editProduct(editProduct: updateProduct)
     }

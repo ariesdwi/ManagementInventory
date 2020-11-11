@@ -27,6 +27,7 @@ struct productDetail:Encodable,Decodable {
     var weight:Int
     var condition:Bool
     var accountId:Int
+    var weightType:String
     var images:[String]
 }
 

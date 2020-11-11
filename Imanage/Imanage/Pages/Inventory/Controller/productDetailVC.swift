@@ -17,6 +17,9 @@ class productDetailVC: UIViewController {
     @IBOutlet var colorProductLabel: UILabel!
     @IBOutlet var weightProductLabel: UILabel!
     @IBOutlet var conditionProduct: UILabel!
+    @IBOutlet var imageViewOne: UIImageView!
+    @IBOutlet var weightTypes: UILabel!
+    
     
     @IBOutlet var navbarTop: UIView!
     var nameProduct = ""
@@ -27,6 +30,8 @@ class productDetailVC: UIViewController {
     var weightProduct = 0
     var condition = true
     var id = 0
+    var imgUrl = ""
+    var weightType = ""
     @IBOutlet var NavbarOrder: UINavigationItem!
     
     var detailofProduct = [productDetail]()
@@ -47,6 +52,10 @@ class productDetailVC: UIViewController {
         } else {
             conditionProduct.text = "Old Product"
         }
+        
+        imageViewOne.downloaded(from: imgUrl)
+        
+        weightTypes.text = weightType
         
         // Do any additional setup after loading the view.
     }
@@ -83,3 +92,5 @@ class productDetailVC: UIViewController {
    }
     
 }
+
+
