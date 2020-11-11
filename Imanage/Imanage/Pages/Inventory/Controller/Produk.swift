@@ -23,7 +23,7 @@ struct productDetail:Encodable,Decodable {
     let price:Int
     var id:Int
     var description:String
-    var variant:String
+    var variant:String? = nil
     var weight:Int
     var condition:Bool
     var accountId:Int
