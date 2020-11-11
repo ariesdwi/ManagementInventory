@@ -185,6 +185,7 @@ class APIManager{
                 
                 let products = try JSONDecoder().decode(Products.self, from: data)
                 let productsDetail = products.product
+    
                 completion(.success(productsDetail))
                 print(products)
                 print(productsDetail)

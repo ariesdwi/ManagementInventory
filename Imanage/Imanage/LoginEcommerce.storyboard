@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
+
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17126"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
-        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -142,6 +142,7 @@
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="DAf-sL-LC6" secondAttribute="trailing" constant="40" id="096-zI-Btu"/>
                                     <constraint firstAttribute="trailing" secondItem="YZv-hi-uCV" secondAttribute="trailing" constant="40" id="EQo-T0-gWf"/>
@@ -173,7 +174,8 @@
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="UBc-FZ-HNr"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+
                         <constraints>
                             <constraint firstItem="9uG-Yi-psM" firstAttribute="top" secondItem="7eu-zw-wCu" secondAttribute="bottom" constant="12" id="0EP-Q3-Bon"/>
                             <constraint firstItem="7eu-zw-wCu" firstAttribute="top" secondItem="UBc-FZ-HNr" secondAttribute="top" constant="90" id="8I7-lK-xij"/>
@@ -192,6 +194,7 @@
                             <constraint firstItem="xKx-yB-YnM" firstAttribute="top" secondItem="0tD-oy-Eu3" secondAttribute="top" id="poJ-5D-o71"/>
                             <constraint firstItem="WqK-Kh-acJ" firstAttribute="top" secondItem="9uG-Yi-psM" secondAttribute="bottom" constant="44" id="utC-Qn-ED7"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="UBc-FZ-HNr"/>
                     </view>
                     <navigationItem key="navigationItem" id="vgz-Jj-vIY"/>
                     <connections>
@@ -275,6 +278,7 @@
                             <constraint firstItem="Jee-Cq-dm7" firstAttribute="top" secondItem="EQH-3s-rFz" secondAttribute="bottom" constant="40" id="pfQ-8y-6IX"/>
                             <constraint firstItem="Jee-Cq-dm7" firstAttribute="leading" secondItem="iVW-2m-Run" secondAttribute="leading" constant="60" id="sd5-pr-vSP"/>
                         </constraints>
+                        <viewLayoutGuide key="safeArea" id="d7c-QX-k6G"/>
                     </view>
                     <navigationItem key="navigationItem" id="nAu-VJ-An1"/>
                     <connections>

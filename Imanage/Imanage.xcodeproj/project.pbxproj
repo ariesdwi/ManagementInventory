@@ -28,6 +28,7 @@
 		6C943FF02555A0C2000624FC /* EmptyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6C943FEE2555A0C2000624FC /* EmptyCell.xib */; };
 		6C943FF32555A85E000624FC /* SuperViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C943FF22555A85E000624FC /* SuperViewController.swift */; };
 		6C943FF52558518A000624FC /* GMStepper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C943FF42558518A000624FC /* GMStepper.swift */; };
+		6C943FF7255B84D0000624FC /* LoginOtpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6C943FF6255B84D0000624FC /* LoginOtpVC.swift */; };
 		6CA03B5B253FD5FB0055A29C /* OrderTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA03B59253FD5FB0055A29C /* OrderTableViewCell.swift */; };
 		6CA03B5C253FD5FB0055A29C /* OrderTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6CA03B5A253FD5FB0055A29C /* OrderTableViewCell.xib */; };
 		6CA03B5E253FF04B0055A29C /* InventoryTableVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6CA03B5D253FF04B0055A29C /* InventoryTableVC.swift */; };
@@ -97,6 +98,7 @@
 		6C943FEE2555A0C2000624FC /* EmptyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EmptyCell.xib; sourceTree = "<group>"; };
 		6C943FF22555A85E000624FC /* SuperViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuperViewController.swift; sourceTree = "<group>"; };
 		6C943FF42558518A000624FC /* GMStepper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = GMStepper.swift; path = Imanage/Pages/GMStepper.swift; sourceTree = SOURCE_ROOT; };
+		6C943FF6255B84D0000624FC /* LoginOtpVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginOtpVC.swift; sourceTree = "<group>"; };
 		6CA03B59253FD5FB0055A29C /* OrderTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderTableViewCell.swift; sourceTree = "<group>"; };
 		6CA03B5A253FD5FB0055A29C /* OrderTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrderTableViewCell.xib; sourceTree = "<group>"; };
 		6CA03B5D253FF04B0055A29C /* InventoryTableVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InventoryTableVC.swift; sourceTree = "<group>"; };
@@ -376,6 +378,7 @@
 		BF6CC66A254282BB00D634EF /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				6C943FF6255B84D0000624FC /* LoginOtpVC.swift */,
 				BF6CC66F25428B9900D634EF /* ProfileVC.swift */,
 				BF6CC67325428BAF00D634EF /* LoginEcommerceVC.swift */,
 				BF6CC6772547EB6300D634EF /* SettingVC.swift */,
@@ -491,6 +494,7 @@
 				6CA03B632540B7030055A29C /* ChooseOrderCell.swift in Sources */,
 				6CA03B602540B6500055A29C /* ChooseOrderVC.swift in Sources */,
 				6CF4372C254FAF9C006F010D /* APIManager.swift in Sources */,
+				6C943FF7255B84D0000624FC /* LoginOtpVC.swift in Sources */,
 				6C8D2AFE252AC56E007B85DC /* ViewController.swift in Sources */,
 				6CF4372B254FADE6006F010D /* RegisterVC.swift in Sources */,
 				6C8D2B4C252D76BE007B85DC /* InventoryViewController.swift in Sources */,
