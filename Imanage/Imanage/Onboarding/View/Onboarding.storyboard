@@ -124,7 +124,6 @@
                             <constraint firstItem="50q-X4-fws" firstAttribute="leading" secondItem="aS5-Nb-14n" secondAttribute="leading" constant="40" id="oRE-z2-uUj"/>
                             <constraint firstItem="tiu-f6-r6w" firstAttribute="centerX" secondItem="O0T-nh-lN9" secondAttribute="centerX" id="piL-RI-69b"/>
                         </constraints>
-                        <viewLayoutGuide key="safeArea" id="aS5-Nb-14n"/>
                     </view>
                     <navigationItem key="navigationItem" id="36f-3D-wmL"/>
                     <connections>
@@ -383,7 +382,13 @@
                             </scrollView>
                         </subviews>
 
-                        <viewLayoutGuide key="safeArea" id="7fX-PV-y9d"/>
+
+
+                       
+
+
+
+
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="lIz-n1-LDC" secondAttribute="bottom" id="7u3-eT-vmf"/>
