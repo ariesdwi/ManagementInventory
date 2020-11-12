@@ -118,3 +118,9 @@ class ProfileVC: UIViewController {
     
 
 }
+
+extension ProfileVC {
+    @IBAction func cancelToProfileVC(_ segue : UIStoryboardSegue){
+        
+    }
+}

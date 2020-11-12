@@ -36,6 +36,7 @@ class LoginEcommerceVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.hideKeyboardWhenTappedOutside()
         
         loginView.isHidden = false
         otpView.isHidden = true
@@ -51,10 +52,18 @@ class LoginEcommerceVC: UIViewController {
             if loginEmail.text == "" || loginPassword.text == "" {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "Field cannot be empty")
             }
+            else if !(loginEmail.text!.contains("@") ) || !loginEmail.text!.contains(".")
+            {
+                ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "Email format must contain '@' & '.'")
+            }
+            else if loginPassword.text!.count < 8 {
+                ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "Password must be at least 8 characters")
+            }
             else {
                 loginView.isHidden = true
                 otpView.isHidden = false
                 
+                /*
                 let loginUser = TokpedLoginEmail(email: loginEmail.text!, password: loginPassword.text!, userId : userAccId )
                 
                 APIManager.shareInstance.loginTokped(modelTokpedLogin: loginUser) {
@@ -62,6 +71,7 @@ class LoginEcommerceVC: UIViewController {
                         print("userAccID = \(userTokpedID)")
                     userTokpedIDFromAPI = userTokpedID
                 }
+                */
             }
             
             
@@ -71,9 +81,10 @@ class LoginEcommerceVC: UIViewController {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "Field cannot be empty")
             }
             if loginOTP.text!.count < 4 {
-                ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "OTP must be 6 digits")
+                ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "OTP must be at least 4 digits")
             }
             else {
+                /*
                 let otpText : Int = Int(loginOTP.text!)!
                 
                 
@@ -84,6 +95,11 @@ class LoginEcommerceVC: UIViewController {
                     self.result = status
                     self.performSegue(withIdentifier: "connectionResultSegue", sender: self)
                 }
+                */
+                
+                result = true
+                print("result action btn\(result)")
+                self.performSegue(withIdentifier: "connectionResultSegue", sender: self)
             }
             
             
@@ -95,8 +111,11 @@ class LoginEcommerceVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "connectionResultSegue"
         {
-            guard let vc = segue.destination as? LoginCommerceResult else { return }
-            vc.resultStatus = result
+            if let vc = segue.destination as? LoginCommerceResult {
+                print("prepareSegue in LoginCommerceVC = \(self.result)")
+                vc.resultStatus = self.result
+            }
+            
         }
     }
 

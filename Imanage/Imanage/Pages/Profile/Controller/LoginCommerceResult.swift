@@ -37,18 +37,7 @@ class LoginCommerceResult: UIViewController {
         }
     }
     
-    @IBAction func actionGoToProfile(_ sender: UIButton) {
-        performSegue(withIdentifier: "goToProfileSegue", sender: self)
-    }
-    
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goToProfileSegue"
-        {
-            guard let vc = segue.destination as? ProfileVC else { return }
-        }
-    }
+
     
     
     /*
