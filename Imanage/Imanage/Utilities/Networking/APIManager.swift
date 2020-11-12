@@ -104,8 +104,11 @@ class APIManager{
                         else {
                            
                             let errorJson = json?["error"] as? [String : Any]
-                            //let valueErrCode = errorJson?["code"] as! String
-                            let valueMessage = errorJson?["message"] as! String
+                            let valueErrCode = errorJson?["code"] as! String
+                            var valueMessage = errorJson?["message"] as! String
+                            
+                            if valueErrCode == "LOGIN_FAILED" { valueMessage = "Email & Password not match! Please try again." }
+                            
                             completionHandler(false, valueMessage)
                             /* //example
                              API Manager :
@@ -356,8 +359,10 @@ class APIManager{
                         else {
                            
                             let errorJson = json?["error"] as? [String : Any]
-                            //let valueErrCode = errorJson?["code"] as! String
+                            let valueErrCode = errorJson?["code"] as! String
                             let valueMessage = errorJson?["message"] as! String
+                            
+                            //if valueErrCode == "AUTHORIZATION_REQUIRED" {}
                             completionHandler(false, valueMessage, ["none" : ""])
                             
                         }

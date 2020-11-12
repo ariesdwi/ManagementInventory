@@ -22,6 +22,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         //guard let _ = (scene as? UIWindowScene) else { return }
         
         let hasLaunched = UserDefaults.standard.bool(forKey: "hasLaunched")
+        let userToken = UserDefaults.standard.string(forKey: APIManager.shareInstance.userTokenKey)
         //let hasLaunched = false
 
         let launchStoryboard = UIStoryboard(name: "Introduction", bundle: nil)
@@ -29,7 +30,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         var vc : UIViewController
         if hasLaunched {
-            vc = mainStoryboard.instantiateInitialViewController()!
+            if userToken == nil || userToken == "" {
+                vc = mainStoryboard.instantiateViewController(withIdentifier: "LoginStoryboard") as! LoginVC
+            }
+            else {
+                vc = mainStoryboard.instantiateViewController(withIdentifier: "HomeTabBarStoryboard") as! HomeTabBarVC
+            }
         }
         else {
             //vc = launchStoryboard.instantiateViewController(withIdentifier: "IntroductionStoryboard") as! IntroductionVC

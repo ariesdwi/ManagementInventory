@@ -63,7 +63,6 @@ class LoginEcommerceVC: UIViewController {
                 loginView.isHidden = true
                 otpView.isHidden = false
                 
-                /*
                 let loginUser = TokpedLoginEmail(email: loginEmail.text!, password: loginPassword.text!, userId : userAccId )
                 
                 APIManager.shareInstance.loginTokped(modelTokpedLogin: loginUser) {
@@ -71,7 +70,7 @@ class LoginEcommerceVC: UIViewController {
                         print("userAccID = \(userTokpedID)")
                     userTokpedIDFromAPI = userTokpedID
                 }
-                */
+                
             }
             
             
@@ -84,9 +83,8 @@ class LoginEcommerceVC: UIViewController {
                 ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "OTP must be at least 4 digits")
             }
             else {
-                /*
-                let otpText : Int = Int(loginOTP.text!)!
                 
+                let otpText : Int = Int(loginOTP.text!)!                
                 
                 let loginUserVerif = TokpedLoginVerif(tokpedAccID: userTokpedIDFromAPI, pin: otpText, type: "email", userId: userAccId)
                 APIManager.shareInstance.loginTokpedVerif(modelTokpedVerif: loginUserVerif) { (status, msg) in
@@ -95,11 +93,7 @@ class LoginEcommerceVC: UIViewController {
                     self.result = status
                     self.performSegue(withIdentifier: "connectionResultSegue", sender: self)
                 }
-                */
                 
-                result = true
-                print("result action btn\(result)")
-                self.performSegue(withIdentifier: "connectionResultSegue", sender: self)
             }
             
             
