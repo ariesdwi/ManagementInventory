@@ -92,13 +92,19 @@ class ChooseOrderVC: UITableViewController {
             }
             
             let produkDetail = listofProduct[indexPath.row]
-            let quantity = "\(produkDetail.qty)"
+           
             
             let price = "\(produkDetail.price)"
+            let completeImage = produkDetail.images[0]
+             let quantity = "\(produkDetail.qty)"
             
             cell.productNameLabel.text = produkDetail.name
             cell.priceLabel.text = price
-            cell.productImageView.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
+            
+            
+            cell.productImageView.downloaded(from: completeImage)
+            
+           
             return cell
         }
         

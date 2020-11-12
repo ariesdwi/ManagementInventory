@@ -115,11 +115,15 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let produkDetail = listofProduct[indexPath.row]
             let quantity = "\(produkDetail.qty)"
             let price = "\(produkDetail.price)"
-                       
+            let completeImage = produkDetail.images[0]
+            
             cell.orderListName.text = produkDetail.name
             cell.priceLabel.text = price
-            cell.orderlistImageView.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
             
+           
+            cell.orderlistImageView.downloaded(from: completeImage)
+            
+                    
             return cell
         }
         

@@ -13,6 +13,8 @@ class ChooseOrderCell: UITableViewCell {
     @IBOutlet var productImageView: UIImageView!
     @IBOutlet var productNameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var Stepper: GMStepper!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

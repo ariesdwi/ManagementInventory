@@ -23,8 +23,8 @@
                             <constraint firstAttribute="height" constant="100" id="hE9-S4-VxN"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA6-KR-6AC">
-                        <rect key="frame" x="128" y="38" width="42" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mA6-KR-6AC">
+                        <rect key="frame" x="128" y="38" width="129" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -64,6 +64,7 @@
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="Stepper" destination="lfP-tG-Am4" id="Ia9-zD-iYQ"/>
                 <outlet property="priceLabel" destination="5wu-E8-AmH" id="pwL-Gv-8en"/>
                 <outlet property="productImageView" destination="UDp-fv-RpD" id="Wlp-y1-FLP"/>
                 <outlet property="productNameLabel" destination="mA6-KR-6AC" id="aUy-nk-huC"/>
