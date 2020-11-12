@@ -93,7 +93,7 @@
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="aS5-Nb-14n"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="50q-X4-fws" firstAttribute="top" secondItem="byn-pK-yLv" secondAttribute="bottom" constant="40" id="0zu-ga-fuq"/>
                             <constraint firstItem="Ib3-Cj-dlD" firstAttribute="leading" secondItem="aS5-Nb-14n" secondAttribute="leading" constant="40" id="1Sj-1r-Ctd"/>
@@ -374,7 +374,7 @@
                             </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="7fX-PV-y9d"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottomMargin" secondItem="lIz-n1-LDC" secondAttribute="bottom" id="7u3-eT-vmf"/>
                             <constraint firstItem="lIz-n1-LDC" firstAttribute="leading" secondItem="8UF-II-lFi" secondAttribute="leadingMargin" id="AsS-yi-3tT"/>

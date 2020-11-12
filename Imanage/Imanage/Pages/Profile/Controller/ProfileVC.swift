@@ -10,6 +10,7 @@ import UIKit
 
 class ProfileVC: UIViewController {
     
+    @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var storeImageView: UIImageView!
     @IBOutlet weak var storeNameLabel: UILabel!
@@ -17,6 +18,7 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var storePhoneLabel: UILabel!
     @IBOutlet weak var tokpedConnectBtn: UIButton!
     @IBOutlet weak var blConnectBtn: UIButton!
+    @IBOutlet weak var logoutBtn: UIBarButtonItem!
     
     let blueColor = #colorLiteral(red: 0.1882352941, green: 0.2784313725, blue: 0.368627451, alpha: 1)
     let comingSoonColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
@@ -26,7 +28,12 @@ class ProfileVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        configureRefreshControl()
+        loadProfileView()
         
+    }
+    
+    func loadProfileView(){
         storeImageView.layer.cornerRadius = storeImageView.frame.width / 2
         storeImageView.clipsToBounds = true
         
@@ -56,7 +63,6 @@ class ProfileVC: UIViewController {
             }
             
         }
-        
     }
     
     
@@ -102,8 +108,32 @@ class ProfileVC: UIViewController {
             
         }
     }
+    @IBAction func logoutAction(_ sender: Any) {
+        UserDefaults.standard.set("", forKey: APIManager.shareInstance.userTokenKey)
+        let loginStoryboard: UIStoryboard = UIStoryboard(name: "Onboarding", bundle: nil)
+        let loginVC = loginStoryboard.instantiateViewController(withIdentifier: "LoginStoryboard") as! LoginVC
+                self.present(loginVC, animated: true, completion: nil)
+    }
     
 
+    func configureRefreshControl () {
+       // Add the refresh control to your UIScrollView object.
+       scrollView.refreshControl = UIRefreshControl()
+       scrollView.refreshControl?.addTarget(self, action:
+                                          #selector(handleRefreshControl),
+                                          for: .valueChanged)
+    }
+        
+    @objc func handleRefreshControl() {
+       // Update your content…
+        loadProfileView()
+
+       // Dismiss the refresh control.
+       DispatchQueue.main.async {
+          self.scrollView.refreshControl?.endRefreshing()
+       }
+    }
+    
     /*
     // MARK: - Navigation
 
@@ -117,4 +147,10 @@ class ProfileVC: UIViewController {
     
     
 
+}
+
+extension ProfileVC {
+    @IBAction func cancelToProfileVC(_ segue : UIStoryboardSegue){
+        
+    }
 }
