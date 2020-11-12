@@ -44,7 +44,7 @@ class ProfileVC: UIViewController {
                 let pin = data["pin"] as? String
                 print("ProfileVC, data : \(data)")
                 
-                if pin == nil || pin == "" {
+                if pin == nil || pin == "" || pin == "0000" {
                     print("ProfileVC Pin null")
                     self.setupButton(selectedButton: self.tokpedConnectBtn, state: "notConnected")
                 }
