@@ -335,11 +335,12 @@ class APIManager{
                             let valueEmail = jsonDataAccount?["email"] as! String
                             let valueStoreName = jsonDataAccount?["storeName"] as! String
                             let valueStorePhoneNumber = jsonDataAccount?["storePhoneNumber"] as! String
-                            let valueAccountTokped = jsonDataAccount?["accountTokped"] as! [[String : Any]]
-                            let numberTokpedAccount = valueAccountTokped.count
+                            let valuePin = jsonDataAccount?["pin"] as? Int
+                            //let valueAccountTokped = jsonDataAccount?["accountTokped"] as! [[String : Any]]
+                            //let numberTokpedAccount = valueAccountTokped.count
                             
                             
-                            let data2 = [ "fullname" : valueFullname, "email" : valueEmail, "storeName" : valueStoreName, "storePhoneNumber" : valueStorePhoneNumber, "numberTokpedAccount" : numberTokpedAccount] as [String : Any]
+                            let data2 = [ "fullname" : valueFullname, "email" : valueEmail, "storeName" : valueStoreName, "storePhoneNumber" : valueStorePhoneNumber, "pin" : valuePin] as [String : Any]
                             
                             completionHandler(true, "Login Success", data2)
                            
@@ -405,6 +406,48 @@ class APIManager{
            
        }
     
+    //nanti harus di update
+    func registerTokped(modelTokpedLogin : TokpedLoginEmail, completionHandler:@escaping (Bool, String, Int )->())
+    {
+        let tokenKey = UserDefaults.standard.string(forKey: self.userTokenKey) ?? ""
+        
+        let headers: HTTPHeaders = [
+            .contentType("application/json")
+        ]
+        
+        
+        AF.request("http://104.248.98.179/api/v1/accountTokpeds/register", method: .post, parameters: modelTokpedLogin, encoder: JSONParameterEncoder.default, headers: headers).response{
+            response in debugPrint(response)
+            switch response.result{
+                case .success(let data):
+                    do {
+                        let json =  try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any]
+                        //print("API Manager :\n\(json)\n")
+                        if response.response?.statusCode == 200
+                        {
+                            let jsonData = json?["data"] as? [String : Any]
+                            let userTokpedID = jsonData?["id"] as! Int
+                            
+                            completionHandler(true, "Login Success", userTokpedID)
+                               
+                        }
+                        else {
+                           
+                            let errorJson = json?["error"] as? [String : Any]
+                            //let valueErrCode = errorJson?["code"] as! String
+                            let valueMessage = errorJson?["message"] as! String
+                            completionHandler(false, valueMessage, 0)
+                            
+                        }
+                        
+                    } catch  {
+                        print(error.localizedDescription)
+                    }
+                case .failure(let err):
+                    print(err.localizedDescription)
+                }
+        }
+    }
     
     func loginTokped(modelTokpedLogin : TokpedLoginEmail, completionHandler:@escaping (Bool, String, Int )->())
     {
@@ -415,7 +458,7 @@ class APIManager{
         ]
         
         
-        AF.request("http://104.248.98.179/api/v1/accountTokpeds/register", method: .post, parameters: modelTokpedLogin, encoder: JSONParameterEncoder.default, headers: headers).response{
+        AF.request("http://104.248.98.179/api/v1/accountTokpeds/login", method: .post, parameters: modelTokpedLogin, encoder: JSONParameterEncoder.default, headers: headers).response{
             response in debugPrint(response)
             switch response.result{
                 case .success(let data):
@@ -462,7 +505,7 @@ class APIManager{
                 case .success(let data):
                     do {
                         let json =  try JSONSerialization.jsonObject(with: data!, options: []) as? [String:Any]
-                        //print("API Manager :\n\(json)\n")
+                        print("API Manager :\n\(json)\n")
                         if response.response?.statusCode == 200
                         {
                             completionHandler(true, "Login Success")
@@ -486,7 +529,5 @@ class APIManager{
                 }
         }
     }
-    
-    
     
 }

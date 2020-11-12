@@ -79,6 +79,8 @@ class LoginEcommerceVC: UIViewController {
                 
                 let loginUserVerif = TokpedLoginVerif(tokpedAccID: userTokpedIDFromAPI, pin: otpText, type: "email", userId: userAccId)
                 APIManager.shareInstance.loginTokpedVerif(modelTokpedVerif: loginUserVerif) { (status, msg) in
+                    
+                    print("LoginCommerceVC status = \(status)")
                     self.result = status
                     self.performSegue(withIdentifier: "connectionResultSegue", sender: self)
                 }
