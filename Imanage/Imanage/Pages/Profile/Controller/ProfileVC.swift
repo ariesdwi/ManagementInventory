@@ -40,10 +40,10 @@ class ProfileVC: UIViewController {
                 self.storeNameLabel.text = data["storeName"] as! String
                 self.storeEmailLabel.text = data["email"] as! String
                 self.storePhoneLabel.text = data["storePhoneNumber"] as! String
-                let pin = data["pin"] as? Int
+                let pin = data["pin"] as? String
                 print("ProfileVC, data : \(data)")
                 
-                if pin == nil {
+                if pin == nil || pin == "" {
                     print("ProfileVC Pin null")
                     self.setupButton(selectedButton: self.tokpedConnectBtn, state: "notConnected")
                 }

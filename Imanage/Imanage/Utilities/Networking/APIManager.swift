@@ -335,12 +335,14 @@ class APIManager{
                             let valueEmail = jsonDataAccount?["email"] as! String
                             let valueStoreName = jsonDataAccount?["storeName"] as! String
                             let valueStorePhoneNumber = jsonDataAccount?["storePhoneNumber"] as! String
-                            let valuePin = jsonDataAccount?["pin"] as? Int
-                            //let valueAccountTokped = jsonDataAccount?["accountTokped"] as! [[String : Any]]
-                            //let numberTokpedAccount = valueAccountTokped.count
+                            //let valuePin = jsonDataAccount?["pin"] as? Int
+                            let valueAccountTokped = jsonDataAccount?["accountTokped"] as! [[String : Any]]
+                            let eachValueAcc = valueAccountTokped[0] as? [String : Any]
+                            let valueAccPin = eachValueAcc?["pin"] as? String
+                            print("valuePin = \(valueAccPin)")
                             
                             
-                            let data2 = [ "fullname" : valueFullname, "email" : valueEmail, "storeName" : valueStoreName, "storePhoneNumber" : valueStorePhoneNumber, "pin" : valuePin] as [String : Any]
+                            let data2 = [ "fullname" : valueFullname, "email" : valueEmail, "storeName" : valueStoreName, "storePhoneNumber" : valueStorePhoneNumber, "pin" : valueAccPin] as [String : Any]
                             
                             completionHandler(true, "Login Success", data2)
                            
