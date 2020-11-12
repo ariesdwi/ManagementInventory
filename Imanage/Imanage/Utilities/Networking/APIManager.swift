@@ -335,6 +335,7 @@ class APIManager{
                             let valueEmail = jsonDataAccount?["email"] as! String
                             let valueStoreName = jsonDataAccount?["storeName"] as! String
                             let valueStorePhoneNumber = jsonDataAccount?["storePhoneNumber"] as! String
+
                             //let valuePin = jsonDataAccount?["pin"] as? Int
                             let valueAccountTokped = jsonDataAccount?["accountTokped"] as! [[String : Any]]
                             let eachValueAcc = valueAccountTokped[0] as? [String : Any]
