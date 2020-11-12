@@ -27,7 +27,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         }
     }
     
-    var refreshControl = UIRefreshControl()
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,10 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         tableView.delegate = self
         tableView.dataSource = self
         
-        refreshControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+        let refresControl = UIRefreshControl()
+        refresControl.addTarget(self, action: #selector(self.refresh(_:)), for: .valueChanged)
+              
+        self.tableView.refreshControl = refresControl
       
         APIManager.shareInstance.getOrder{ [weak self] result in
            switch result {
@@ -55,7 +58,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
     }
     
     @objc func refresh(_ sender: Any){
-            APIManager.shareInstance.getOrder{ [weak self] result in
+        APIManager.shareInstance.getOrder{ [weak self] result in
                      switch result {
                      case .failure(let error):
                          print(error)
@@ -64,7 +67,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
                      }
                  }
         DispatchQueue.main.async {
-            self.tableView.reloadData()
+            self.tableView.refreshControl?.endRefreshing()
         }
        }
 
