@@ -25,6 +25,7 @@ final class orderBuyerCell2: UITableViewCell {
     
     @IBOutlet var createOrderBtn: UIButton!
     
+
     
     override func awakeFromNib() {
         super.awakeFromNib()

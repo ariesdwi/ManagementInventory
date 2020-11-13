@@ -15,6 +15,7 @@ class ChooseOrderVC: UITableViewController {
     let myData = ["First","Second","Third"]
     let price = ["12$","15$","16$","12$","15$","16$"]
     var valueStep = 0
+    var selectedProduct : [Int:Int] = [:]
    
     
     var listofProduct = [productDetail]() {
@@ -102,6 +103,8 @@ class ChooseOrderVC: UITableViewController {
             cell.productNameLabel.text = produkDetail.name
             cell.priceLabel.text = price
             cell.productImageView.downloaded(from: completeImage)
+            cell.produkId = produkDetail.id
+            cell.stepperProtocol = self
             
             return cell
         }
@@ -119,10 +122,25 @@ class ChooseOrderVC: UITableViewController {
         
         return cell
     }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected row at : \(indexPath.item)")
+    }
+    
 }
+
 
 extension ChooseOrderVC: buttonNextCellDelegate {
     func chooseOrder() {
         performSegue(withIdentifier: "segueOrderBuyer", sender: (Any).self)
+    }
+}
+
+extension ChooseOrderVC:orderItemCell {
+    func addItemQty(produkId:Int, qtyStepper: Int) {
+        print("produkId = \(produkId), qty = \(qtyStepper)")
+        
+        //update array sele
+        selectedProduct[produkId] = qtyStepper
     }
 }
