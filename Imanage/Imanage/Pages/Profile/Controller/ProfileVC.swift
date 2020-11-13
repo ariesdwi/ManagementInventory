@@ -120,9 +120,7 @@ class ProfileVC: UIViewController {
     func configureRefreshControl () {
        // Add the refresh control to your UIScrollView object.
        scrollView.refreshControl = UIRefreshControl()
-       scrollView.refreshControl?.addTarget(self, action:
-                                          #selector(handleRefreshControl),
-                                          for: .valueChanged)
+       scrollView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     }
         
     @objc func handleRefreshControl() {
