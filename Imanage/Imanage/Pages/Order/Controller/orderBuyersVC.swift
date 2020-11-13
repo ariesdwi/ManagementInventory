@@ -114,26 +114,27 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 fatalError("The dequeued cell is not an instance of MealTableViewCell.")
             }
             
+            guard let cell1 = orderTableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell else {
+                              fatalError("The dequeued cell is not an instance of MealTableViewCell.")
+            }
+            
             let produkDetail = listofProduct[indexPath.row]
             let quantity = "\(produkDetail.qty)"
             let price = "\(produkDetail.price)"
             let completeImage = produkDetail.images[0]
             let idProduk = produkDetail.id
             
-            cell.productNameLabel.text = produkDetail.name
-            cell.priceLabel.text = price
-            
-            cell.productImageView.downloaded(from: completeImage)
-            cell.Stepper.value = selectedProducts[idProduk] ?? 0
-                    
-            
-            var Tprice = 0
-            Tprice = produkDetail.price * Int(selectedProducts[idProduk] ?? 0)
-            
-           
-          
-            
+            if selectedProducts[idProduk] ?? 0 != 0 {
+               cell.productNameLabel.text = produkDetail.name
+               cell.priceLabel.text = price
+               cell.productImageView.downloaded(from: completeImage)
+               cell.Stepper.value = selectedProducts[idProduk] ?? 0
             return cell
+            } else {
+            return cell1
+            }
+            
+            
         }
         
         
