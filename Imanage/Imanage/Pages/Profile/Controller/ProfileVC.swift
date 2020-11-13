@@ -18,7 +18,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var storePhoneLabel: UILabel!
     @IBOutlet weak var tokpedConnectBtn: UIButton!
     @IBOutlet weak var blConnectBtn: UIButton!
-    @IBOutlet weak var logoutBtn: UIBarButtonItem!
+    @IBOutlet weak var logoutBtn: UIButton!
+    
     
     let blueColor = #colorLiteral(red: 0.1882352941, green: 0.2784313725, blue: 0.368627451, alpha: 1)
     let comingSoonColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
