@@ -516,6 +516,4 @@ extension GMStepper {
             timerFireCount = 0
         }
     }
-
-
 }

@@ -78,7 +78,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         searchController.delegate = self
         searchController.searchBar.delegate = self
         searchController.searchBar.showsBookmarkButton = true
-        searchController.searchBar.setImage(UIImage(named: "sort-arrows-couple-pointing-up-and-down"), for: .bookmark, state: .normal)
+        searchController.searchBar.setImage(UIImage(named: "sort"), for: .bookmark, state: .normal)
      
 //        if searchController.isActive {
 //            searchController.searchBar.showsBookmarkButton = false
@@ -116,7 +116,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         cell.OrderNameLabel.text = orderDetail.customerName
         cell.SkuLabel.text = orderDetail.invoiceId
         cell.DateLabel.text = orderDetail.orderDate
-        cell.Channel.text = orderDetail.channelNotes
+        cell.Channel.text = orderDetail.channelName
         cell.ProgressLabel.text = progress[indexPath.row]
         
         
@@ -128,7 +128,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         let orderDetail = listofOrder[indexPath.row]
         let vc = storyboard?.instantiateViewController(withIdentifier: "orderDetailStory") as! OrderDetailVC
         
-        vc.invoiceId = orderDetail.invoiceId
+        vc.invoiceId = orderDetail.invoiceId ?? ""
         vc.orderDate = orderDetail.orderDate
         vc.customerName = orderDetail.customerName
         vc.shippingName = "JNE REG"

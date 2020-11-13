@@ -121,7 +121,7 @@
                                 <viewLayoutGuide key="frameLayoutGuide" id="Eay-9L-TVc"/>
                             </scrollView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bu6-co-e6O" userLabel="HeaderView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="142"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>

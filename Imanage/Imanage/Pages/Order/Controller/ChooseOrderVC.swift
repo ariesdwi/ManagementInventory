@@ -14,7 +14,7 @@ class ChooseOrderVC: UITableViewController {
     @IBOutlet var tableViewCP: UITableView!
     let myData = ["First","Second","Third"]
     let price = ["12$","15$","16$","12$","15$","16$"]
-    
+    var valueStep = 0
    
     
     var listofProduct = [productDetail]() {
@@ -92,13 +92,17 @@ class ChooseOrderVC: UITableViewController {
             }
             
             let produkDetail = listofProduct[indexPath.row]
-            let quantity = "\(produkDetail.qty)"
+           
             
             let price = "\(produkDetail.price)"
+            let completeImage = produkDetail.images[0]
+            let quantity = "\(produkDetail.qty)"
+           
             
             cell.productNameLabel.text = produkDetail.name
             cell.priceLabel.text = price
-            cell.productImageView.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
+            cell.productImageView.downloaded(from: completeImage)
+            
             return cell
         }
         
@@ -113,11 +117,8 @@ class ChooseOrderVC: UITableViewController {
             return cell
         }
         
-        
         return cell
     }
-    
-
 }
 
 extension ChooseOrderVC: buttonNextCellDelegate {
