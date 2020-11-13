@@ -32,7 +32,7 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var productId = 0
     var productsId = 0
     var accountId = 0
-    
+    var selectedProducts : [Int:Double] = [:]
     
     
     
@@ -50,12 +50,12 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         super.viewDidLoad()
         
         let nib = UINib(nibName: "orderBuyerCell", bundle: nil )
-        let nib2 = UINib(nibName: "orderListCell", bundle: nil )
+        let nib2 = UINib(nibName: "ChooseOrderCell", bundle: nil )
         let nib3 = UINib(nibName: "orderBuyerCell2", bundle: nil )
         let nib4 = UINib(nibName: "EmptyCell", bundle: nil )
         
         orderTableView.register(nib, forCellReuseIdentifier: "orderBuyerCell")
-        orderTableView.register(nib2, forCellReuseIdentifier: "orderListCell")
+        orderTableView.register(nib2, forCellReuseIdentifier: "ChooseOrderCell")
         orderTableView.register(nib3, forCellReuseIdentifier: "orderBuyerCell2")
         orderTableView.register(nib4, forCellReuseIdentifier: "EmptyCell")
         
@@ -71,6 +71,7 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
                 self?.listofProduct = produks
             }
         }
+        
     }
     
      func numberOfSections(in tableView: UITableView) -> Int {
@@ -78,6 +79,7 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         return 3
     }
     
+ 
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listofProduct.count
@@ -107,8 +109,8 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         }
         
         if indexPath.section == 1 {
-            let cellIdentifier = "orderListCell"
-            guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderListCell else {
+            let cellIdentifier = "ChooseOrderCell"
+            guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? ChooseOrderCell else {
                 fatalError("The dequeued cell is not an instance of MealTableViewCell.")
             }
             
@@ -116,16 +118,25 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let quantity = "\(produkDetail.qty)"
             let price = "\(produkDetail.price)"
             let completeImage = produkDetail.images[0]
+            let idProduk = produkDetail.id
             
-            cell.orderListName.text = produkDetail.name
+            cell.productNameLabel.text = produkDetail.name
             cell.priceLabel.text = price
             
-           
-            cell.orderlistImageView.downloaded(from: completeImage)
-            
+            cell.productImageView.downloaded(from: completeImage)
+            cell.Stepper.value = selectedProducts[idProduk] ?? 0
                     
+            
+            var Tprice = 0
+            Tprice = produkDetail.price * Int(selectedProducts[idProduk] ?? 0)
+            
+           
+          
+            
             return cell
         }
+        
+        
         
         
         if indexPath.section == 2 && indexPath.row == 0 {

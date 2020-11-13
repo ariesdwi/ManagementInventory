@@ -116,6 +116,7 @@
                 <outlet property="shippingFeeTextField" destination="7pK-wO-XeY" id="nb0-fZ-6TM"/>
                 <outlet property="shippingTextField" destination="7iw-t0-Uwg" id="S7y-ST-oLj"/>
                 <outlet property="shippingTrackingTextField" destination="ZSb-9F-5Wt" id="2hC-Rj-0dC"/>
+                <outlet property="totalPrice" destination="mST-TK-Bh3" id="L03-u7-duj"/>
             </connections>
             <point key="canvasLocation" x="227.536231884058" y="52.566964285714285"/>
         </tableViewCell>

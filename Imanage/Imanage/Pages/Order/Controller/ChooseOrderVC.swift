@@ -15,7 +15,7 @@ class ChooseOrderVC: UITableViewController {
     let myData = ["First","Second","Third"]
     let price = ["12$","15$","16$","12$","15$","16$"]
     var valueStep = 0
-    var selectedProduct : [Int:Int] = [:]
+    var selectedProduct : [Int:Double] = [:]
    
     
     var listofProduct = [productDetail]() {
@@ -127,20 +127,35 @@ class ChooseOrderVC: UITableViewController {
         print("selected row at : \(indexPath.item)")
     }
     
+//   func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+//         
+//   }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segueOrderBuyer") {
+            if let nextViewController = segue.destination as? orderBuyersVC {
+                nextViewController.selectedProducts = selectedProduct
+            }
+        }
+    }
+    
 }
 
 
 extension ChooseOrderVC: buttonNextCellDelegate {
     func chooseOrder() {
+       
         performSegue(withIdentifier: "segueOrderBuyer", sender: (Any).self)
     }
+    
 }
 
 extension ChooseOrderVC:orderItemCell {
-    func addItemQty(produkId:Int, qtyStepper: Int) {
+    func addItemQty(produkId:Int, qtyStepper: Double) {
         print("produkId = \(produkId), qty = \(qtyStepper)")
-        
         //update array sele
         selectedProduct[produkId] = qtyStepper
     }
+    
+    
 }

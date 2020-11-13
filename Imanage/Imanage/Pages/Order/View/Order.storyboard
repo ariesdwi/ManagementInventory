@@ -62,7 +62,7 @@
                             <outlet property="delegate" destination="ibd-Pd-Svx" id="Rut-Zd-auW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Product" leftItemsSupplementBackButton="YES" id="Tkj-cM-wLr">
+                    <navigationItem key="navigationItem" title="Choose Product" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="Tkj-cM-wLr">
                         <barButtonItem key="backBarButtonItem" title="back" id="vZK-O4-fjj"/>
                         <barButtonItem key="leftBarButtonItem" title="back" image="chevron.left" catalog="system" id="ClT-07-vva">
                             <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -75,7 +75,7 @@
                     <connections>
                         <outlet property="Navbar" destination="Tkj-cM-wLr" id="coa-Yf-kSv"/>
                         <outlet property="tableViewCP" destination="5uj-8V-ufj" id="0cm-QD-Hbo"/>
-                        <segue destination="PUF-mY-yOQ" kind="show" identifier="segueOrderBuyer" id="M3t-I3-JgB"/>
+                        <segue destination="PUF-mY-yOQ" kind="show" identifier="segueOrderBuyer" id="Idh-SC-oJ0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVl-Me-e3G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

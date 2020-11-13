@@ -25,7 +25,8 @@ final class orderBuyerCell2: UITableViewCell {
     
     @IBOutlet var createOrderBtn: UIButton!
     
-
+    @IBOutlet var totalPrice: UILabel!
+    
     
     override func awakeFromNib() {
         super.awakeFromNib()
