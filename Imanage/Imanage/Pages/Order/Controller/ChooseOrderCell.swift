@@ -15,9 +15,12 @@ class ChooseOrderCell: UITableViewCell {
     @IBOutlet var priceLabel: UILabel!
     @IBOutlet var Stepper: GMStepper!
     
+    var testValuestepper:Int = 0
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        testValuestepper = Int(Stepper.value)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
