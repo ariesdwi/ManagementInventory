@@ -8,13 +8,8 @@
 
 import UIKit
 
-class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSource, FieldStyle1Delegate {
-   
-    
-   
-    
-    let myData = ["Alarm Clock","Coffee Mug","Daily notebook","Wooden Frame","Desk Lamp"]
-    
+class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
+    var selectedProducts : [Int:Double] = [:]
     var invoiceId = ""
     var orderDate = ""
     var customerName = ""
@@ -32,10 +27,9 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     var productId = 0
     var productsId = 0
     var accountId = 0
-    var selectedProducts : [Int:Double] = [:]
+    var qty = 0
     
-    
-    
+  
     @IBOutlet var orderTableView: UITableView!
     
     var listofProduct = [productDetail]() {
@@ -62,7 +56,14 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
         orderTableView.delegate = self
         orderTableView.dataSource = self
         // Do any additional setup after loading the view.
+        let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
+        let productID = UserDefaults.standard.integer(forKey: "produkIds")
+        let qtyStepper = UserDefaults.standard.integer(forKey: "qtyStepper")
         
+        qty = Int(qtyStepper)
+        productId = productID
+        productsId = productID
+        accountId = accountID
         APIManager.shareInstance.getInventoryProduct{ [weak self] result in
             switch result {
             case .failure(let error):
@@ -87,6 +88,8 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
+       
+        
         guard let cell = orderTableView.dequeueReusableCell(withIdentifier: "EmptyCell", for: indexPath) as? EmptyCell else {
                    fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
@@ -96,15 +99,11 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderBuyerCell else {
                 fatalError("The dequeued cell is not an instance of MealTableViewCell.")
             }
+     
             
-            cell.delegate = self
-            
-            orderDate = cell.orderDateLabel.text!
-            customerName = cell.nameTextField.text!
-            customerPhone = cell.phoneNumberTextField.text!
-            customerAddress = cell.addressTextField.text!
-            customerEmail = cell.emailTextField.text!
-            
+            cell.orderdelegate = self
+         
+            print(orderDate)
             return cell
         }
         
@@ -137,9 +136,7 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             
         }
         
-        
-        
-        
+            
         if indexPath.section == 2 && indexPath.row == 0 {
             let cellIdentifier = "orderBuyerCell2"
             guard let cell = orderTableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? orderBuyerCell2 else {
@@ -147,33 +144,62 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             }
             
             shippingTrackingNo = cell.shippingTrackingTextField.text!
+            shippingName = cell.shippingTextField.text!
+            shippingFee = Int(cell.shippingFeeTextField.text!) ?? 0
             //            shippingFee = Int(cell.shippingFeeTextField.text ?? "")!
             
             cell.delegate = self
-            
+           
             return cell
         }
         
-        let accountID = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
+        
+        
+        
+
+        
+        
+        
+     
+        
         
         return cell
-    }
-    
-    
-    func textChange(text: String, tag: NSInteger) {
-           if tag == 0 {
-              customerName = text
-           }
-    }
-    
-    
+    }    
 }
 
 
 extension orderBuyersVC: orderBuyerCell2Delegate {
-    func createOrder() {
-      let addOrder = addOrders(invoiceId: invoiceId, orderDate: orderDate, customerName: customerName, shippingTrackingNo: shippingTrackingNo, customerPhone: customerPhone, customerEmail: customerEmail, customerAddress: customerAddress, channelNotes: channelNotes, additionalNotes: additionalNotes, shippingFee: shippingFee, totalPrice: totalPrice, productId: productId, productsId: productsId, accountId: accountId)
-                    
-          APIManager.shareInstance.addOrderAPI(addOrder: addOrder)
+    func textFieldOrder2(payment: String, shipping: String, Fee: String, trackingShip: String) {
+        channelNotes = payment
+        shippingName = shipping
+        shippingFee = Int(Fee) ?? 0
+        shippingTrackingNo = trackingShip
     }
+    
+    func createOrder() {
+    var addOrder = addOrders(invoiceId: invoiceId, orderDate: orderDate, customerName: customerName, shippingTrackingNo: shippingTrackingNo, customerPhone: customerPhone, customerEmail: customerEmail, customerAddress: customerAddress, channelNotes: channelNotes, additionalNotes: additionalNotes, shippingFee: shippingFee, totalPrice: totalPrice, productId: productId, productsId: productsId, accountId: accountId, qty: qty)
+     APIManager.shareInstance.addOrderAPI(addOrder: addOrder)
+        
+        let vc = storyboard?.instantiateViewController(withIdentifier: "ChooseOrderVC") as! ChooseOrderVC
+        self.navigationController?.popToRootViewController(animated: true)
+       
+    }
+    
+}
+
+extension orderBuyersVC:orderBuyerCellDelegate{
+    
+    func textFieldOrder1(date: String, name: String, address: String, email: String, phone: String) {
+        orderDate = date
+        customerName = name
+        customerEmail = email
+        customerAddress = address
+        customerPhone = phone
+        print(date)
+        print(name)
+        print(address)
+        print(email)
+        print(phone)
+    }
+    
 }

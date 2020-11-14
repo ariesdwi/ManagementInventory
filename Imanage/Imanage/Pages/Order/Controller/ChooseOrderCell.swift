@@ -28,11 +28,8 @@ class ChooseOrderCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
         testValuestepper = Stepper.value
-        
     }
     
-
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -43,6 +40,4 @@ class ChooseOrderCell: UITableViewCell {
         print("onclickStepper \(Stepper.value)")
         stepperProtocol?.addItemQty(produkId : produkId, qtyStepper: Stepper.value )
     }
-    
-    
 }

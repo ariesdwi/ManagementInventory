@@ -10,7 +10,7 @@
         <!--Order-->
         <scene sceneID="Opi-Dx-Qkh">
             <objects>
-                <viewController storyboardIdentifier="OrderVC" id="YMP-oD-H8y" customClass="OrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YMP-oD-H8y" customClass="OrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4zz-m1-dxE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -52,7 +52,7 @@
         <!--Choose Product-->
         <scene sceneID="vLK-TJ-bxb">
             <objects>
-                <tableViewController id="ibd-Pd-Svx" customClass="ChooseOrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChooseOrderVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ibd-Pd-Svx" customClass="ChooseOrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5uj-8V-ufj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

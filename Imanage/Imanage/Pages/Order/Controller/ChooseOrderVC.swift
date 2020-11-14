@@ -104,6 +104,7 @@ class ChooseOrderVC: UITableViewController {
             cell.priceLabel.text = price
             cell.productImageView.downloaded(from: completeImage)
             cell.produkId = produkDetail.id
+            
             cell.stepperProtocol = self
             
             return cell
@@ -144,7 +145,6 @@ class ChooseOrderVC: UITableViewController {
 
 extension ChooseOrderVC: buttonNextCellDelegate {
     func chooseOrder() {
-       
         performSegue(withIdentifier: "segueOrderBuyer", sender: (Any).self)
     }
     
@@ -155,7 +155,8 @@ extension ChooseOrderVC:orderItemCell {
         print("produkId = \(produkId), qty = \(qtyStepper)")
         //update array sele
         selectedProduct[produkId] = qtyStepper
+        
+        UserDefaults.standard.set(produkId, forKey: "produkIds")
+        UserDefaults.standard.set(qtyStepper, forKey: "qtyStepper")
     }
-    
-    
 }

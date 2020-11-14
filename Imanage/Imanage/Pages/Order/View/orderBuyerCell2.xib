@@ -79,6 +79,8 @@
                                 <state key="normal" title="Create Order"/>
                                 <connections>
                                     <action selector="createOrder:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="GPD-ia-WMh"/>
+                                    <action selector="goBack" destination="-2" eventType="touchUpInside" id="i4U-4E-Po6"/>
+                                    <action selector="unwindToOrder:" destination="-2" eventType="touchUpInside" id="WvP-xU-QBQ"/>
                                 </connections>
                             </button>
                         </subviews>
