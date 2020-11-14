@@ -132,8 +132,6 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             } else {
             return cell1
             }
-            
-            
         }
         
             
@@ -152,16 +150,6 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
            
             return cell
         }
-        
-        
-        
-        
-
-        
-        
-        
-     
-        
         
         return cell
     }    
