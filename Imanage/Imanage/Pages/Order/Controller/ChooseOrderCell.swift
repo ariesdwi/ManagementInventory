@@ -9,7 +9,7 @@
 import UIKit
 
 protocol orderItemCell:AnyObject {
-    func addItemQty(produkId : Int, qtyStepper:Int)
+    func addItemQty(produkId : Int, qtyStepper:Double)
 }
 
 class ChooseOrderCell: UITableViewCell {
@@ -21,18 +21,15 @@ class ChooseOrderCell: UITableViewCell {
     
     var stepperProtocol : orderItemCell?
     
-    var testValuestepper:Int = 0
+    var testValuestepper:Double = 0
     var produkId : Int = 0
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        testValuestepper = Int(Stepper.value)
-        
+        testValuestepper = Stepper.value
     }
     
-
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -41,8 +38,6 @@ class ChooseOrderCell: UITableViewCell {
     
     @IBAction func onClickStepper(_ sender: GMStepper) {
         print("onclickStepper \(Stepper.value)")
-        stepperProtocol?.addItemQty(produkId : produkId, qtyStepper: Int(Stepper.value) )
+        stepperProtocol?.addItemQty(produkId : produkId, qtyStepper: Stepper.value )
     }
-    
-    
 }

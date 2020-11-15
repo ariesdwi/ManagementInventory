@@ -51,4 +51,5 @@ struct addOrders: Encodable,Decodable {
      var productId: Int
      var productsId: Int
      var accountId: Int
+     var qty:Int
 }
