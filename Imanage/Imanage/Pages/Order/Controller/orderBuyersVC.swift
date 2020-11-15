@@ -120,7 +120,7 @@ class orderBuyersVC: UIViewController, UITableViewDelegate, UITableViewDataSourc
             let produkDetail = listofProduct[indexPath.row]
             let quantity = "\(produkDetail.qty)"
             let price = "\(produkDetail.price)"
-            let completeImage = produkDetail.images[0]
+            let completeImage = produkDetail.images?[0] ?? ""
             let idProduk = produkDetail.id
             
             if selectedProducts[idProduk] ?? 0 != 0 {

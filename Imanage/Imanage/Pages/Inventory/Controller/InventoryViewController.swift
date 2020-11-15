@@ -146,7 +146,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         cell.priceLabel.text = price
         cell.QuantityLabel.text = quantity
 
-             let completeImage = produkDetail.images[0]
+        let completeImage = produkDetail.images?[0] ?? ""
             cell.imageProduct.downloaded(from: completeImage)
 //        cell.imageProduct.backgroundColor = .blue
 
@@ -176,7 +176,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         vc.weightProduct = produkDetail.weight
         vc.condition = produkDetail.condition
         vc.id = produkDetail.id
-        vc.imgUrl = produkDetail.images[0]
+        vc.imgUrl = produkDetail.images?[0] as! String
         vc.weightType = produkDetail.weightType
         self.navigationController?.pushViewController(vc, animated: true)
            //Data untuk performSegue activity to ChallengeOverview
