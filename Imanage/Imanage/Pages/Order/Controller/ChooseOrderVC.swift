@@ -96,7 +96,7 @@ class ChooseOrderVC: UITableViewController {
            
             
             let price = "\(produkDetail.price)"
-            let completeImage = produkDetail.images[0]
+            let completeImage = produkDetail.images?[0] ?? ""
             let quantity = "\(produkDetail.qty)"
            
             

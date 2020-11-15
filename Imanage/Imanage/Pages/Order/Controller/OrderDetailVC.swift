@@ -119,7 +119,7 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             let produkDetail = listofProduct[indexPath.row]
             let quantity = "\(produkDetail.qty)"
             let price = "\(produkDetail.price)"
-            let completeImage = produkDetail.images[0]
+            let completeImage = produkDetail.images?[0]
             let idProduk = produkDetail.id
             
             if idProduk == productId {
