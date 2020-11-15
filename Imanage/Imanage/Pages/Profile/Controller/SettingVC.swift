@@ -26,8 +26,6 @@ class SettingVC: UIViewController, UITableViewDelegate, UITableViewDataSource {
             notifItems(name: "New Order", isOn: false)
         ]
     
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -10,7 +10,7 @@
         <!--Order-->
         <scene sceneID="Opi-Dx-Qkh">
             <objects>
-                <viewController storyboardIdentifier="OrderVC" id="YMP-oD-H8y" customClass="OrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OrderVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YMP-oD-H8y" customClass="OrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="4zz-m1-dxE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                             </tableView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="v9x-37-SwQ">
-                                <rect key="frame" x="-30" y="-29" width="444" height="104"/>
+                                <rect key="frame" x="-30" y="-14" width="444" height="62"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="tintColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -52,7 +52,7 @@
         <!--Choose Product-->
         <scene sceneID="vLK-TJ-bxb">
             <objects>
-                <tableViewController id="ibd-Pd-Svx" customClass="ChooseOrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ChooseOrderVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ibd-Pd-Svx" customClass="ChooseOrderVC" customModule="Imanage" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="5uj-8V-ufj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -62,7 +62,7 @@
                             <outlet property="delegate" destination="ibd-Pd-Svx" id="Rut-Zd-auW"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Choose Product" leftItemsSupplementBackButton="YES" id="Tkj-cM-wLr">
+                    <navigationItem key="navigationItem" title="Choose Product" leftItemsSupplementBackButton="YES" largeTitleDisplayMode="always" id="Tkj-cM-wLr">
                         <barButtonItem key="backBarButtonItem" title="back" id="vZK-O4-fjj"/>
                         <barButtonItem key="leftBarButtonItem" title="back" image="chevron.left" catalog="system" id="ClT-07-vva">
                             <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -75,7 +75,7 @@
                     <connections>
                         <outlet property="Navbar" destination="Tkj-cM-wLr" id="coa-Yf-kSv"/>
                         <outlet property="tableViewCP" destination="5uj-8V-ufj" id="0cm-QD-Hbo"/>
-                        <segue destination="PUF-mY-yOQ" kind="show" identifier="segueOrderBuyer" id="M3t-I3-JgB"/>
+                        <segue destination="PUF-mY-yOQ" kind="show" identifier="segueOrderBuyer" id="Idh-SC-oJ0"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cVl-Me-e3G" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -154,12 +154,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" largeTitles="YES" id="Lum-kW-aLt">
                         <rect key="frame" x="0.0" y="44" width="414" height="96"/>
                         <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="tintColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <color key="barTintColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <textAttributes key="titleTextAttributes">
-                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </textAttributes>
+                        <color key="backgroundColor" red="0.19027018549999999" green="0.27630910279999998" blue="0.36863937969999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <textAttributes key="largeTitleTextAttributes">
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </textAttributes>
@@ -213,7 +208,7 @@
             <point key="canvasLocation" x="1346" y="-149"/>
         </scene>
     </scenes>
-    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+    <color key="tintColor" red="0.20146435500000001" green="0.32326528430000001" blue="0.54904401300000005" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
     <resources>
         <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="chevron.left" catalog="system" width="96" height="128"/>

@@ -15,7 +15,7 @@ struct orderArray :Encodable,Decodable{
 }
 
 struct modelOrder :Encodable,Decodable {
-    var invoiceId: String
+    var invoiceId: String? = nil
     var orderDate: String
     var customerName: String
     var shippingTrackingNo: String
@@ -23,6 +23,7 @@ struct modelOrder :Encodable,Decodable {
     var customerEmail: String
     var customerAddress:String
     var channelNotes:String? = nil
+    var channelName:String? = nil
     var additionalNotes: String? = nil
     var shippingFee: Int
     var totalPrice: Int
@@ -50,4 +51,5 @@ struct addOrders: Encodable,Decodable {
      var productId: Int
      var productsId: Int
      var accountId: Int
+     var qty:Int
 }

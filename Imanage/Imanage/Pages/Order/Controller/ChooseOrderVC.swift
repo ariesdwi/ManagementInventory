@@ -14,7 +14,8 @@ class ChooseOrderVC: UITableViewController {
     @IBOutlet var tableViewCP: UITableView!
     let myData = ["First","Second","Third"]
     let price = ["12$","15$","16$","12$","15$","16$"]
-    
+    var valueStep = 0
+    var selectedProduct : [Int:Double] = [:]
    
     
     var listofProduct = [productDetail]() {
@@ -92,13 +93,20 @@ class ChooseOrderVC: UITableViewController {
             }
             
             let produkDetail = listofProduct[indexPath.row]
-            let quantity = "\(produkDetail.qty)"
+           
             
             let price = "\(produkDetail.price)"
+            let completeImage = produkDetail.images[0]
+            let quantity = "\(produkDetail.qty)"
+           
             
             cell.productNameLabel.text = produkDetail.name
             cell.priceLabel.text = price
-            cell.productImageView.image = UIImage(data:  UserDefaults.standard.object(forKey: "\(produkDetail.name)") as! Data)
+            cell.productImageView.downloaded(from: completeImage)
+            cell.produkId = produkDetail.id
+            
+            cell.stepperProtocol = self
+            
             return cell
         }
         
@@ -113,15 +121,42 @@ class ChooseOrderVC: UITableViewController {
             return cell
         }
         
-        
         return cell
     }
     
-
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("selected row at : \(indexPath.item)")
+    }
+    
+//   func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+//         
+//   }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "segueOrderBuyer") {
+            if let nextViewController = segue.destination as? orderBuyersVC {
+                nextViewController.selectedProducts = selectedProduct
+            }
+        }
+    }
+    
 }
+
 
 extension ChooseOrderVC: buttonNextCellDelegate {
     func chooseOrder() {
         performSegue(withIdentifier: "segueOrderBuyer", sender: (Any).self)
+    }
+    
+}
+
+extension ChooseOrderVC:orderItemCell {
+    func addItemQty(produkId:Int, qtyStepper: Double) {
+        print("produkId = \(produkId), qty = \(qtyStepper)")
+        //update array sele
+        selectedProduct[produkId] = qtyStepper
+        
+        UserDefaults.standard.set(produkId, forKey: "produkIds")
+        UserDefaults.standard.set(qtyStepper, forKey: "qtyStepper")
     }
 }

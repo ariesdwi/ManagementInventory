@@ -58,6 +58,7 @@ class InventoryTableVC: UITableViewController {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: cellIdentifier, for: indexPath) as? product else {
             fatalError("The dequeued cell is not an instance of MealTableViewCell.")
         }
+        
         cell.labelProduct.text = myData[indexPath.row]
         cell.priceLabel.text = price[indexPath.row]
         cell.QuantityLabel.text = quantity[indexPath.row]
