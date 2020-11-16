@@ -67,7 +67,7 @@
                                             </userDefinedRuntimeAttribute>
                                         </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="actionLoginTokped:" destination="Sly-aK-DkB" eventType="touchUpInside" id="edO-Az-CbQ"/>
+                                            <action selector="submitOtpBtn:" destination="Sly-aK-DkB" eventType="touchUpInside" id="5DR-cs-Ivb"/>
                                             <segue destination="24y-E3-d6U" kind="show" identifier="connectionResultSegue" id="pKE-uI-23f"/>
                                         </connections>
                                     </button>

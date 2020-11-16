@@ -23,9 +23,10 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var customerEmail = ""
     var customerAddress = ""
     var channelNotes = ""
+    var channelName = ""
     var additionalNotes = ""
     var shippingFee = 0
-    var statusShip = "Shipped"
+    var statusShip = "On Process"
     var totalPrice = 0
     var id = 0
     var productId = 0
@@ -101,7 +102,7 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             cell.emailLabel.text = customerEmail
             cell.customerAddressLabel.text = customerAddress
             cell.customerNotes.text = additionalNotes
-            cell.channalEcommerceLabel.text = channelNotes
+            cell.channalEcommerceLabel.text = channelName
             cell.totalPriceShipping.text = String(shippingFee)
             cell.statusShipped.text = statusShip
             return cell

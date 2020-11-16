@@ -50,7 +50,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
            case .failure(let error):
                print(error)
            case .success(let order):
-               self?.listofOrder = order
+            self?.listofOrder = order
            }
        }
         
@@ -137,9 +137,10 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         vc.customerEmail = orderDetail.customerEmail
         vc.customerAddress = orderDetail.customerAddress
         vc.channelNotes = orderDetail.channelNotes ?? ""
+        vc.channelName = orderDetail.channelName ?? ""
         vc.additionalNotes = orderDetail.additionalNotes ?? ""
         vc.shippingFee = orderDetail.shippingFee
-        vc.statusShip = "Shipped"
+        vc.statusShip = "On Process"
         vc.totalPrice = orderDetail.totalPrice
         vc.id = orderDetail.id
         vc.productId = orderDetail.productId

@@ -31,6 +31,8 @@ class LoginEcommerceVC: UIViewController {
     var loginType = ""
     var password  = ""
     var result = false
+    var userTokpedIDFromAPI : Int = 0
+    let userAccId = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,8 +46,7 @@ class LoginEcommerceVC: UIViewController {
     
     @IBAction func actionLoginTokped(_ sender: UIButton)
     {
-        var userTokpedIDFromAPI : Int!
-        let userAccId = UserDefaults.standard.integer(forKey: APIManager.shareInstance.accIdKey)
+       
         
         if sender == btnLogin {
                         
@@ -67,40 +68,48 @@ class LoginEcommerceVC: UIViewController {
                 
                 APIManager.shareInstance.loginTokped(modelTokpedLogin: loginUser) {
                     (status, msg, userTokpedID) in
-                        print("userAccID = \(userTokpedID)")
-                    userTokpedIDFromAPI = userTokpedID
+                    print("userAccID = \(userTokpedID)")
+                    self.userTokpedIDFromAPI = userTokpedID
+                    print("userTokpedIDFromAPI variabel: \(self.userTokpedIDFromAPI)")
+                    UserDefaults.standard.set(userTokpedID, forKey: "userTokpedID")
                 }
                 
             }
             
             
         }
-        else if sender == otpSubmitBtn {
-            if loginOTP.text == "" {
-                ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "Field cannot be empty")
-            }
-            if loginOTP.text!.count < 4 {
-                ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "OTP must be at least 4 digits")
-            }
-            else {
-                
-                let otpText : Int = Int(loginOTP.text!)!                
-                
-                let loginUserVerif = TokpedLoginVerif(tokpedAccID: userTokpedIDFromAPI, pin: otpText, type: "email", userId: userAccId)
-                APIManager.shareInstance.loginTokpedVerif(modelTokpedVerif: loginUserVerif) { (status, msg) in
-                    
-                    print("LoginCommerceVC status = \(status)")
-                    self.result = status
-                    self.performSegue(withIdentifier: "connectionResultSegue", sender: self)
-                }
-                
-            }
+        
+    }
+        
+    @IBAction func submitOtpBtn(_ sender: UIButton) {
+        if loginOTP.text == "" {
+            ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "Field cannot be empty")
+        }
+        if loginOTP.text!.count < 4 {
+            ShowAlert.showSimpleAlert(vc: self, alert_title: "Warning!", alert_message: "OTP must be at least 4 digits")
+        }
+        else {
             
+            let otpText : Int = Int(loginOTP.text!)!
+            print("getValue variabel = \(userTokpedIDFromAPI)")
+            print("getValueUserDefaults = \(UserDefaults.standard.integer(forKey: "userTokpedID"))")
+            
+            let finalTokpedId : Int
+            if userTokpedIDFromAPI == nil || userTokpedIDFromAPI == 0 {
+                finalTokpedId = UserDefaults.standard.integer(forKey: "userTokpedID")
+            }
+            else { finalTokpedId = userTokpedIDFromAPI }
+            
+            print("finalTokpedId : \(finalTokpedId)")
+            let loginUserVerif = TokpedLoginVerif(tokpedAccID: finalTokpedId, pin: otpText, type: "email", userId: userAccId)
+            APIManager.shareInstance.loginTokpedVerif(modelTokpedVerif: loginUserVerif) { (status, msg) in
+                print("LoginCommerceVC status = \(status)")
+                self.result = status
+                self.performSegue(withIdentifier: "connectionResultSegue", sender: self)
+            }
             
         }
     }
-        
-    
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "connectionResultSegue"
