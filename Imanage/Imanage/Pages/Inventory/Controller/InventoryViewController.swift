@@ -91,6 +91,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
             }
         DispatchQueue.main.async {
             self.tabelView.refreshControl?.endRefreshing()
+            self.tabelView.reloadData()
         }
     }
         
