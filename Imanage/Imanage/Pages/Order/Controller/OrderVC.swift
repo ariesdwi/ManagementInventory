@@ -68,7 +68,9 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
                  }
         DispatchQueue.main.async {
             self.tableView.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
         }
+        
        }
 
     func setupNavbar(){
@@ -126,6 +128,9 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            //Data untuk performSegue activity to ChallengeOverview
         let orderDetail = listofOrder[indexPath.row]
+        
+        print("\n\n\n\ntableview orderDetail = \n\(orderDetail)")
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: "orderDetailStory") as! OrderDetailVC
         
         vc.invoiceId = orderDetail.invoiceId ?? ""
@@ -146,6 +151,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         vc.productId = orderDetail.productId
         vc.productsId = orderDetail.productsId
         vc.accountId = orderDetail.accountId
+        vc.qty = orderDetail.qty ?? 0
        
            self.navigationController?.pushViewController(vc, animated: true)
     }

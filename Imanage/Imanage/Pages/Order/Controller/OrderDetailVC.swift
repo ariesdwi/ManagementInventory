@@ -118,14 +118,18 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             }
             
             let produkDetail = listofProduct[indexPath.row]
-            let quantity = "\(produkDetail.qty)"
+            print("OrderDetailVC line 121 : var qty = \n\(self.qty) | \(self.customerName) | \(self.productId) | \(produkDetail.price)")
+            let quantity = "\(self.qty)"
             let price = "\(produkDetail.price)"
             let completeImage = produkDetail.images?[0]
             let idProduk = produkDetail.id
+            let calculatedPrice = produkDetail.price * self.qty
+            let calculatedPriceStr = "Rp. \(calculatedPrice)"
             
             if idProduk == productId {
-                cell.produkLabel.text = produkDetail.name
-                cell.priceLabel.text = price
+                cell.productNameLabel.text = produkDetail.name
+                cell.priceLabel.text = calculatedPriceStr
+                cell.qtyLabel.text = quantity
                 return cell
             } else {
                 return cell1
