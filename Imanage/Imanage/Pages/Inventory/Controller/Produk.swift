@@ -19,6 +19,7 @@ struct Products:Encodable,Decodable {
 
 struct productDetail:Encodable,Decodable {
     var name:String
+    var sku: String? = ""
     var qty:Int
     let price:Int
     var id:Int

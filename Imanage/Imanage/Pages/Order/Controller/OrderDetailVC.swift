@@ -126,8 +126,15 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             let calculatedPrice = produkDetail.price * self.qty
             let calculatedPriceStr = "Rp. \(calculatedPrice)"
             
+            let produkSku = (produkDetail.sku ?? "") as String
+            var titleProduk = produkDetail.name
+            if produkSku != nil || produkSku != "" {
+                titleProduk = "\(produkSku) - \(produkDetail.name)"
+            }
+            
             if idProduk == productId {
-                cell.productNameLabel.text = produkDetail.name
+                
+                cell.productNameLabel.text = titleProduk
                 cell.priceLabel.text = calculatedPriceStr
                 cell.qtyLabel.text = quantity
                 return cell
