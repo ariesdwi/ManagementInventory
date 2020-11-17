@@ -90,7 +90,7 @@ class LoginEcommerceVC: UIViewController {
         }
         else {
             
-            let otpText : Int = Int(loginOTP.text!)!
+            let otpText = "\(loginOTP.text!)"
             print("getValue variabel = \(userTokpedIDFromAPI)")
             print("getValueUserDefaults = \(UserDefaults.standard.integer(forKey: "userTokpedID"))")
             
@@ -101,7 +101,7 @@ class LoginEcommerceVC: UIViewController {
             else { finalTokpedId = userTokpedIDFromAPI }
             
             print("finalTokpedId : \(finalTokpedId)")
-            let loginUserVerif = TokpedLoginVerif(tokpedAccID: finalTokpedId, pin: otpText, type: "email", userId: userAccId)
+            let loginUserVerif = TokpedLoginVerif(id: finalTokpedId, pin: otpText, type: "email")
             APIManager.shareInstance.loginTokpedVerif(modelTokpedVerif: loginUserVerif) { (status, msg) in
                 print("LoginCommerceVC status = \(status)")
                 self.result = status

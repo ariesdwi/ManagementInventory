@@ -43,6 +43,8 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedOutside()
+        
         let nib = UINib(nibName: "OrderBuyerInformationCell", bundle: nil )
         let nib2 = UINib(nibName: "OrderBuyerInformationCell2", bundle: nil )
         let nib3 = UINib(nibName: "EmptyCell", bundle: nil )
