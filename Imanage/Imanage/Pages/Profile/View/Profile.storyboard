@@ -167,39 +167,53 @@
                                 <viewLayoutGuide key="contentLayoutGuide" id="lPT-Td-ygm"/>
                                 <viewLayoutGuide key="frameLayoutGuide" id="jKP-w6-MiV"/>
                             </scrollView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wi0-qy-ZNK">
+                                <rect key="frame" x="40" y="729" width="334" height="44"/>
+                                <color key="backgroundColor" red="0.18823529411764706" green="0.27843137254901962" blue="0.36862745098039218" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="sXJ-SR-fCs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Logout">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="logoutAction:" destination="0HL-2u-rUp" eventType="touchUpInside" id="KE1-Lb-iZU"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Eof-OL-RoS"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Eof-OL-RoS" firstAttribute="trailing" secondItem="Wi0-qy-ZNK" secondAttribute="trailing" constant="40" id="Lcm-2p-YjV"/>
                             <constraint firstItem="Eof-OL-RoS" firstAttribute="trailing" secondItem="6KB-LW-Eqb" secondAttribute="trailing" id="aOd-Y3-lPf"/>
                             <constraint firstItem="Eof-OL-RoS" firstAttribute="bottom" secondItem="6KB-LW-Eqb" secondAttribute="bottom" constant="20" id="as9-63-muw"/>
                             <constraint firstAttribute="trailing" secondItem="6Iq-mG-oaH" secondAttribute="trailing" id="cBj-UM-aJe"/>
                             <constraint firstItem="6Iq-mG-oaH" firstAttribute="top" secondItem="2kb-TG-wje" secondAttribute="top" id="hWX-vl-PFc"/>
                             <constraint firstItem="6KB-LW-Eqb" firstAttribute="top" secondItem="6Iq-mG-oaH" secondAttribute="bottom" id="kFZ-H8-iKc"/>
                             <constraint firstItem="6KB-LW-Eqb" firstAttribute="leading" secondItem="Eof-OL-RoS" secondAttribute="leading" id="lNa-4f-Syi"/>
+                            <constraint firstItem="Wi0-qy-ZNK" firstAttribute="leading" secondItem="Eof-OL-RoS" secondAttribute="leading" constant="40" id="nWZ-na-cPG"/>
                             <constraint firstItem="6Iq-mG-oaH" firstAttribute="leading" secondItem="2kb-TG-wje" secondAttribute="leading" id="rAL-m2-4Tt"/>
+                            <constraint firstItem="Eof-OL-RoS" firstAttribute="bottom" secondItem="Wi0-qy-ZNK" secondAttribute="bottom" constant="40" id="vgW-VO-b0c"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Profile" id="hyI-xn-m1t">
-                        <rightBarButtonItems>
-                            <barButtonItem title="Logout" id="1py-I4-6Xn">
-                                <color key="tintColor" red="0.97254901960784312" green="0.76078431372549016" blue="0.22745098039215686" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                <connections>
-                                    <action selector="logoutAction:" destination="0HL-2u-rUp" id="02v-9O-2dN"/>
-                                </connections>
-                            </barButtonItem>
-                            <barButtonItem enabled="NO" title="Setting" image="gear" catalog="system" id="pks-R7-wsa">
-                                <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
-                                <connections>
-                                    <segue destination="WwS-fh-HAW" kind="show" id="6N2-rl-oGz"/>
-                                </connections>
-                            </barButtonItem>
-                        </rightBarButtonItems>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" title="Setting" image="gear" catalog="system" id="pks-R7-wsa">
+                            <color key="tintColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <segue destination="WwS-fh-HAW" kind="show" id="6N2-rl-oGz"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <size key="freeformSize" width="414" height="896"/>
                     <connections>
                         <outlet property="blConnectBtn" destination="G5E-me-y4X" id="Wl3-s0-vrU"/>
-                        <outlet property="logoutBtn" destination="1py-I4-6Xn" id="Ddr-US-LgK"/>
+                        <outlet property="logoutBtn" destination="Wi0-qy-ZNK" id="H9O-b0-EX3"/>
                         <outlet property="scrollView" destination="6KB-LW-Eqb" id="kpR-Bw-QjB"/>
                         <outlet property="storeEmailLabel" destination="LOp-NB-GfO" id="5MQ-gm-MqM"/>
                         <outlet property="storeImageView" destination="HNe-SX-5nL" id="ewb-xs-k5W"/>

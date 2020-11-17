@@ -91,6 +91,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
             }
         DispatchQueue.main.async {
             self.tabelView.refreshControl?.endRefreshing()
+            self.tabelView.reloadData()
         }
     }
         
@@ -176,7 +177,7 @@ class InventoryViewController: UIViewController, UITableViewDataSource,UITableVi
         vc.weightProduct = produkDetail.weight
         vc.condition = produkDetail.condition
         vc.id = produkDetail.id
-        vc.imgUrl = produkDetail.images?[0] as! String
+        vc.imgUrl = produkDetail.images?[0] as? String ?? ""
         vc.weightType = produkDetail.weightType
         self.navigationController?.pushViewController(vc, animated: true)
            //Data untuk performSegue activity to ChallengeOverview

@@ -300,7 +300,6 @@ class APIManager{
                 
                 let orders = try JSONDecoder().decode(orderArray.self, from: data)
                 let orderssDetail = orders.order
-    
                 completion(.success(orderssDetail!))
               
                 

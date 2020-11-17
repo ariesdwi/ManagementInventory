@@ -50,7 +50,7 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
            case .failure(let error):
                print(error)
            case .success(let order):
-               self?.listofOrder = order
+            self?.listofOrder = order
            }
        }
         
@@ -68,7 +68,9 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
                  }
         DispatchQueue.main.async {
             self.tableView.refreshControl?.endRefreshing()
+            self.tableView.reloadData()
         }
+        
        }
 
     func setupNavbar(){
@@ -126,6 +128,9 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
            //Data untuk performSegue activity to ChallengeOverview
         let orderDetail = listofOrder[indexPath.row]
+        
+        print("\n\n\n\ntableview orderDetail = \n\(orderDetail)")
+        
         let vc = storyboard?.instantiateViewController(withIdentifier: "orderDetailStory") as! OrderDetailVC
         
         vc.invoiceId = orderDetail.invoiceId ?? ""
@@ -137,14 +142,16 @@ class OrderVC: UIViewController, UISearchBarDelegate , UITableViewDataSource, UI
         vc.customerEmail = orderDetail.customerEmail
         vc.customerAddress = orderDetail.customerAddress
         vc.channelNotes = orderDetail.channelNotes ?? ""
+        vc.channelName = orderDetail.channelName ?? ""
         vc.additionalNotes = orderDetail.additionalNotes ?? ""
         vc.shippingFee = orderDetail.shippingFee
-        vc.statusShip = "Shipped"
+        vc.statusShip = "On Process"
         vc.totalPrice = orderDetail.totalPrice
         vc.id = orderDetail.id
         vc.productId = orderDetail.productId
         vc.productsId = orderDetail.productsId
         vc.accountId = orderDetail.accountId
+        vc.qty = orderDetail.qty ?? 0
        
            self.navigationController?.pushViewController(vc, animated: true)
     }

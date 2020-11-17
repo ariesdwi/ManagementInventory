@@ -11,13 +11,14 @@ import UIKit
 class OrderBuyerInformationCell2: UITableViewCell {
 
     @IBOutlet var qtyLabel: UILabel!
-    @IBOutlet var invoiceLabel: UILabel!
-    @IBOutlet var produkLabel: UILabel!
+    @IBOutlet var productNameLabel: UILabel!
     @IBOutlet var priceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        qtyLabel.layer.borderColor = UIColor.lightGray.cgColor
+        qtyLabel.layer.borderWidth = 1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
