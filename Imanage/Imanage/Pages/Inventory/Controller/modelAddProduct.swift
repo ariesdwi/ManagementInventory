@@ -22,6 +22,7 @@ struct modelProduct :Encodable {
     var variant:String
     var condition:Bool
     var accountId:Int
+    var images:[String]? = [""]
 }
 
 struct imageProduct{
