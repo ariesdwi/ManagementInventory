@@ -17,9 +17,7 @@ struct modelProduct :Encodable {
     var sku:String
     var qty:Int
     var weight:Int
-
     var weightType : String
-
     var price:Int
     var description:String
     var variant:String
