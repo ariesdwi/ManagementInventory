@@ -125,11 +125,12 @@ class addProductViewController: UIViewController ,UIImagePickerControllerDelegat
         
         let images = ["https://digitalfinger.id/wp-content/uploads/2019/12/no-image-available-icon-6-600x375.png"]
         let condition = newProduct
-        let addProduct = modelProduct(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, condition: condition, accountId: accountID,images: images)
-        
+        let addProduct = modelProduct(name: name, sku: sku, qty: Int(stock)!, weight: Int(weight)!, weightType: "gram", price: Int(price)!, description: description, variant: color, condition: condition, accountId: accountID, images: images)
         
         
         APIManager.shareInstance.addProductAPI(addProduct: addProduct)
+        
+        //print("addProductVC Data : \n\(addProduct)")
 //        refreshtable.refreshT(name: name, sku: sku, qty: Int(stock)!, weigh: Int(weight)!, price: Int(price)!, description: description, variant: color, accountId: accountID)
        
        
