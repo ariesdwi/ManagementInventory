@@ -16,7 +16,8 @@ struct modelProduct :Encodable {
     var name:String
     var sku:String
     var qty:Int
-    var weigh:Int
+    var weight:Int
+    var weightType : String
     var price:Int
     var description:String
     var variant:String
