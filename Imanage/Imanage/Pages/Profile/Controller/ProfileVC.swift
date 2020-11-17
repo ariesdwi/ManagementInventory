@@ -18,7 +18,8 @@ class ProfileVC: UIViewController {
     @IBOutlet weak var storePhoneLabel: UILabel!
     @IBOutlet weak var tokpedConnectBtn: UIButton!
     @IBOutlet weak var blConnectBtn: UIButton!
-    @IBOutlet weak var logoutBtn: UIBarButtonItem!
+    @IBOutlet weak var logoutBtn: UIButton!
+    
     
     let blueColor = #colorLiteral(red: 0.1882352941, green: 0.2784313725, blue: 0.368627451, alpha: 1)
     let comingSoonColor = #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1)
@@ -51,7 +52,7 @@ class ProfileVC: UIViewController {
                 let pin = data["pin"] as? String
                 print("ProfileVC, data : \(data)")
                 
-                if pin == nil || pin == "" || pin == "0000" {
+                if pin == nil || pin == "" || pin == "0000" || pin == "pin salah" {
                     print("ProfileVC Pin null")
                     self.setupButton(selectedButton: self.tokpedConnectBtn, state: "notConnected")
                 }
@@ -119,9 +120,7 @@ class ProfileVC: UIViewController {
     func configureRefreshControl () {
        // Add the refresh control to your UIScrollView object.
        scrollView.refreshControl = UIRefreshControl()
-       scrollView.refreshControl?.addTarget(self, action:
-                                          #selector(handleRefreshControl),
-                                          for: .valueChanged)
+       scrollView.refreshControl?.addTarget(self, action: #selector(handleRefreshControl), for: .valueChanged)
     }
         
     @objc func handleRefreshControl() {

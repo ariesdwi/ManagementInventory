@@ -20,8 +20,7 @@ struct TokpedLoginEmail: Encodable {
 }
 
 struct TokpedLoginVerif: Encodable {
-    let tokpedAccID : Int
-    let pin : Int
+    let id : Int //id dari login tokped
+    let pin : String
     let type : String
-    let userId : Int //user id dari login app
 }

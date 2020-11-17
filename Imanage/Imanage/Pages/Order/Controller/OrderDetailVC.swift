@@ -23,9 +23,10 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     var customerEmail = ""
     var customerAddress = ""
     var channelNotes = ""
+    var channelName = ""
     var additionalNotes = ""
     var shippingFee = 0
-    var statusShip = "Shipped"
+    var statusShip = "On Process"
     var totalPrice = 0
     var id = 0
     var productId = 0
@@ -42,6 +43,8 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.hideKeyboardWhenTappedOutside()
+        
         let nib = UINib(nibName: "OrderBuyerInformationCell", bundle: nil )
         let nib2 = UINib(nibName: "OrderBuyerInformationCell2", bundle: nil )
         let nib3 = UINib(nibName: "EmptyCell", bundle: nil )
@@ -101,7 +104,7 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             cell.emailLabel.text = customerEmail
             cell.customerAddressLabel.text = customerAddress
             cell.customerNotes.text = additionalNotes
-            cell.channalEcommerceLabel.text = channelNotes
+            cell.channalEcommerceLabel.text = channelName
             cell.totalPriceShipping.text = String(shippingFee)
             cell.statusShipped.text = statusShip
             return cell
@@ -117,14 +120,25 @@ class OrderDetailVC: UIViewController, UITableViewDataSource, UITableViewDelegat
             }
             
             let produkDetail = listofProduct[indexPath.row]
-            let quantity = "\(produkDetail.qty)"
+            print("OrderDetailVC line 121 : var qty = \n\(self.qty) | \(self.customerName) | \(self.productId) | \(produkDetail.price)")
+            let quantity = "\(self.qty)"
             let price = "\(produkDetail.price)"
             let completeImage = produkDetail.images?[0]
             let idProduk = produkDetail.id
+            let calculatedPrice = produkDetail.price * self.qty
+            let calculatedPriceStr = "Rp. \(calculatedPrice)"
+            
+            let produkSku = (produkDetail.sku ?? "") as String
+            var titleProduk = produkDetail.name
+            if produkSku != nil || produkSku != "" {
+                titleProduk = "\(produkSku) - \(produkDetail.name)"
+            }
             
             if idProduk == productId {
-                cell.produkLabel.text = produkDetail.name
-                cell.priceLabel.text = price
+                
+                cell.productNameLabel.text = titleProduk
+                cell.priceLabel.text = calculatedPriceStr
+                cell.qtyLabel.text = quantity
                 return cell
             } else {
                 return cell1

@@ -29,9 +29,11 @@ struct modelOrder :Encodable,Decodable {
     var totalPrice: Int
     var id: Int
     var productId: Int
+    var qty: Int? = nil
     var productsId: Int
     var accountId: Int
     var accountTokpedId:Int? = nil
+    
     
 }
 
